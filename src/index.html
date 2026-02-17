@@ -7,12 +7,20 @@
 
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./assets/font/bootstrap-icons.css">
+    <script src="./js/index.js" type="text/javascript" defer></script>
 </head>
 <body>
     <header>
         <h1>Rollie</h1>
 
-        <nav class="f-row-start-center">
+        <button id="menu-collapse-btn">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <nav class="hidden">
+            <button id="menu-close-btn">
+                <i class="bi bi-x-lg"></i>
+            </button>
             <a href="#demo-container">Demos</a>
             <a href="#">Contact</a>
         </nav>

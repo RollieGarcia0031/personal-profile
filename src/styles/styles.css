@@ -77,6 +77,7 @@ div#hero-btn-container {
   main {
     display: flex;
     flex-direction: column-reverse;
+    padding-bottom: 2rem;
   }
 
   #hero-title{
@@ -98,8 +99,7 @@ div#hero-btn-container {
   }
 
   #hero-img-container{
-    max-width: 90dvh;
-    border: none;
+    max-width: 80dvw;
   }
 }
 
