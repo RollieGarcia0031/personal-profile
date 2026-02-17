@@ -97,6 +97,17 @@ header h1 {
   margin: 0;
 }
 
+header a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+header a i {
+  color: var(--text);
+}
+
 header {
   position: fixed;
   top: 1rem;;
@@ -124,6 +135,7 @@ header {
 header a:hover {
   background-color: var(--highlight);
 }
+
 header a {
   padding: 0.5rem 0.75rem;
   border-radius: 10px;
