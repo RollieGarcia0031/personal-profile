@@ -43,7 +43,16 @@ export class AudioPlayer extends HTMLElement {
         const track_src = this.getAttribute('track-src');
 
         this.innerHTML = HTML_TEMPLATE(track_id, track_title, track_src);
-        this.querySelector('button').addEventListener('click', this.play.bind(this));
+
+        const playButton = this.querySelector('.play-btn');
+        playButton.addEventListener('click', this.play.bind(this));
+
+        // redispatch event to parent
+        // it is to determine which track is currently playing
+        const audio = this.querySelector('audio');
+        audio.onplay = ()=>{
+            this.dispatchEvent(new CustomEvent('play', {detail: track_id}));
+        };
     }
 
     /** Play the track */
