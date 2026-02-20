@@ -18,7 +18,7 @@ const audioPlayers = document.querySelectorAll('audio-player');
 bus.subscribe('music:play', (trackId)=>{
     audioPlayers.forEach((player)=>{
         if (player.getAttribute('track-id') !== trackId) {
-            player.stop();
+            player.pause();
         }
     });
 });
