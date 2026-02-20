@@ -1,7 +1,19 @@
+
+/**
+ * 
+ * @param {string} track_id 
+ * @param {string} track_title 
+ * @param {string} track_src 
+ * @param {string[]} track_instruments 
+ * @param {string} track_description
+ * @returns 
+ */
 const HTML_TEMPLATE =(
     track_id,
     track_title,
-    track_src
+    track_src,
+    track_instruments,
+    track_description
 ) =>`
     <style>
       .main-body {
@@ -22,14 +34,24 @@ const HTML_TEMPLATE =(
     </audio>
 
     <div class="main-body card">
-      <p>
-        ${track_title}
-      </p>
-
-      <div>
+      <div class="card f-row-start-center">
         <button class="restart-btn">
             🔄
         </button>
+  
+        <p>
+          ${track_title}
+        </p>
+
+        ${track_description && `
+            <p class="card">
+              ${track_description || ""}
+            </p>
+        `}
+        
+      </div>
+
+      <div>
 
         <button class="stop-btn">
             ⏹️
@@ -48,6 +70,16 @@ const HTML_TEMPLATE =(
         </button>
       </div>
 
+      <div class="f-row-center">
+        <p>
+          Instruments
+        </p>
+
+        ${track_instruments.map(insrument => `
+          <div class="card">${insrument}</div>  
+        `).join('')}
+      </div>
+
     </div>
 `;
 
@@ -62,7 +94,7 @@ export class AudioPlayer extends HTMLElement {
         const track_title = this.getAttribute('track-title');
         const track_src = this.getAttribute('track-src');
 
-        this.innerHTML = HTML_TEMPLATE(track_id, track_title, track_src);
+        this.innerHTML = HTML_TEMPLATE(track_id, track_title, track_src, this.instruments, this.description);
 
         this._audio = this.querySelector('audio');
 
@@ -89,6 +121,20 @@ export class AudioPlayer extends HTMLElement {
         backButton.addEventListener('click', this.back.bind(this));
     }
 
+    get instruments(){
+        try {
+            const str = this.getAttribute('track-instruments');
+            return JSON.parse(str || '[]');
+        } catch(error){
+            console.error('cannot parse instruments attribute', error);
+            return;
+        }
+    }
+
+    get description(){
+        return this.getAttribute('track-description') || "";
+    }
+    
     /** Play the track */
     play(){
         const player = this.querySelector('audio');
@@ -112,6 +158,7 @@ export class AudioPlayer extends HTMLElement {
     stop(){
         this._audio.pause();
         this._audio.currentTime = 0;
+        console.log(this.instruments);
     }
 
     restart(){
@@ -128,6 +175,14 @@ export class AudioPlayer extends HTMLElement {
     }
 
     static get observedAttributes(){
-        return ['track-id', 'track-title', 'track-src'];
+        return [
+            'track-description',
+            'track-genre',
+            'track-id',
+            'track-mood',
+            'track-src',
+            'track-title',
+            'track-instruments', // track-instruments='["guitar", "piano", "drums"]'
+        ];
     }
 }
