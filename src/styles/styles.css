@@ -210,7 +210,7 @@ div#hero-btn-container {
   padding: 0;
 }
 
-#demo-container > div {
+#demo-container > audio-player {
   aspect-ratio: 1;
 }
 
