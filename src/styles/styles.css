@@ -219,6 +219,15 @@ div#hero-btn-container {
     padding: 3rem 1rem;
     margin: 0;
   }
+
+  #demo-container > audio-player {
+    aspect-ratio: auto;
+  }
+
+  #demo-container {
+    display: flex;
+    flex-direction: column;
+  }
   
 }
 /*====================================================*/

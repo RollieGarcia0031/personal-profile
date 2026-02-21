@@ -1,138 +1,4 @@
-
-/**
- * 
- * @param {string} track_id 
- * @param {string} track_title 
- * @param {string} track_src 
- * @param {string[]} track_instruments 
- * @param {string} track_description
- * @param {string} track_genre
- * @returns 
- */
-const HTML_TEMPLATE =(
-    track_id,
-    track_title,
-    track_src,
-    track_instruments,
-    track_description,
-    track_genre
-) =>`
-    <style>
-      .main-body {
-        color: var(--text);
-        border: 1px solid var(--border);
-        background-color: var(--bg);
-        padding: 0.5rem;
-        height: 100%;
-        display: grid;
-        grid-template-rows: 1fr auto 1fr auto;
-        justify-items: stretch;
-        align-items: center;
-        gap: 1.5rem;
-      }
-
-      .title-holder {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .title {
-        font-size: 2rem;
-        font-weight: bold;
-      }
-
-      .control-container{
-        border: 1px solid var(--border);
-        padding: 5px;
-      }
-
-      .instruments-container{
-        border-top: 1px solid var(--border);
-        padding: 0.25rem 1rem;
-      }
-
-      .instrument-list-container{
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-      }
-
-      .instrument-list-container > * {
-        border: 1px solid var(--border-muted);
-        padding: 0.25rem 0.75rem;
-        border-radius: 4rem;
-        background-color: var(--bg-light);
-      }
-
-      .instrument-title{
-        font-weight: bold;
-        margin: 0.5rem 0;
-      }
-
-    </style>
-
-    <audio>
-      <source src="${track_src}" type="audio/mpeg">
-    </audio>
-
-    <div class="main-body">
-      <div class="title-holder">
-        <button class="restart-btn">
-          <i class="bi bi-arrow-clockwise"></i>
-        </button>
-  
-        <p class="title">
-          ${track_title}
-        </p>
-
-      </div>
-
-      ${track_description && `
-        <p class="description">
-          ${track_description || ""}
-        </p>
-      `}
-
-      <p>
-        Genre: ${track_genre}
-      </p>
-        
-      <div class="control-container">
-
-        <button class="stop-btn">
-          <i class="bi bi-stop-fill"></i>
-        </button>
-
-        <button class="back-btn">
-          <i class="bi bi-skip-backward-fill"></i>
-        </button>
-
-        <button class="play-btn">
-          <i class="bi bi-play-fill"></i>
-        </button>
-
-        <button class="forward-btn">
-          <i class="bi bi-skip-forward-fill"></i>
-        </button>
-      </div>
-
-      <div class="instruments-container">
-        <p class="instrument-title" >
-          Instruments
-        </p>
-
-        <div class="instrument-list-container">
-          ${track_instruments.map(insrument => `
-            <div>${insrument}</div>  
-          `).join('')}
-        </div>
-      </div>
-
-    </div>
-`;
+import { HTML_TEMPLATE } from './audio-player-template.js';
 
 export class AudioPlayer extends HTMLElement {
     constructor(){
@@ -150,7 +16,13 @@ export class AudioPlayer extends HTMLElement {
         this._audio = this.querySelector('audio');
 
         const playButton = this.querySelector('.play-btn');
+        this._playIcon = playButton.querySelector('i'); // Get reference to the icon
         playButton.addEventListener('click', this.play.bind(this));
+
+        // Update play/pause icon when audio state changes
+        this._audio.addEventListener('play', this._updatePlayButtonIcon.bind(this));
+        this._audio.addEventListener('pause', this._updatePlayButtonIcon.bind(this));
+        this._audio.addEventListener('ended', this._updatePlayButtonIcon.bind(this));
 
         // redispatch event to parent
         // it is to determine which track is currently playing
@@ -170,6 +42,55 @@ export class AudioPlayer extends HTMLElement {
 
         const backButton = this.querySelector('.back-btn');
         backButton.addEventListener('click', this.back.bind(this));
+
+        this._progressBar = this.querySelector('.progress-bar');
+        this._currentTimeSpan = this.querySelector('.current-time');
+        this._durationSpan = this.querySelector('.duration');
+
+        // Event listener for when audio metadata is loaded
+        // it sets the max value of the progress bar
+        // and the duration
+        this._audio.addEventListener('loadedmetadata', () => {
+            this._progressBar.max = this._audio.duration;
+            this._durationSpan.textContent = this.formatTime(this._audio.duration);
+        });
+
+        // Event listener for time updates
+        // it updates the progress bar and current time
+        // when the audio is playing
+        this._audio.addEventListener('timeupdate', () => {
+            this._progressBar.value = this._audio.currentTime;
+            this._currentTimeSpan.textContent = this.formatTime(this._audio.currentTime);
+        });
+
+        // Event listener for seeking
+        // it adjusts the current time based on the value of the progress bar
+        // so that when user drags the progress bar, the audio will be seeked
+        this._progressBar.addEventListener('input', () => {
+            this._audio.currentTime = this._progressBar.value;
+        });
+
+        this._volumeSlider = this.querySelector('.volumne-control-container input[type="range"]');
+
+        // Set initial volume slider value
+        // if this._audio.volume is not set, set the volume to 0.5
+        this._volumeSlider.value = (this._audio.volume || 0.5) * 100;
+
+        // Event listener for volume changes
+        this._volumeSlider.addEventListener('input', () => {
+            this._audio.volume = this._volumeSlider.value / 100;
+        });
+    }
+
+    /** 
+     * Format seconds to mm:ss
+     * @param {number} seconds
+     * @returns {string} format: mm:ss
+     */
+    formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
     }
 
     get instruments(){
@@ -189,18 +110,32 @@ export class AudioPlayer extends HTMLElement {
     get genre(){
         return this.getAttribute('track-genre') || "";
     }
+
+    /** 
+     * Updates the play button icon based on the audio's paused state.
+     * @private
+     */
+    _updatePlayButtonIcon() {
+        if (this._audio.paused) {
+            this._playIcon.classList.remove('bi-pause-fill');
+            this._playIcon.classList.add('bi-play-fill');
+        } else {
+            this._playIcon.classList.remove('bi-play-fill');
+            this._playIcon.classList.add('bi-pause-fill');
+        }
+    }
+
     /** Play the track */
     play(){
-        const player = this.querySelector('audio');
+        const player = this._audio;
 
         // play only if it is paused
         if (player.paused){
             player.play();
-            return;
-        }
-
+        } else {
         // pause the video if it is already playing
-        player.pause();
+            player.pause();
+        }
     }
 
     /** Pause the track */
