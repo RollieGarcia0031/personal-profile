@@ -9,97 +9,147 @@
  * @returns 
  */
 export const HTML_TEMPLATE =(
-    track_id,
-    track_title,
-    track_src,
-    track_instruments,
-    track_description,
-    track_genre
+  track_id,
+  track_title,
+  track_src,
+  track_instruments,
+  track_description,
+  track_genre
 ) =>`
-    <style>
-      .main-body {
-        color: var(--text);
-        border: 1px solid var(--border);
-        background-color: var(--bg);
-        padding: 0.5rem;
-        height: 100%;
-        display: grid;
-        grid-template-rows: 1fr auto 1fr auto;
-        justify-items: stretch;
-        align-items: center;
-        gap: 1.5rem;
-      }
+  <style>
+    .main-body {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      justify-items: stretch;
+      align-items: stretch;
+      gap: 0.5rem;
+    }
 
-      .title-holder {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-      }
+    .main-body button {
+      background: unset;
+      border:unset;
+      color: var(--text);
+      font-size: 1.5rem;
+    }
 
-      .title {
-        font-size: 2rem;
-        font-weight: bold;
-      }
+    .title-holder {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      justify-content: start;
+      border-bottom: 1px solid var(--border);
+    }
 
-      .control-container{
-        border: 1px solid var(--border);
-        padding: 5px;
-      }
+    .description {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
 
-      .instruments-container{
-        border-top: 1px solid var(--border);
-        padding: 0.25rem 1rem;
-      }
+    .genre {
+      color: var(--text-muted);
+      font-weight: bold;
+    }
+    .genre > span {
+      font-weight: normal;
+    }
 
-      .instrument-list-container{
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-      }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
 
-      .instrument-list-container > * {
-        border: 1px solid var(--border-muted);
-        padding: 0.25rem 0.75rem;
-        border-radius: 4rem;
-        background-color: var(--bg-light);
-      }
+    .instruments-container{
+      border-top: 1px solid var(--border);
+      padding: 0;
+      padding: 1rem;
+    }
 
-      .instrument-title{
-        font-weight: bold;
-        margin: 0.5rem 0;
-      }
+    .instrument-list-container{
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      padding: 0 0.5rem;
+    }
 
-    </style>
+    .instrument-list-container > * {
+      border: 1px solid var(--border-muted);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4rem;
+      background-color: var(--bg-light);
+    }
 
-    <audio>
-      <source src="${track_src}" type="audio/mpeg">
-    </audio>
+    .instrument-title{
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
 
-    <div class="main-body">
-      <div class="title-holder">
+    .control-container {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .control-btn-container {
+      display: grid;
+      grid-template-columns: repeat(5, auto) 1fr;
+      gap: 0.5rem;
+    }
+
+    .volumne-control-container {
+      margin-left: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items:center;
+      gap: 0.25rem;
+    }
+  </style>  
+
+  <audio>
+    <source src="${track_src}" type="audio/mpeg">
+  </audio>
+
+  <div class="main-body">
+    <div class="title-holder">  
+      <p class="title">
+        ${track_title}
+      </p>
+
+    </div>
+
+    ${track_description && `
+      <div class="description">
+        <i class="bi bi-chat-quote"></i>
+        <i>
+          ${track_description || ""}
+        </i>
+      </div>
+    `}
+
+    <p class="genre">
+      <i class="bi bi-music-note"></i>
+      Genre: <span>${track_genre}</span>
+    </p>
+      
+    <div class="control-container">
+
+      <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="control-btn-container">
         <button class="restart-btn">
           <i class="bi bi-arrow-clockwise"></i>
         </button>
-  
-        <p class="title">
-          ${track_title}
-        </p>
-
-      </div>
-
-      ${track_description && `
-        <p class="description">
-          ${track_description || ""}
-        </p>
-      `}
-
-      <p>
-        Genre: ${track_genre}
-      </p>
-        
-      <div class="control-container">
 
         <button class="stop-btn">
           <i class="bi bi-stop-fill"></i>
@@ -116,19 +166,25 @@ export const HTML_TEMPLATE =(
         <button class="forward-btn">
           <i class="bi bi-skip-forward-fill"></i>
         </button>
-      </div>
 
-      <div class="instruments-container">
-        <p class="instrument-title" >
-          Instruments
-        </p>
-
-        <div class="instrument-list-container">
-          ${track_instruments.map(insrument => `
-            <div>${insrument}</div>  
-          `).join('')}
+        <div class="volumne-control-container">
+          <i class="bi bi-volume-up-fill"></i>
+          <input type="range" min="0" max="100" value="50">
         </div>
       </div>
-
     </div>
+
+    <div class="instruments-container">
+      <p class="instrument-title" >
+        Instruments
+      </p>
+
+      <div class="instrument-list-container">
+        ${track_instruments.map(insrument => `
+          <div>${insrument}</div>  
+        `).join('')}
+      </div>
+    </div>
+
+  </div>
 `;
