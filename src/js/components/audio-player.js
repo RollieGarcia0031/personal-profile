@@ -11,11 +11,14 @@ export class AudioPlayer extends HTMLElement {
         const track_title = this.getAttribute('track-title');
         const track_src = this.getAttribute('track-src');
 
+        // set the html elements
         this.innerHTML = HTML_TEMPLATE(track_id, track_title, track_src, this.instruments, this.description, this.genre);
 
         this._audio = this.querySelector('audio');
 
         const playButton = this.querySelector('.play-btn');
+        // obtain the play icon for updating
+        // it should change to pause icon while playing
         this._playIcon = playButton.querySelector('i'); // Get reference to the icon
         playButton.addEventListener('click', this.play.bind(this));
 
@@ -25,12 +28,13 @@ export class AudioPlayer extends HTMLElement {
         this._audio.addEventListener('ended', this._updatePlayButtonIcon.bind(this));
 
         // redispatch event to parent
-        // it is to determine which track is currently playing
+        // to determine which track is currently playing
         const audio = this.querySelector('audio');
         audio.onplay = ()=>{
             this.dispatchEvent(new CustomEvent('play', {detail: track_id}));
         };
 
+        // bind the callback functions to other buttons
         const restartButton = this.querySelector('.restart-btn');
         restartButton.addEventListener('click', this.restart.bind(this));
 
@@ -117,9 +121,11 @@ export class AudioPlayer extends HTMLElement {
      */
     _updatePlayButtonIcon() {
         if (this._audio.paused) {
+            // put play icon if paused
             this._playIcon.classList.remove('bi-pause-fill');
             this._playIcon.classList.add('bi-play-fill');
         } else {
+            // put pause icon if playing
             this._playIcon.classList.remove('bi-play-fill');
             this._playIcon.classList.add('bi-pause-fill');
         }
