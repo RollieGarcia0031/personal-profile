@@ -112,6 +112,47 @@ export const HTML_TEMPLATE =(
       align-items:center;
       gap: 0.25rem;
     }
+
+    .progress-bar-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .progress-bar-container .progress-bar {
+      flex-grow: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      background: var(--border-muted);
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .progress-bar-container .progress-bar::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: grab;
+    }
+
+    .progress-bar-container .progress-bar::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: grab;
+    }
+
+    .progress-bar-container span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
   </style>  
 
   <audio>
@@ -143,7 +184,9 @@ export const HTML_TEMPLATE =(
     <div class="control-container">
 
       <div class="progress-bar-container">
-        <div class="progress-bar"></div>
+        <span class="current-time">0:00</span>
+        <input type="range" class="progress-bar" value="0" step="0.1">
+        <span class="duration">0:00</span>
       </div>
 
       <div class="control-btn-container">

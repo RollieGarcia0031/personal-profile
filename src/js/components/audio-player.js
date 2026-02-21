@@ -36,6 +36,44 @@ export class AudioPlayer extends HTMLElement {
 
         const backButton = this.querySelector('.back-btn');
         backButton.addEventListener('click', this.back.bind(this));
+
+        this._progressBar = this.querySelector('.progress-bar');
+        this._currentTimeSpan = this.querySelector('.current-time');
+        this._durationSpan = this.querySelector('.duration');
+
+        // Event listener for when audio metadata is loaded
+        // it sets the max value of the progress bar
+        // and the duration
+        this._audio.addEventListener('loadedmetadata', () => {
+            this._progressBar.max = this._audio.duration;
+            this._durationSpan.textContent = this.formatTime(this._audio.duration);
+        });
+
+        // Event listener for time updates
+        // it updates the progress bar and current time
+        // when the audio is playing
+        this._audio.addEventListener('timeupdate', () => {
+            this._progressBar.value = this._audio.currentTime;
+            this._currentTimeSpan.textContent = this.formatTime(this._audio.currentTime);
+        });
+
+        // Event listener for seeking
+        // it adjusts the current time based on the value of the progress bar
+        // so that when user drags the progress bar, the audio will be seeked
+        this._progressBar.addEventListener('input', () => {
+            this._audio.currentTime = this._progressBar.value;
+        });
+    }
+
+    /** 
+     * Format seconds to mm:ss
+     * @param {number} seconds
+     * @returns {string} format: mm:ss
+     */
+    formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
     }
 
     get instruments(){
