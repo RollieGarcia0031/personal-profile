@@ -182,6 +182,24 @@ export const HTML_TEMPLATE =(
       background: var(--primary);
       cursor: grab;
     }
+
+    @media screen and (max-width: 768px) {
+      .main-body {
+        padding: 0.75rem;
+      }
+
+      .main-body button{
+        font-size: 1rem;
+      }
+      
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .instruments-container{
+        padding: 0.5rem;
+      }
+    }
   </style>  
 
   <audio>
