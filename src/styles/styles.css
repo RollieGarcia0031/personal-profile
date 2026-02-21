@@ -277,8 +277,14 @@ footer ul {
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
   line-height: calc(3rem + 1vw);
-  color: var(--primary);
+  color: var(--text);
 }
+
+#footer-hero .title span {
+  color: var(--primary);
+  font-weight: 600;
+}
+
 #footer-hero .footer-description {
   font-size: 1.25rem;
 }
@@ -298,7 +304,7 @@ footer .list-holder {
 
 .link-title {
   font-weight: bold;
-  color: var(--primary);
+  color: var(--text);
   font-size: 1.5rem;
 }
 
