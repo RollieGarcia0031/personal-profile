@@ -9,6 +9,7 @@
  * @returns 
  */
 export const HTML_TEMPLATE =(
+  track_id,
   track_title,
   track_src,
   track_instruments,
@@ -83,8 +84,8 @@ export const HTML_TEMPLATE =(
       </p>
 
       <div class="instrument-list-container">
-        ${track_instruments.map(insrument => `
-          <div>${insrument}</div>  
+        ${track_instruments.map(instrument => `
+          <div>${instrument}</div>  
         `).join('')}
       </div>
     </div>

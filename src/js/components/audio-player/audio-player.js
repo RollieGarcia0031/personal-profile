@@ -103,7 +103,7 @@ export class AudioPlayer extends HTMLElement {
             return JSON.parse(str || '[]');
         } catch(error){
             console.error('cannot parse instruments attribute', error);
-            return;
+            return [];
         }
     }
 
