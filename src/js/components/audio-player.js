@@ -16,7 +16,13 @@ export class AudioPlayer extends HTMLElement {
         this._audio = this.querySelector('audio');
 
         const playButton = this.querySelector('.play-btn');
+        this._playIcon = playButton.querySelector('i'); // Get reference to the icon
         playButton.addEventListener('click', this.play.bind(this));
+
+        // Update play/pause icon when audio state changes
+        this._audio.addEventListener('play', this._updatePlayButtonIcon.bind(this));
+        this._audio.addEventListener('pause', this._updatePlayButtonIcon.bind(this));
+        this._audio.addEventListener('ended', this._updatePlayButtonIcon.bind(this));
 
         // redispatch event to parent
         // it is to determine which track is currently playing
@@ -104,18 +110,32 @@ export class AudioPlayer extends HTMLElement {
     get genre(){
         return this.getAttribute('track-genre') || "";
     }
+
+    /** 
+     * Updates the play button icon based on the audio's paused state.
+     * @private
+     */
+    _updatePlayButtonIcon() {
+        if (this._audio.paused) {
+            this._playIcon.classList.remove('bi-pause-fill');
+            this._playIcon.classList.add('bi-play-fill');
+        } else {
+            this._playIcon.classList.remove('bi-play-fill');
+            this._playIcon.classList.add('bi-pause-fill');
+        }
+    }
+
     /** Play the track */
     play(){
-        const player = this.querySelector('audio');
+        const player = this._audio;
 
         // play only if it is paused
         if (player.paused){
             player.play();
-            return;
-        }
-
+        } else {
         // pause the video if it is already playing
-        player.pause();
+            player.pause();
+        }
     }
 
     /** Pause the track */
