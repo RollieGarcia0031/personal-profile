@@ -1,4 +1,4 @@
-import { AudioPlayer } from './components/audio-player.js';
+import { AudioPlayer } from './components/audio-player/audio-player.js';
 import { MusicPlayer } from './lib/state/MusicPlay.js';
 import { createPubSub } from './lib/state/createPubSub.js';
 
