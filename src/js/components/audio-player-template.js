@@ -186,6 +186,7 @@ export const HTML_TEMPLATE =(
     @media screen and (max-width: 768px) {
       .main-body {
         padding: 0.75rem;
+        gap: 0.25rem;
       }
 
       .main-body button{
@@ -193,11 +194,51 @@ export const HTML_TEMPLATE =(
       }
       
       .title {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+      }
+
+      .description {
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .genre {
+        font-size: 0.75rem;
+      }
+
+      .control-btn-container {
+        grid-template-columns: repeat(5, auto); /* All buttons take auto width */
+        gap: 0.25rem;
+        justify-content: space-around; /* Distribute buttons evenly */
+      }
+
+      .volumne-control-container {
+        display: none; /* Hide volume control on small screens to prioritize space for buttons */
+      }
+      
+      .progress-bar-container {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .progress-bar-container .progress-bar {
+        min-width: 0; /* Allow progress bar to shrink */
+      }
+
+      .instrument-list-container {
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+        justify-content: start;
+        font-size: 0.75rem;
+      }
+
+      .instrument-title {
+        font-size: 0.75rem;
       }
 
       .instruments-container{
-        padding: 0.5rem;
+        padding: 0;
       }
     }
   </style>  
