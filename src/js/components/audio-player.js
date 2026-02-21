@@ -63,6 +63,17 @@ export class AudioPlayer extends HTMLElement {
         this._progressBar.addEventListener('input', () => {
             this._audio.currentTime = this._progressBar.value;
         });
+
+        this._volumeSlider = this.querySelector('.volumne-control-container input[type="range"]');
+
+        // Set initial volume slider value
+        // if this._audio.volume is not set, set the volume to 0.5
+        this._volumeSlider.value = (this._audio.volume || 0.5) * 100;
+
+        // Event listener for volume changes
+        this._volumeSlider.addEventListener('input', () => {
+            this._audio.volume = this._volumeSlider.value / 100;
+        });
     }
 
     /** 

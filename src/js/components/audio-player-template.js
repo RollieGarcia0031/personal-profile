@@ -153,6 +153,35 @@ export const HTML_TEMPLATE =(
       font-size: 0.8rem;
       color: var(--text-muted);
     }
+
+    .volumne-control-container input[type="range"] {
+      flex-grow: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      background: var(--border-muted);
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .volumne-control-container input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: grab;
+    }
+
+    .volumne-control-container input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: grab;
+    }
   </style>  
 
   <audio>
