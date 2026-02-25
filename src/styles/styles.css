@@ -67,9 +67,9 @@ div#hero-btn-container {
   padding: 1.25rem 2rem;
   font-size: 1.25rem;
   border-radius: 10rem;
-  color: white;
+  color: var(--text);
   background-color: var(--bg);
-  border: 3px solid var(--highlight);
+  border: 3px solid var(--bg-dark);
 }
 
 
