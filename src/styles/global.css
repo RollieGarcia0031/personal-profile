@@ -82,6 +82,10 @@ button:focus, input:focus, select:focus {
   min-height: 100dvh;
 }
 
+.text-center {
+  text-align: center;
+}
+
 a {
   text-decoration: none;
   color: inherit;
