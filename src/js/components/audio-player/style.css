@@ -1,7 +1,7 @@
 .audio-player-body {
     color: var(--text);
     border: 1px solid var(--border);
-    background-color: var(--bg);
+    background-image: linear-gradient(196deg, var(--bg-light) 1%, var(--bg-dark) 99%);
     border-radius: 1rem;
     padding: 1.5rem;
     height: 100%;
@@ -47,7 +47,7 @@
 }
 
 .audio-player-body .instruments-container{
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border-muted);
     padding: 0;
     padding: 1rem;
 }
@@ -63,7 +63,7 @@
     border: 1px solid var(--border-muted);
     padding: 0.25rem 0.75rem;
     border-radius: 4rem;
-    background-color: var(--bg-light);
+    background-color: var(--bg);
 }
 
 .audio-player-body .instrument-title{
@@ -75,7 +75,8 @@
     display: grid;
     grid-template-rows: 1fr auto;
     gap: 0.5rem;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-muted);
+    background-color: var(--bg);
     border-radius: 0.5rem;
     padding: 0.5rem;
 }
