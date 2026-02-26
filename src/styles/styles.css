@@ -82,6 +82,15 @@ div#hero-btn-container {
 
   #hero-title{
     text-align: center;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+
+  #hero-description{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+    padding:0 1rem;
   }
 
   div#hero-btn-container {
