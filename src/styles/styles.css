@@ -279,6 +279,7 @@ div#hero-btn-container {
 /*====================================================*/
 
 footer {
+  overflow-wrap: break-word;
   display: flex;
   flex-direction: row;
   padding: 5rem !important;
@@ -369,10 +370,16 @@ footer .list-holder {
     flex-direction: column;
     margin: 0.75rem;
     padding: 2rem !important;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
   }
 
   footer nav {
     width: unset;
     gap: 1rem;
+  }
+
+  li.email{
+    font-size: 0.75rem;
   }
 }
