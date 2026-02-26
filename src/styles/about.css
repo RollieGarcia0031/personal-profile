@@ -1,0 +1,122 @@
+@import './global.css';
+
+body {
+  display: grid;
+  grid-template-rows: calc(64px + 1rem) minmax(calc(100dvh - 64px), 1fr);
+  gap: 1rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: bolder;
+  color: var(--text);
+}
+
+.description {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin:auto;
+  margin-top: 0.5rem;
+  line-height: 1.5rem;
+}
+
+#about-me {
+  margin: 4rem 0;
+}
+
+.daws {grid-area: daws;}
+.instruments {grid-area: instruments;}
+.goals {grid-area: goals;}
+.inspirations {grid-area: inspirations;}
+.location {grid-area: location;}
+
+.bento{
+  display: grid;
+  gap: 1rem;
+  padding: 4rem;
+  grid-template-areas: 
+  "daws instruments goals"
+  "inspirations inspirations location";
+}
+
+.about-card {
+  border: 1px solid var(--border);
+  background-image: linear-gradient(45deg, var(--bg-dark) 21%, var(--bg-light));
+  border-radius: 1em;
+  padding: 2rem;
+}
+
+.about-card p {
+  color: var(--text-muted);
+}
+
+.about-card i {
+  color: var(--secondary);
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-muted);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.about-card ul {
+  list-style: inside;
+  color: var(--text-muted);
+}
+
+.about-card li::marker {
+  font-size: 1.25rem;
+}
+
+.about-card li {
+  margin-bottom: 0.75rem;
+}
+
+.about-card .title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bolder;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.inspirations .lists-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.inspirations ul {
+  margin-top: 0.5rem;
+  text-indent: 1rem;
+}
+
+@media screen and (max-width: 980px) {
+  .bento{
+    grid-template-areas: 
+      "daws instruments"
+      " goals inspirations"
+      "location location";
+  }
+}
+
+@media screen and (max-width: 768px){
+  .bento{
+    grid-template-areas: 
+      "daws"
+      "instruments"
+      "goals"
+      "inspirations"
+      "location";
+
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inspirations .lists-container {
+    grid-template-columns: 1fr;
+  } 
+}
