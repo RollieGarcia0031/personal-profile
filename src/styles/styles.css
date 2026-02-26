@@ -60,6 +60,13 @@ div#hero-btn-container {
   text-decoration-color: black;
 }
 
+#hero-btn-container .view-btn {
+  background-color: var(--text);
+  border: 3px solid var(--highlight);
+  color: var(--bg-dark);
+  text-decoration-color: black;
+}
+
 .hero-btn {
   font-weight: bold;
   margin-top: 1rem;
@@ -149,6 +156,11 @@ div#hero-btn-container {
   gap: 1rem;
   overflow: hidden;
   transition: 250ms;
+
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background-image: linear-gradient(to bottom, var(--bg-dark) 20%, var(--highlight))
+
 }
 
 #genre-container > .bento-box > *:hover {
