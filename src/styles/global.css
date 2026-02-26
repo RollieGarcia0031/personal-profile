@@ -209,6 +209,10 @@ select {
 }
 
 @media (max-width: 600px){
+  .text-xl {
+    font-size: 1.75rem;
+  }
+
   header{
     margin: 0.25rem 0.25rem 3rem;
     padding: 0.5rem 1rem;

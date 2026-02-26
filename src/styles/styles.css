@@ -246,6 +246,18 @@ div#hero-btn-container {
     display: flex;
     flex-direction: column;
   }
+
+  #body .body-decription{
+    font-size: 0.75rem;
+  }
+
+  #body .body-subtitle{
+    font-size: 1.5rem;
+  }
+
+  #body .body-title{
+    font-size: 0.75rem;
+  }
   
 }
 /*====================================================*/
