@@ -171,6 +171,9 @@ div#hero-btn-container {
   }
 
   #genre-container .bento-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     padding: 1rem;
     gap: 1rem;
   }
