@@ -93,6 +93,23 @@ body {
   text-indent: 1rem;
 }
 
+.location .country {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: var(--text);
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.location .city {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
 @media screen and (max-width: 980px) {
   .bento{
     grid-template-areas: 
