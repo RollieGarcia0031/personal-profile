@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:track-info": "node scripts/generate-track-info.mjs",
+    "prebuild": "pnpm generate:track-info"
   },
   "keywords": [],
   "author": "",
