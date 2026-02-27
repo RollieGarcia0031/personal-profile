@@ -2,7 +2,7 @@
 
 body {
   display: grid;
-  grid-template-rows: calc(64px + 1rem) minmax(calc(100dvh - 64px), 1fr);
+  grid-template-rows: calc(64px + 1rem) auto auto;
   gap: 2.5rem;
 }
 
@@ -84,4 +84,21 @@ main .description {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+/* ================================================ */
+
+/*                    Track Grid                    */
+
+/* ================================================ */
+
+#tracks-grid {
+  display: grid;
+  max-width: 80rem;
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
