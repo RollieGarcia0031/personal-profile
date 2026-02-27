@@ -4,10 +4,21 @@ export const HTML_TEMPLATE = (
   track_duration,
   track_genre,
   track_date,
-  track_bpm
+  track_bpm,
+  track_id,
+  track_src,
+  track_img
 ) => `
   <div class="track-option-container">
-    <img alt="${track_description}"/>
+    <audio src="${track_src}"></audio>
+
+    <div class="track-img-container">
+      <button class="play-button">
+        <i class="bi bi-play"></i>
+      </button>
+
+      <img alt="${track_description}" src="${track_img}"/>
+    </div>
     <p class="track-genre">
       ${track_genre}
     </p>

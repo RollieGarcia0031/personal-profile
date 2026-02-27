@@ -12,7 +12,10 @@ export class TrackOption extends HTMLElement {
       this.duration,
       this.genre,
       this.date,
-      this.bpm
+      this.bpm,
+      this.id,
+      this.src,
+      this.img
     );
 
     this.addEventListener('click', ()=>console.log('hello'));
@@ -43,6 +46,18 @@ export class TrackOption extends HTMLElement {
     return this.getAttribute('track-bpm') || "";
   }
 
+  get id(){
+    return this.getAttribute('track-id') || "";
+  }
+
+  get src(){
+    return this.getAttribute('track-src') || "";
+  }
+
+  get img(){
+    return this.getAttribute('track-img') || "";
+  }
+
   static get observedAttributes(){
     return [
       'track-title',
@@ -51,6 +66,9 @@ export class TrackOption extends HTMLElement {
       'track-genre',
       'track-date',
       'track-bpm',
+      'track-id',
+      'track-src',
+      'track-img'
     ];
   }
 
