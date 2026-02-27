@@ -35,7 +35,7 @@ export const HTML_TEMPLATE = (
         ${track_duration}
       </span>
 
-      <a href="#">
+      <a href="/track-info/${track_id}/" class="track-listen">
         Listen
       </a>
     </div>
