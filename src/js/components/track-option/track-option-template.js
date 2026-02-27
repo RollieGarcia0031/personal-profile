@@ -8,19 +8,19 @@ export const HTML_TEMPLATE = (
 ) => `
   <div class="track-option-container">
     <img alt="${track_description}"/>
-    <p>
+    <p class="track-genre">
       ${track_genre}
     </p>
     <p class="track-title">
       ${track_title}
     </p>
 
-    <p>
+    <p class="track-description">
       ${track_description}
     </p>
 
-    <div>
-      <span>
+    <div class="track-info">
+      <span class="track-duration">
         ${track_duration}
       </span>
 
