@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracks</title>
+
+  <link rel="stylesheet" href="../styles/tracks.css">
+  <link rel="stylesheet" href="../assets/font/bootstrap-icons.css">
+
+</head>
+<body>
+  <span></span>
+  <header>
+    <h1>
+      <a href="/">
+        Rollie
+      </a>
+    </h1>
+
+    <button id="menu-collapse-btn">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="hidden">
+      <button id="menu-close-btn">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <a href="#demo-container">
+        <i class="bi bi-disc"></i>
+        <span>Demos</span>
+      </a>
+      <a href="#contact-info">
+        <i class="bi bi-envelope-at"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="title">
+      Tracks
+    </p>
+
+    <p class="description">
+      Explore the complete collection of tracks from anime-style
+      OSTs to OPM and classical fusion.
+    </p>
+
+    <form class="card filter-form">
+
+      <fieldset class="search-container">
+        <button class="search-button">
+          <i class="bi bi-search"></i>
+        </button>
+        
+        <input type="search" placeholder="Search">
+      </fieldset>
+
+      <fieldset class="view-filter">        
+        <label for="sort-by">Sort by:</label>
+        <select name="sort-by" id="sort-by">
+          <option value="title">Title</option>
+          <option value="artist">Artist</option>
+          <option value="album">Album</option>
+        </select>
+
+        <label for="view-style">
+          View:
+        </label>
+        <div class="view-button-container">
+          <button>
+            <i class="bi bi-grid-3x3-gap"></i>
+          </button>
+
+          <button>
+            <i class="bi bi-list-ul"></i>
+          </button>
+        </div>
+      </fieldset>
+
+    </form>
+  </main>
+
+</body>
+</html>

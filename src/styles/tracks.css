@@ -1,0 +1,87 @@
+@import "./global.css";
+
+body {
+  display: grid;
+  grid-template-rows: calc(64px + 1rem) minmax(calc(100dvh - 64px), 1fr);
+  gap: 2.5rem;
+}
+
+fieldset {
+  border: unset;
+}
+
+main .title {
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: bolder;
+  color: var(--text);
+}
+
+main .description {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 64ch;
+  margin:auto;
+  margin-top: 0.5rem;
+  line-height: 1.75rem;
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  padding: 1rem 3rem;
+  max-width: 40rem;
+  margin: 2rem auto;
+  align-items: center;
+}
+
+/* .filter-form > * {border: 1px solid white;} */
+
+.search-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.search-container input[type="search"] {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.search-container .search-button{
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem;
+  aspect-ratio: 1/1;
+  border-radius: 10rem;
+}
+
+.view-filter {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-filter label {
+  font: 1em sans-serif;
+  font-weight: bold;
+}
+.view-button-container > button {
+  border: none;
+  padding: 0.25rem;
+  border-radius: 0.65rem;
+  font-size: 1.25rem;
+}
+
+.view-button-container > button, .view-button-container i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
