@@ -4,20 +4,35 @@
     "title": "Sampaloc",
     "description": "Romantic Pop demo track.",
     "genre": "Romantic Pop",
-    "audioSrc": "/mp3/Sampaloc_(vocal).mp3"
+    "audioSrc": "/mp3/Sampaloc_(vocal).mp3",
+    "instruments": ["guitar", "piano"],
+    "imgSrc": "/hero_image.png",
+    "date": "2025-12-31",
+    "bpm": 120,
+    "duration": "2:25"
   },
   {
     "id": "di-makatulog",
     "title": "Di Makatulog",
     "description": "Acoustic track with guitar, piano, violin, and drums.",
     "genre": "Acoustic",
-    "audioSrc": "/mp3/Di_Makatulog_(vocal).mp3"
+    "audioSrc": "/mp3/Di_Makatulog_(vocal).mp3",
+    "instruments": ["guitar", "piano"],
+    "imgSrc": "/hero_image.png",
+    "date": "2025-12-31",
+    "bpm": 120,
+    "duration": "2:25"
   },
   {
-    "id": "kahit-ano",
     "title": "Kahit Ano",
     "description": "Rock demo track.",
     "genre": "Rock",
-    "audioSrc": "/mp3/Dulo (vocal).mp3"
+    "date": "2025-12-31",
+    "bpm": 120,
+    "id": "kahit-ano",
+    "audioSrc": "/mp3/Dulo (vocal).mp3",
+    "imgSrc": "/hero_image.png",
+    "instruments": ["guitar", "piano"],
+    "duration": "2:25"
   }
 ]

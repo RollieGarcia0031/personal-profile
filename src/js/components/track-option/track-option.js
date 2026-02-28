@@ -19,7 +19,6 @@ export class TrackOption extends HTMLElement {
     );
 
     this.addEventListener('click', ()=>console.log('hello'));
-    console.log(this.innerHTML);
   }
 
   get title(){
