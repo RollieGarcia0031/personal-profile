@@ -1,4 +1,4 @@
-@import "./global.css";
+@import "./assets/styles/global.css";
 
 main {
   display: grid;
@@ -24,7 +24,7 @@ main {
 #hero-img-container {
   width: 100%;
   background-color: gray;
-  background-image: url(../assets/hero_image.png);
+  background-image: url(/hero_image.png);
   background-size: cover;
   border: 0.5rem solid var(--border);
   height: 33rem;
