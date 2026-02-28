@@ -1,14 +1,6 @@
 import { AudioPlayer } from './assets/js/components/audio-player/audio-player.js';
 import { createPubSub } from './assets/js/lib/state/createPubSub.js';
 
-document.getElementById("menu-collapse-btn").addEventListener("click", ()=>{
-    document.querySelector("nav").classList.toggle("hidden");
-})
-
-document.getElementById("menu-close-btn").addEventListener('click', ()=>{
-    document.querySelector("nav").classList.add("hidden");
-})
-
 customElements.define('audio-player', AudioPlayer);
 
 const bus = createPubSub();
