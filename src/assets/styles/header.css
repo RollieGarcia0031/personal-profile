@@ -54,3 +54,61 @@ header nav {
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 600px){
+  header{
+    margin: 0.25rem 0.25rem 3rem;
+    padding: 0.5rem 1rem;
+    top: 0rem;
+    border-radius: 1rem;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: 50dvw;
+    height: 100dvh;
+    background-color: var(--bg);
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 4rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: 300ms;
+    transform: translateX(0);
+  }
+
+  header nav.hidden{
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  header nav a {
+    border: 1px solid var(--border);
+  }
+
+  #menu-collapse-btn, #menu-close-btn{
+    display: block;
+    visibility: visible;
+  }
+
+  #menu-collapse-btn {
+    background-color: transparent;
+    color: rgba(var(--primary), 0.5);
+    font-size: 1.5rem;
+  }
+
+  #menu-close-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: var(--danger);
+  }
+}
