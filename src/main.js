@@ -1,14 +1,5 @@
-import { AudioPlayer } from './components/audio-player/audio-player.js';
-import { MusicPlayer } from './lib/state/MusicPlay.js';
-import { createPubSub } from './lib/state/createPubSub.js';
-
-document.getElementById("menu-collapse-btn").addEventListener("click", ()=>{
-    document.querySelector("nav").classList.toggle("hidden");
-})
-
-document.getElementById("menu-close-btn").addEventListener('click', ()=>{
-    document.querySelector("nav").classList.add("hidden");
-})
+import { AudioPlayer } from './assets/js/components/audio-player/audio-player.js';
+import { createPubSub } from './assets/js/lib/state/createPubSub.js';
 
 customElements.define('audio-player', AudioPlayer);
 

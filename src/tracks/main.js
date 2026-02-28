@@ -1,4 +1,4 @@
-import { TrackOption } from './components/track-option/track-option.js';
+import { TrackOption } from '../assets/js/components/track-option/track-option.js';
 import DATA_JSON from '../../content/tracks.json';
 
 customElements.define('track-option', TrackOption);
