@@ -56,7 +56,7 @@ function renderPage(track) {
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
   <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
   <script type="module" src="../../assets/js/header.js" defer></script>
-  <script src="../../assets/js/track-info.js" defer></script>
+  <script type="module" src="../../assets/js/track-info.js" defer></script>
 </head>
 <body>
 
@@ -269,8 +269,8 @@ function renderPage(track) {
     </nav>
   </footer>
 </body>
-</html>
-  `
+</html>  
+`
 }
 
 async function main() {
