@@ -47,18 +47,18 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/hero_image.png"/>
+      <img src="${imgSrc}"/>
   
       <div class="preview-control-container">
-        <audio src="/mp3/Di_Makatulog_(vocal).mp3"></audio>
+        <audio src="${audioSrc}"></audio>
         <button class="play-preview-btn">
           Play Preview
         </button>
 
         <input type="range" name="time-slider" value="0">
         <div class="duration-container">
-          <p></p>
-          <p></p>
+          <p>00:00</p>
+          <p>${duration}</p>
         </div>
   
         <div class="audio-controls-container">
@@ -77,11 +77,11 @@
   
     <div class="info-container">
       <div class="genre">
-        genre
+        ${genre}
       </div>
 
       <p class="title">
-        (Title)
+        ${title}
       </p>
 
       <p class="writer">
@@ -94,7 +94,7 @@
             <i class="bi bi-calendar-check"></i> Release
           </p>
           <p>
-            (release)
+            ${date}
           </p>
         </div>
         <div class="card">
@@ -102,7 +102,7 @@
             <i class="bi bi-lightning-charge"></i> Bpm
           </p>
           <p>
-            (bpm)
+            ${bpm}
           </p>
         </div>
         <div class="card">
@@ -110,7 +110,7 @@
             <i class="bi bi-hourglass"></i> Duration
           </p>
           <p>
-            (duration)
+            ${duration}
           </p>
         </div>
       </div>
@@ -120,7 +120,7 @@
           About This Track:
         </p>
         <p>
-          (description)
+          ${description}
         </p>
       </section>
 
@@ -130,12 +130,7 @@
         </p>
 
         <div class="instrument-holder">
-          <p>
-            (instrument)
-          </p>
-          <p>
-            (instrument)
-          </p>
+          ${instruments.map((instrument) => `<p>${instrument}</p>`).join(' ')}
         </div>
       </section>
 
