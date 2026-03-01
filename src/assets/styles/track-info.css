@@ -1,0 +1,115 @@
+@import './global.css';
+@import './header.css';
+@import './footer.css';
+
+body {
+  display: grid;
+  grid-template-rows: calc(64px + 1rem) auto;
+  gap: 1rem;
+}
+
+.back-link{
+  color: var(--secondary);
+}
+
+.content-container{
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  gap: 2rem;
+  padding: 0 4rem;
+}
+
+.preview-container{
+  border: 1px solid none;
+}
+
+.preview-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.preview-control-container{
+  border: 1px solid var(--border);
+  background-color: var(--bg-light);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.preview-control-container .duration-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info-container .genre {
+  display: inline-block;
+  border: 1px solid var(--highlight);
+  background-color: var(--bg-light);
+  color:            var(--primary);
+  font-weight: bold;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2rem;
+}
+
+.info-container .title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.info-container .writer {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.meta-data-container{
+  display: grid;
+  grid-template-columns: repeat(3, calc(95% / 3));
+  gap: auto;
+  justify-content: space-between;
+  color: var(--text-muted);
+  margin-top: 2rem;
+}
+
+.meta-data-container > * > *:nth-child(2) {
+  margin-top: 0.5rem;
+  color: var(--text);
+}
+
+.info-container .release-date{
+  color: var(--text-muted);
+}
+
+.track-info-card {
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  background-color: var(--bg-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.track-info-card > :first-child {
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+.track-info-card.instrument .instrument-holder{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.track-info-card.instrument .instrument-holder > *{
+  color: var(--text);
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  background-color: var(--highlight);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
