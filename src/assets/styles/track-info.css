@@ -14,7 +14,7 @@ body {
 
 .content-container{
   display: grid;
-  grid-template-columns: 25rem 1fr;
+  grid-template-columns: 30rem 1fr;
   gap: 2rem;
   padding: 0 4rem;
 }
@@ -25,6 +25,7 @@ body {
 
 .preview-container img {
   max-width: 100%;
+  border-radius: 1.5rem;
   height: auto;
 }
 
@@ -33,12 +34,66 @@ body {
   background-color: var(--bg-light);
   border-radius: 1rem;
   padding: 1.25rem;
+  margin-top: 1rem;
 }
+
+.preview-control-container input[type="range"] {
+  width: 100%;
+  flex-grow: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: var(--border-muted);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.preview-control-container input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: grab;
+}
+
 
 .preview-control-container .duration-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: var(--text-muted);
+}
+
+.preview-control-container .play-preview-btn{
+  margin-bottom: 2rem;
+  width: 100%;
+  background-image: linear-gradient(to left, var(--secondary), var(--primary));
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  color: var(--bg-light);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.audio-controls-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 0.75rem;
+}
+
+.audio-controls-container button{
+  background: unset;
+  border:unset;
+  color: var(--text-muted);
+  font-size: 1.75rem;
+  cursor: pointer;
 }
 
 .info-container .genre {
