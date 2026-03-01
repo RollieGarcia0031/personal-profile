@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
   <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
   <script type="module" src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/track-info.js" defer></script>
 </head>
 <body>
 
@@ -37,32 +38,37 @@
     </nav>
   </header>
 
-  <a href="/" class="back-link">Back</a>
+  <div class="back-link">
+    <a href="/tracks/">
+      <i class="bi bi-arrow-left-circle"></i> Back
+    </a>
+  </div>
+
 
   <main class="content-container">
     <div class="preview-container">
       <img src="/hero_image.png"/>
   
       <div class="preview-control-container">
-
+        <audio src="/mp3/Di_Makatulog_(vocal).mp3"></audio>
         <button class="play-preview-btn">
           Play Preview
         </button>
 
-        <input type="range" name="" id="">
+        <input type="range" name="time-slider" value="0">
         <div class="duration-container">
-          <p>00:00</p>
-          <p>02:45</p>
-        </div>  
+          <p></p>
+          <p></p>
+        </div>
   
         <div class="audio-controls-container">
-          <button>
+          <button id="back-btn">
             <i class="bi bi-skip-backward-fill"></i>
           </button>
-          <button>
+          <button id="play-btn">
             <i class="bi bi-play-fill"></i>
           </button>
-          <button>
+          <button id="forward-btn">
             <i class="bi bi-skip-forward-fill"></i>
           </button>
         </div>
