@@ -1,21 +1,225 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Di Makatulog | Track Info</title>
-
+  <title>Track</title>
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
+  <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
+  <script type="module" src="../../assets/js/header.js" defer></script>
+  <script src="../../assets/js/track-info.js" defer></script>
 </head>
 <body>
-  <a href="/tracks/">← Back to tracks</a>
-  <article class="card">
-    <h1>Di Makatulog</h1>
-    <p><strong>Genre:</strong> Acoustic</p>
-    <p>Acoustic track with guitar, piano, violin, and drums.</p>
-    <audio controls>
-      <source src="/mp3/Di_Makatulog_(vocal).mp3" type="audio/mpeg">
-    </audio>
-  </article>
+
+  <span></span>
+  <header>
+    <h1>
+      <a href="/">
+        Rollie
+      </a>
+    </h1>
+
+    <button id="menu-collapse-btn">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="hidden">
+      <button id="menu-close-btn">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <a href="#demo-container">
+        <i class="bi bi-disc"></i>
+        <span>Demos</span>
+      </a>
+      <a href="#contact-info">
+        <i class="bi bi-envelope-at"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
+  </header>
+
+  <div class="back-link">
+    <a href="/tracks/">
+      <i class="bi bi-arrow-left-circle"></i> Back
+    </a>
+  </div>
+
+
+  <main class="content-container">
+    <div class="preview-container">
+      <img src="/hero_image.png"/>
+  
+      <div class="preview-control-container">
+        <audio src="/mp3/Di_Makatulog_(vocal).mp3"></audio>
+        <button class="play-preview-btn">
+          Play Preview
+        </button>
+
+        <input type="range" name="time-slider" value="0">
+        <div class="duration-container">
+          <p>00:00</p>
+          <p>2:25</p>
+        </div>
+  
+        <div class="audio-controls-container">
+          <button id="back-btn">
+            <i class="bi bi-skip-backward-fill"></i>
+          </button>
+          <button id="play-btn">
+            <i class="bi bi-play-fill"></i>
+          </button>
+          <button id="forward-btn">
+            <i class="bi bi-skip-forward-fill"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="info-container">
+      <div class="genre">
+        Acoustic
+      </div>
+
+      <p class="title">
+        Di Makatulog
+      </p>
+
+      <p class="writer">
+        (Writer)
+      </p>
+
+      <div class="meta-data-container">
+        <div class="card">
+          <p>
+            <i class="bi bi-calendar-check"></i> Release
+          </p>
+          <p>
+            2025-12-31
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <i class="bi bi-lightning-charge"></i> Bpm
+          </p>
+          <p>
+            120
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <i class="bi bi-hourglass"></i> Duration
+          </p>
+          <p>
+            2:25
+          </p>
+        </div>
+      </div>
+
+      <section class="track-info-card">
+        <p>
+          About This Track:
+        </p>
+        <p>
+          Acoustic track with guitar, piano, violin, and drums.
+        </p>
+      </section>
+
+      <section class="track-info-card instrument">
+        <p>
+          Instruments used:
+        </p>
+
+        <div class="instrument-holder">
+          <p>guitar</p> <p>piano</p>
+        </div>
+      </section>
+
+      <section class="track-info-card">
+        <p>
+          Story:
+        </p>
+
+        <p>
+          (story)
+        </p>
+      </section>
+    </div>
+  </main>
+
+    <footer class="card">
+    <div id="footer-hero">
+      <p class="title">
+        Ready to make something
+        <span>
+          Kawaii?
+        </span>
+      </p>
+
+      <p class="text-mute footer-description">
+        Whether you need an original anime opening, a game
+        soundtrack, or a fresh mix for your next single,
+        I'm here to help.
+      </p>
+
+      <button>
+        <i class="bi bi-envelope"></i>
+        <span>
+          Send me a message
+        </span>
+      </button>
+    </div>
+
+    <nav id="contact-info">
+      <div class="list-holder">
+        <p class="link-title">Navigation</p>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Music</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="list-holder">
+        <p class="link-title">Socials</p>
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/rollieangelito/">
+              <i class="bi bi-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-youtube"></i>
+            <a href="https://www.youtube.com/@rolliegarcia3713">
+              <span>Youtube</span>
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-tiktok"></i>
+            <a href="https://www.tiktok.com/@rollienthedeep">
+              <span>TikTok</span>
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-facebook"></i>
+            <a href="https://www.facebook.com/profile.php?id=61560794757939">
+              <span>Facebook</span>
+            </a>
+          </li>
+
+          <li class="email">
+            <i class="bi bi-google"></i>
+            <span>Gmail:</span>
+            <span>
+              garciarollie827@gmail.com
+            </span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </footer>
 </body>
 </html>
+  
