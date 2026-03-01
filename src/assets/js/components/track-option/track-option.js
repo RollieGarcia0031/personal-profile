@@ -70,6 +70,4 @@ export class TrackOption extends HTMLElement {
       'track-img'
     ];
   }
-
-
 }
