@@ -16,19 +16,30 @@ Common tools used in production:
 - **Next.js / Nuxt / SvelteKit** (SSR frameworks with shared layouts)
 - **11ty** for very lightweight static templating
 
+## Development process: “If it’s build-time, how do I preview it?”
+
+Great question. In modern tooling, build-time includes can still be visible in development.
+
+In this repo, we use a Vite HTML transform plugin with a header partial:
+
+- Source of truth: `src/partials/header.html`
+- Marker in each page: `<!-- @site-header -->`
+- Vite injects the partial in **both** `npm run dev` and `npm run build`
+
+So during development, you still see the real combined page in the browser, and when you edit the partial, refresh (or HMR reload) shows updates.
+
 ## Why this is SEO-safe
 
 Search engines receive complete HTML directly (including `<header><nav>...</nav></header>`), without relying on JavaScript execution to inject core navigation.
 
 ## For this repository (current plain multi-page Vite setup)
 
-The most practical path is still **build-time reuse**:
+The practical approach is:
 
-- Create one shared partial (for example `src/partials/header.html`).
-- Include that partial into every page during build (templating/include step).
-- Keep links as normal `<a href="...">` anchors.
-
-This gives consistency now, and matches the same SEO principle used by modern frameworks.
+- Keep one shared partial at `src/partials/header.html`
+- Keep the `<!-- @site-header -->` marker in each HTML page/template
+- Let Vite inject partials in dev + build
+- Keep links as normal `<a href="...">` anchors
 
 ## What to avoid as your primary approach
 
@@ -42,4 +53,3 @@ If you plan to evolve this project, move to **Astro + shared `Layout.astro` + `H
 - Every page imports the same layout.
 - Final output remains crawlable static HTML.
 - You can still add interactive JS only where needed.
-
