@@ -1,27 +1,45 @@
-# Reusable Header Strategy (SEO-safe)
+# Reusable Header Strategy (Modern + SEO-safe)
 
-If you want one consistent header across all pages **without hurting SEO**, use a **build-time shared partial** (not client-side JS injection).
+Short answer: **yes** — the modern standard is to use a **layout component in an SSR/SSG framework** so header markup is rendered in HTML at build/request time.
 
-## Why this approach
+## What is the standard way today?
 
-- **Reusable:** one header source file used everywhere.
-- **SEO-safe:** the final built HTML for each page contains the full `<header>` markup, so crawlers can read it without executing JavaScript.
-- **Low maintenance:** edit once, apply everywhere.
+For marketing sites, portfolios, blogs, and most content-heavy pages:
 
-## Recommended pattern for this project
+1. Put global UI (header, footer, nav) in a **shared layout component**.
+2. Render pages with **SSR/SSG** (server-rendered or statically generated HTML).
+3. Keep content/metadata page-specific (`<title>`, meta description, canonical).
 
-1. Create a shared file like `src/partials/header.html`.
-2. Use a build-time include system (SSG/template includes) so each page gets the same header at build.
-3. Keep page-level metadata (`<title>`, `<meta name="description">`, canonical URL) unique per page.
-4. Keep navigation links as normal `<a href="...">` links.
+Common tools used in production:
 
-## Avoid for SEO-critical pages
+- **Astro** (very common for content/portfolio sites, excellent SEO defaults)
+- **Next.js / Nuxt / SvelteKit** (SSR frameworks with shared layouts)
+- **11ty** for very lightweight static templating
 
-- Injecting header HTML at runtime with JavaScript (e.g., `fetch('/header.html')` then `innerHTML = ...`) as your primary strategy.
+## Why this is SEO-safe
 
-## Minimal header structure guidance
+Search engines receive complete HTML directly (including `<header><nav>...</nav></header>`), without relying on JavaScript execution to inject core navigation.
 
-- Use semantic tags: `<header>`, `<nav>`, and an accessible skip/link pattern if possible.
-- Keep nav labels descriptive (good for users and crawlers).
-- Ensure the same primary nav appears on all pages for consistency.
+## For this repository (current plain multi-page Vite setup)
+
+The most practical path is still **build-time reuse**:
+
+- Create one shared partial (for example `src/partials/header.html`).
+- Include that partial into every page during build (templating/include step).
+- Keep links as normal `<a href="...">` anchors.
+
+This gives consistency now, and matches the same SEO principle used by modern frameworks.
+
+## What to avoid as your primary approach
+
+- Runtime DOM injection for critical layout (for example `fetch('/header.html')` then `innerHTML = ...`) for pages where SEO is important.
+
+## Migration recommendation (if you want the most modern setup)
+
+If you plan to evolve this project, move to **Astro + shared `Layout.astro` + `Header.astro`**:
+
+- You write the header once.
+- Every page imports the same layout.
+- Final output remains crawlable static HTML.
+- You can still add interactive JS only where needed.
 
