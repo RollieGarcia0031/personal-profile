@@ -6,7 +6,7 @@
     "genre": "Romantic Pop",
     "audioSrc": "/mp3/Sampaloc_(vocal).mp3",
     "instruments": ["guitar", "piano"],
-    "imgSrc": "/hero_image.png",
+    "imgSrc": "/album-cover/sampaloc-cover.png",
     "date": "2025-12-31",
     "bpm": 120,
     "duration": "2:25"
@@ -34,5 +34,16 @@
     "imgSrc": "/hero_image.png",
     "instruments": ["guitar", "piano"],
     "duration": "2:25"
+  },{
+    "title": "'Di Ko Maisip",
+    "description": "An acoustic song with playful viebs.",
+    "genre": "Acoustic Orchestra",
+    "date": "2025-12-31",
+    "bpm": 80,
+    "id": "di-ko-maisip",
+    "audioSrc": "/mp3/Di_ko_maisip.opus",
+    "imgSrc": "/album-cover/Di_ko_maisip_cover.png",
+    "instruments": ["guitar", "piano", "violin", "tamborine"],
+    "duration": "3:34"
   }
 ]
