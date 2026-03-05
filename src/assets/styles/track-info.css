@@ -11,7 +11,7 @@ body {
 .back-link{
   color: var(--text-muted);
   margin: 3rem 2rem 1rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .back-link:hover {
@@ -115,6 +115,17 @@ body {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .back-link{
+    margin: 0.75rem 0.5rem 0.5rem;
+    font-size: 1rem;
+  }
+
+  .audio-controls-container button{
+    font-size: 1.25rem;
+  }
+}
+
 /* =============================== */
 
 /*          Info Container         */
@@ -203,5 +214,38 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .meta-data-container {
+    font-size: 0.75rem;
+  }
+
+  .track-info-card {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  .track-info-card > *:first-child {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .track-info-card.instrument .instrument-holder > *{
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .info-container .title {
+    font-size: 1.5rem;
+  }
+
+  .info-container .writer {
+    font-size: 1rem;
+  }
+
+  .info-container .genre {
+    font-size: 0.75rem;
   }
 }
