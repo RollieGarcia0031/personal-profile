@@ -103,6 +103,28 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1080px){
+  .content-container{
+    grid-template-columns: 1fr;
+    padding: calc(0.5rem + 1vw);
+  }
+  
+  main {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+}
+
+/* =============================== */
+
+/*          Info Container         */
+
+/* =============================== */ 
+
+.info-container{
+  max-width: 100%;
+}
+
 .info-container .genre {
   display: inline-block;
   border: 1px solid var(--highlight);
@@ -174,4 +196,12 @@ body {
   background-color: var(--highlight);
   border-radius: 2rem;
   padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 1080px){
+  .meta-data-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
 }
