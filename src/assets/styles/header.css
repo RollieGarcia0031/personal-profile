@@ -3,21 +3,28 @@
 }
 
 header {
-  margin: 0 1rem;
+  margin: 0 auto;
   padding: 0.5rem 1rem;
+  border-radius: 20rem;
+  border: 1px solid var(--border);
+  max-width: 70rem;
+  background-color: rgba(var(--primary), 0.5);
   position: fixed;
   top: 0.5rem;
   left: 0;
   right: 0;
   gap: 1rem;
   display: grid;
-  border-radius: 20rem;
   grid-template-columns: auto min-content;
-  border: 1px solid var(--border);
-  background-color: rgba(var(--primary), 0.5);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: var(--text);
+}
+
+@media screen and (max-width: 70rem){
+  header {
+    margin: 0 1rem;
+  }
 }
 
 .home-link {
