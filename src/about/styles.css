@@ -137,5 +137,14 @@ body {
 @media screen and (max-width: 480px) {
   .inspirations .lists-container {
     grid-template-columns: 1fr;
-  } 
+  }
+  
+  #about-me > .title {
+    font-size: 2.5rem;
+  }
+
+  #about-me > .description {
+    font-size: 1.25rem;
+    padding: 0 1.25rem;
+  }
 }
