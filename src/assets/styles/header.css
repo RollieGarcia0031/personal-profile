@@ -1,5 +1,30 @@
-header h1 {
-  margin: 0;
+.header-container{
+  position: static;
+}
+
+header {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0.5rem;
+  left: 0;
+  right: 0;
+  gap: 1rem;
+  display: grid;
+  border-radius: 20rem;
+  grid-template-columns: auto min-content;
+  border: 1px solid var(--border);
+  background-color: rgba(var(--primary), 0.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: var(--text);
+}
+
+.home-link {
+  background-color: rgba(var(--primary), 0.5);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
 }
 
 header a {
@@ -9,25 +34,8 @@ header a {
   gap: 0.5rem;
   color: var(--text-muted);
 }
-header a i {
-  color: var(--text);
-}
 
-header {
-  position: fixed;
-  top: 1rem;;
-  left: 0;
-  right: 0;
-  gap: 1rem;
-  display: grid;
-  margin: 0 1rem;
-  border-radius: 20rem;
-  grid-template-columns: auto min-content;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--border);
-  background-color: rgba(var(--primary), 0.5);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+header a i {
   color: var(--text);
 }
 
@@ -37,7 +45,7 @@ header {
   visibility: hidden;
 }
 
-header a:hover {
+header a:not(.home-link):hover {
   background-color: var(--highlight);
 }
 
