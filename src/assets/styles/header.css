@@ -1,5 +1,37 @@
-header h1 {
-  margin: 0;
+.header-container{
+  position: static;
+}
+
+header {
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border-radius: 20rem;
+  border: 1px solid var(--border);
+  max-width: 70rem;
+  background-color: rgba(var(--primary), 0.5);
+  position: fixed;
+  top: 0.5rem;
+  left: 0;
+  right: 0;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: auto min-content;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: var(--text);
+}
+
+@media screen and (max-width: 70rem){
+  header {
+    margin: 0 1rem;
+  }
+}
+
+.home-link {
+  background-color: rgba(var(--primary), 0.5);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
 }
 
 header a {
@@ -9,25 +41,8 @@ header a {
   gap: 0.5rem;
   color: var(--text-muted);
 }
-header a i {
-  color: var(--text);
-}
 
-header {
-  position: fixed;
-  top: 1rem;;
-  left: 0;
-  right: 0;
-  gap: 1rem;
-  display: grid;
-  margin: 0 1rem;
-  border-radius: 20rem;
-  grid-template-columns: auto min-content;
-  padding: 0.75rem 2rem;
-  border: 1px solid var(--border);
-  background-color: rgba(var(--primary), 0.5);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+header a i {
   color: var(--text);
 }
 
@@ -37,7 +52,7 @@ header {
   visibility: hidden;
 }
 
-header a:hover {
+header a:not(.home-link):hover {
   background-color: var(--highlight);
 }
 
@@ -57,10 +72,15 @@ header nav {
 
 @media (max-width: 600px){
   header{
-    margin: 0.25rem 0.25rem 3rem;
-    padding: 0.5rem 1rem;
-    top: 0rem;
+    margin: 0 0.25rem;
+    padding: 0.25rem 0.5rem;
+    top: 0.25rem;
+    left: 0;
     border-radius: 1rem;
+  }
+
+  .home-link {
+    font-size: 1.25rem;
   }
 
   header nav {
