@@ -17,7 +17,11 @@ export const HTML_TEMPLATE = (
         <i class="bi bi-play"></i>
       </button>
 
-      <img alt="${track_description}" src="${track_img}"/>
+      <div class="img-holder">
+
+      </div>
+      <img alt="${track_description}" src="${track_img}" class="backdrop"/>
+      <img alt="${track_description}" src="${track_img}" class="frontdrop"/>
     </div>
     <p class="track-genre">
       ${track_genre}

@@ -7,15 +7,46 @@
   height: 100%;
 }
 
-.track-option-container img {
-  aspect-ratio: 3 / 4;
-  width: 100%;
+.track-option-container img.frontdrop {
   border: 1px solid var(--border);
+}
+
+.track-option-container .img-holder{
+  aspect-ratio: 3 / 4;
+  width: 90%;
+  overflow: hidden;
+}
+
+.track-option-container img.frontdrop {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  height: 100%;
+  transition: 300ms;
+  border: none;
+}
+
+.track-option-container:hover img.frontdrop {
+  transform: translateY(-50%) translateX(-50%) scale(0.8);
+}
+
+.track-option-container img.backdrop {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(4px);
 }
 
 .track-option-container .track-img-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .track-option-container .play-button{
