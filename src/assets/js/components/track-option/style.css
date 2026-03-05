@@ -29,7 +29,7 @@
 }
 
 .track-option-container:hover img.frontdrop {
-  transform: translateY(-50%) translateX(-50%) scale(0.8);
+  transform: translateY(-50%) translateX(-50%) scale(0.8);  
 }
 
 .track-option-container img.backdrop {

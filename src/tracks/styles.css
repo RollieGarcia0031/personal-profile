@@ -110,6 +110,10 @@ main .description {
   padding: 2rem;
 }
 
+#tracks-grid > *:hover{
+  box-shadow: 0 0 10px var(--primary), 0 0 1px var(--primary);
+}
+
 @media screen and (max-width: 768px) {
   
   main .title {
