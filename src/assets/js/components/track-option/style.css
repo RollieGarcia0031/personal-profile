@@ -1,3 +1,8 @@
+/* ====================================== */
+
+/*      For the grid view of tracks       */
+
+/* ====================================== */
 .track-option-container{
   border: 2px solid none;
   display: flex;
@@ -28,7 +33,7 @@
   border: none;
 }
 
-.track-option-container:hover img.frontdrop {
+.grid-view .track-option-container:hover img.frontdrop {
   transform: translateY(-50%) translateX(-50%) scale(0.8);  
 }
 
@@ -65,7 +70,7 @@
   opacity: 0;
 }
 
-.track-img-container:hover .play-button{
+ .grid-view .track-img-container:hover .play-button{
   cursor: pointer;
   opacity: 1;
   background-color: var(--highlight);
@@ -127,5 +132,82 @@
 
   .track-option-container .track-listen {
     font-size: 0.75rem;
+  }
+}
+
+
+
+/* ====================================== */
+
+/*      For the list view of tracks       */
+
+/* ====================================== */
+
+.list-view .track-option-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "img genre"
+    "img title"
+    "img description"
+    "img info"
+  ;
+  gap: 0.5rem;
+  height: 100%;
+  justify-items: start;
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+}
+
+
+.list-view .img-holder {
+  aspect-ratio: 1/1;
+}
+
+.list-view .track-option-container:hover img.frontdrop {
+  transform: scale(1);
+}
+
+.list-view .track-option-container img.frontdrop {
+  border-radius: 1em;
+  border: 3px solid var(--highlight);
+  max-height: 7rem;
+  position: static;
+  transform: none;
+}
+
+.list-view .img-holder {
+  display: none;
+}
+
+.list-view .track-option-container .track-img-container {
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-view .track-option-container img.backdrop {
+  display: none;
+}
+
+.list-view .track-option-container .play-button{
+  display: none;
+}
+
+.track-title { grid-area: title; }
+.track-genre { grid-area: genre; }
+.track-description { grid-area: description; }
+.track-img-container { grid-area: img; }
+.track-info { grid-area: info; }
+
+@media screen and (max-width: 530px){
+  .list-view .track-option-container .track-genre{
+    font-size: 0.65rem;
+  }
+
+  .list-view .track-option-container img.frontdrop {
+    max-height: 5rem;
   }
 }

@@ -119,6 +119,21 @@ main .description {
   box-shadow: 0 0 10px var(--primary), 0 0 1px var(--primary);
 }
 
+#tracks-grid.list-view {
+  grid-template-columns: 1fr;
+  width: 50rem;
+  box-sizing: border-box;
+  padding: 2rem;
+  max-width: unset;
+}
+
+@media screen and (max-width: 50rem) {
+  #tracks-grid.list-view {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   
   main .title {
