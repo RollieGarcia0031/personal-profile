@@ -87,6 +87,11 @@ main .description {
   font-size: 1.25rem;
 }
 
+.view-button-container button.active {
+  background-color: var(--primary);
+  color: var(--bg-light);
+}
+
 .view-button-container > button, .view-button-container i {
   display: inline-flex;
   align-items: center;
@@ -112,6 +117,21 @@ main .description {
 
 #tracks-grid > *:hover{
   box-shadow: 0 0 10px var(--primary), 0 0 1px var(--primary);
+}
+
+#tracks-grid.list-view {
+  grid-template-columns: 1fr;
+  width: 50rem;
+  box-sizing: border-box;
+  padding: 2rem;
+  max-width: unset;
+}
+
+@media screen and (max-width: 50rem) {
+  #tracks-grid.list-view {
+    width: 100%;
+    padding: 1rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
