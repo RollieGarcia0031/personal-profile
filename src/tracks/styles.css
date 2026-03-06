@@ -87,6 +87,11 @@ main .description {
   font-size: 1.25rem;
 }
 
+.view-button-container button.active {
+  background-color: var(--primary);
+  color: var(--bg-light);
+}
+
 .view-button-container > button, .view-button-container i {
   display: inline-flex;
   align-items: center;

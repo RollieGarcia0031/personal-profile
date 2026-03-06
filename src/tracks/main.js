@@ -26,3 +26,52 @@ DATA_JSON.forEach(track => {
 
   trackGrid.appendChild(newTrackOption);
 });
+
+
+
+
+/**
+ * Set up the search bar to filter the tracks
+ */
+
+const filterForm = document.querySelector('.filter-form');
+filterForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+})
+
+/**
+ * Set up the view mode of the page
+ * 1. Grid view
+ * 2. List view
+ */
+
+const gridButton = document.querySelector('#grid-view-btn');
+const listButton = document.querySelector('#list-view-btn');
+const gridViewClass = 'grid-view';
+const listViewClass = 'list-view';
+
+useGridView();
+gridButton?.addEventListener('click', useGridView);
+listButton?.addEventListener('click', useListView);
+
+
+
+/**
+ * Toggle function to switch between grid and list view
+ */
+
+function useGridView(){
+  listButton.classList.remove('active');
+  gridButton.classList.add('active');
+
+  trackGrid.classList.remove(listViewClass);
+  trackGrid.classList.add(gridViewClass);
+}
+
+function useListView(){
+  gridButton.classList.remove('active');
+  listButton.classList.add('active');
+
+  trackGrid.classList.remove(gridViewClass);
+  trackGrid.classList.add(listViewClass);
+}
