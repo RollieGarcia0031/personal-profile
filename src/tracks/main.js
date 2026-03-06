@@ -1,6 +1,11 @@
 import { TrackOption } from '../assets/js/components/track-option/track-option.js';
 import DATA_JSON from '../../content/tracks.json';
 
+
+/**
+ *  Setup the custom track option elements to display
+ *  all of the songs available from the tracks.json file
+ */
 customElements.define('track-option', TrackOption);
 
 const trackGrid = document.querySelector('#tracks-grid');
@@ -20,4 +25,4 @@ DATA_JSON.forEach(track => {
   newTrackOption.setAttribute('track-date', track.date);
 
   trackGrid.appendChild(newTrackOption);
-})
+});
