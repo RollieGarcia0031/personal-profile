@@ -9,7 +9,9 @@
     "imgSrc": "/album-cover/sampaloc-cover.png",
     "date": "2025-12-31",
     "bpm": 120,
-    "duration": "2:25"
+    "duration": "2:25",
+    "story":"",
+    "writer": "Rollie"
   },
   {
     "id": "di-makatulog",
@@ -21,7 +23,9 @@
     "imgSrc": "/hero_image.png",
     "date": "2025-12-31",
     "bpm": 120,
-    "duration": "2:25"
+    "duration": "2:25",
+    "writer": "Rollie",
+    "story": ""
   },
   {
     "title": "Kahit Ano",
@@ -33,7 +37,9 @@
     "audioSrc": "/mp3/Dulo (vocal).mp3",
     "imgSrc": "/hero_image.png",
     "instruments": ["guitar", "piano"],
-    "duration": "2:25"
+    "duration": "2:25",
+    "story": "",
+    "writer": "Rollie"
   },{
     "title": "'Di Ko Maisip",
     "description": "An acoustic song with playful viebs.",
@@ -44,6 +50,8 @@
     "audioSrc": "/mp3/Di_ko_maisip.opus",
     "imgSrc": "/album-cover/Di_ko_maisip_cover.png",
     "instruments": ["guitar", "piano", "violin", "tamborine"],
-    "duration": "3:34"
+    "duration": "3:34",
+    "story": "",
+    "writer": "Rollie"
   }
 ]

@@ -45,9 +45,11 @@ function renderPage(track) {
   const bpm = track.bpm || undefined;
   const duration = escapeHtml(track.duration || '');
   const instruments = track.instruments;
+  const writer = escapeHtml(track.writer || '');
+  const story = escapeHtml(track.story || '');
 
   return `
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -61,7 +63,31 @@ function renderPage(track) {
 <body>
 
   <span></span>
-  <!-- @site-header -->
+  <header>
+    <h1>
+      <a href="/">
+        Rollie
+      </a>
+    </h1>
+
+    <button id="menu-collapse-btn">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="hidden">
+      <button id="menu-close-btn">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <a href="#demo-container">
+        <i class="bi bi-disc"></i>
+        <span>Demos</span>
+      </a>
+      <a href="#contact-info">
+        <i class="bi bi-envelope-at"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
+  </header>
 
   <div class="back-link">
     <a href="/tracks/">
@@ -110,7 +136,7 @@ function renderPage(track) {
       </p>
 
       <p class="writer">
-        (Writer)
+        ${writer}
       </p>
 
       <div class="meta-data-container">
@@ -165,7 +191,7 @@ function renderPage(track) {
         </p>
 
         <p>
-          (story)
+          ${story}
         </p>
       </section>
     </div>
@@ -245,8 +271,7 @@ function renderPage(track) {
     </nav>
   </footer>
 </body>
-</html>  
-`
+</html>`
 }
 
 async function main() {
