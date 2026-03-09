@@ -14,6 +14,7 @@
   justify-items: stretch;
   align-items: stretch;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 .audio-player-body button {
@@ -54,13 +55,16 @@
   border-top: 1px solid var(--border-muted);
   padding: 0;
   padding: 1rem;
+  min-width: 0;
 }
 
 .audio-player-body .instrument-list-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0 0.5rem;
+  min-width: 0;
 }
 
 .audio-player-body .instrument-list-container > * {
@@ -83,20 +87,29 @@
   background-color: var(--bg);
   border-radius: 0.5rem;
   padding: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .audio-player-body .control-btn-container {
-  display: grid;
-  grid-template-columns: repeat(5, auto) 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .audio-player-body .volumne-control-container {
-  margin-left: 0.5rem;
+  margin-left: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.25rem;
+  flex: 1 1 12rem;
+  min-width: 0;
 }
 
 .audio-player-body .progress-bar-container {
@@ -104,10 +117,13 @@
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .audio-player-body .progress-bar-container .progress-bar {
   flex-grow: 1;
+  min-width: 0;
   -webkit-appearance: none;
   appearance: none;
   height: 8px;
@@ -138,10 +154,13 @@
 .audio-player-body .progress-bar-container span {
   font-size: 0.8rem;
   color: var(--text-muted);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .audio-player-body .volumne-control-container input[type="range"] {
-  flex-grow: 1;
+  flex: 1;
+  min-width: 0;
   -webkit-appearance: none;
   appearance: none;
   height: 8px;
@@ -197,9 +216,8 @@
   }
 
   .audio-player-body .control-btn-container {
-    grid-template-columns: repeat(5, auto);
     gap: 0.25rem;
-    justify-content: space-around;
+    justify-content: start;
   }
 
   .audio-player-body .volumne-control-container {
