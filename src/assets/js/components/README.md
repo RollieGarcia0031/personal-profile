@@ -96,7 +96,8 @@ customElements.define('your-component', YourComponent);
 ```
 
 5. Add the custom tag to HTML or create instances in JavaScript.
-
----
-
-If you want, the next step is to add a tiny starter component in this folder (for example `<site-badge>`) to use as a copy/paste template for future components.
+```html
+<body>
+   <your-component custom-attr="value"> </your-component>
+</body>
+```
