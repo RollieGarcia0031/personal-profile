@@ -20,7 +20,7 @@
     "genre": "Acoustic",
     "audioSrc": "/mp3/Di_Makatulog_(vocal).mp3",
     "instruments": ["guitar", "piano"],
-    "imgSrc": "/hero_image.png",
+    "imgSrc": "/album-cover/Di_makatulog_cover.png",
     "date": "2025-12-31",
     "bpm": 120,
     "duration": "2:25",
