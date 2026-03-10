@@ -4,13 +4,17 @@ import { glob } from 'glob'
 import { readFileSync } from 'node:fs'
 
 const headerPartialPath = resolve(__dirname, 'src/partials/header.html')
+const footerPartialPath = resolve(__dirname, 'src/partials/footer.html')
 
 function sitePartialsPlugin() {
   return {
     name: 'site-partials',
     transformIndexHtml(html) {
       const headerPartial = readFileSync(headerPartialPath, 'utf8')
-      return html.replace('<!-- @site-header -->', headerPartial)
+      const footerPartial = readFileSync(footerPartialPath, 'utf8')
+      return html
+        .replace('<!-- @site-header -->', headerPartial)
+        .replace('<!-- @site-footer -->', footerPartial)
     }
   }
 }
