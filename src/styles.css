@@ -4,8 +4,8 @@
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  grid-template-columns: 4fr 28rem;
+  justify-items: stretch;
   align-items: center;
   gap: 1.5rem;
   padding: 0 5rem;
@@ -24,13 +24,13 @@ main {
 }
 
 #hero-img-container {
-  width: 100%;
   background-color: gray;
   background-image: url(/hero_image.png);
   background-size: cover;
   border: 0.5rem solid var(--border);
-  height: 33rem;
-  width: 25rem;
+  min-height: 33rem;
+  max-height: auto;
+  min-width: 15rem;
   margin-top: 5rem;
   border-radius: 20px;
 }
@@ -40,7 +40,7 @@ main {
   font-size: calc(4rem + 2vh);
   line-height: 5rem;
   text-align: left;
-  margin: 0;
+  margin-top: 5rem;
 }
 
 #hero-description{
@@ -52,6 +52,8 @@ main {
 div#hero-btn-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
   gap: 1rem;
 }
 
@@ -67,6 +69,7 @@ div#hero-btn-container {
   border: 3px solid var(--highlight);
   color: var(--bg-dark);
   text-decoration-color: black;
+  margin-bottom: 1rem;
 }
 
 .hero-btn {
@@ -84,30 +87,20 @@ div#hero-btn-container {
   text-align: center;
 }
 
-
-@media (max-width:600px) {
+@media screen and (max-width: 732px) {
   main {
     display: flex;
     flex-direction: column-reverse;
     padding-bottom: 2rem;
+    justify-content: center;
   }
 
-  #hero-title{
-    text-align: center;
-    font-size: 3.5rem;
-    line-height: 3.5rem;
-  }
-
-  #hero-description{
-    font-size: 1rem;
-    line-height: 1.5rem;
-    text-align: center;
-    padding:0 1rem;
-  }
-
-  div#hero-btn-container {
-    flex-direction: column;
-    gap: 1rem;
+  #hero-img-container{
+    box-sizing: border-box;
+    width: 90dvw;
+    aspect-ratio: 1/1;
+    height: auto;
+    min-height: unset;
   }
 
   .hero-btn {
@@ -119,11 +112,78 @@ div#hero-btn-container {
     margin-top: 0;
   }
 
-  #hero-img-container{
-    max-width: 80dvw;
+  #hero-title{
+    text-align: center;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    margin-top: 0rem;
+  }
+  
+  div#hero-btn-container {
+    justify-content: center;
   }
 }
 
+@media (max-width:600px) {
+
+  #hero-description{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+    padding:0 1rem;
+  }
+}
+
+@media screen and (max-width: 940px){
+  main {
+    grid-template-columns: 1fr 20rem;
+    padding: 0 2rem;
+  }
+
+  #hero-title {
+    font-size: calc(2rem + 2.5vh);
+    line-height: calc(2rem + 2.5vh + 0.25rem);
+  }
+
+  #hero-description { 
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .hero-btn {
+    font-weight: bold;
+    min-width: 15rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 3px solid var(--highlight);
+    margin-top: 0;
+  } 
+}
+
+@media screen and (max-width: 350px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  #hero-title {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  #hero-section {
+    gap: 1rem;
+  }
+
+  #hero-description {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .hero-btn {
+    font-size: 0.75rem;
+    min-width: 16ch;
+    padding: 0.5rem 1rem;
+  }
+}
 /* ======================================================*/
 
     /*    Genre Container   */
