@@ -2,9 +2,20 @@ footer {
   overflow-wrap: break-word;
   display: flex;
   flex-direction: row;
-  padding: 5rem !important;
-  margin: 2rem;
   gap: 2rem;
+  box-sizing: border-box;
+  padding: 2rem 4rem;
+  max-width: 50rem;
+  margin: auto;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+}
+
+@media screen and (max-width: calc(50rem + 2rem)) {
+  footer {
+    margin: 0 1rem;
+    padding: 2rem 1.5rem;
+  }
 }
 
 footer > * {
@@ -56,6 +67,7 @@ footer nav {
   width: 35rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 footer .list-holder {
@@ -92,6 +104,15 @@ footer .list-holder {
     padding: 2rem !important;
     overflow-wrap: break-word;
     overflow-x: hidden;
+  }
+
+  #footer-hero .title{
+    font-size: 2.5rem; 
+    line-height: 2.5rem;
+  }
+
+  #footer-hero .footer-description {
+    font-size: 1rem;
   }
 
   footer nav {
