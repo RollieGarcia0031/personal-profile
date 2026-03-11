@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--bg-dark);
   color: var(--text);
 }
 
@@ -133,8 +133,14 @@ a {
 .card {
   padding: 1rem;
   border-radius: 10px;
-  background-color: var(--bg-light);
+  background-color: var(--bg);
   border: 1px solid var(--border);
+  transition: 900ms;
+}
+
+.card:hover {
+  transition: 50ms;
+  background-color: var(--bg-light);
 }
 
 select {
