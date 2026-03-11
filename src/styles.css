@@ -24,7 +24,6 @@ main {
 }
 
 #hero-img-container {
-  background-color: gray;
   background-image: url(/hero_image.png);
   background-size: cover;
   border: 0.5rem solid var(--border);
@@ -203,12 +202,13 @@ div#hero-btn-container {
 }
 
 #genre-container .bento-box{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 3rem;
-  padding: 1rem 5rem 1.5rem;
-  justify-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 1rem 0 1.5rem;
 }
 
 #genre-container > .bento-box > *{
@@ -216,12 +216,12 @@ div#hero-btn-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 25ch;
   align-items: center;
   padding: 1rem;
   gap: 1rem;
   overflow: hidden;
   transition: 250ms;
-
   border: 1px solid var(--border);
   border-radius: 1rem;
   background-image: linear-gradient(to bottom, var(--bg-dark) 20%, var(--highlight))
@@ -232,14 +232,19 @@ div#hero-btn-container {
   background-color: var(--highlight);
 }
 
-#genre-container > .bento-box > * > p{
+#genre-container > .bento-box > p{
   margin: 0;
 }
 
-#genre-container .style-title {
+#genre-container > .bento-box .title {
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   margin: 0;
+  font-size: calc(0.75rem + 1.5vw);
+}
+
+#genre-container > .bento-box .description {
+    font-size: calc(0.5rem + 0.75vw);
 }
 
 @media (max-width: 600px) {
@@ -249,8 +254,10 @@ div#hero-btn-container {
 
   #genre-container .bento-box {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 1rem;
     gap: 1rem;
   }
