@@ -25,6 +25,7 @@ button:focus, input:focus, select:focus {
 :root {
   --bg-dark: oklch(0.92 0.025 249);
   --bg: oklch(0.96 0.025 249);
+  --bg-rgb: 229, 244, 255,;
   --bg-light: oklch(1 0.025 249);
   --text: oklch(0.15 0.05 249);
   --text-muted: oklch(0.4 0.05 249);
@@ -43,6 +44,7 @@ button:focus, input:focus, select:focus {
   :root {
     --bg-dark: oklch(0.1 0.025 249);
     --bg: oklch(0.15 0.025 249);
+    --bg-rgb: 4, 12, 21;
     --bg-light: oklch(0.2 0.025 249);
     --text: oklch(0.96 0.05 249);
     --text-muted: oklch(0.76 0.05 249);
