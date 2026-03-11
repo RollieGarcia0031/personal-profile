@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--bg-dark);
   color: var(--text);
 }
 
