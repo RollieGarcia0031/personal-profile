@@ -39,19 +39,18 @@ main .description {
   grid-template-columns: 1fr auto;
   gap: 2rem;
   padding: 1rem 3rem;
-  max-width: 40rem;
+  max-width: 50rem;
   margin: 2rem auto;
   align-items: center;
+  box-sizing: border-box;
 }
-
-/* .filter-form > * {border: 1px solid white;} */
 
 .search-container {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.5rem;
   align-items: center;
-  justify-content: stretch
+  justify-content: stretch;
 }
 
 .search-container input[type="search"] {
@@ -135,6 +134,12 @@ main .description {
   }
 }
 
+@media screen and (max-width: 928px){
+  #tracks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media screen and (max-width: 768px) {
   
   main .title {
@@ -157,7 +162,6 @@ main .description {
   }
 
   .filter-form {
-    grid-template-columns: 1fr;
     gap: 0.5rem;
     padding: 0.5rem;
     justify-items: start;
