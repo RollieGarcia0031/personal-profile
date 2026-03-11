@@ -35,14 +35,22 @@ main .description {
 }
 
 .filter-form {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem 3rem;
   max-width: 50rem;
-  margin: 2rem auto;
+  margin: 2rem auto 0.5rem;
   align-items: center;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 50rem){
+  .filter-form {
+    max-width: unset;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 
 .search-container {
@@ -51,6 +59,7 @@ main .description {
   gap: 0.5rem;
   align-items: center;
   justify-content: stretch;
+  flex: 1;
 }
 
 .search-container input[type="search"] {
@@ -58,6 +67,7 @@ main .description {
   border-radius: 0.5rem;
   padding: 0.5rem;
   font-size: 1rem;
+  min-width: 20ch;
 }
 
 .search-container .search-button{
@@ -141,14 +151,15 @@ main .description {
 }
 
 @media screen and (max-width: 768px) {
-  
+  body {
+    gap: 0.5rem;
+  }
   main .title {
     font-size: calc( 2.5rem + 2vw );
   }
 
   .search-container input[type="search"] {
     font-size: calc( 0.75rem + 0.5vw );
-    width: 100%;
   }
 
   main .description {
@@ -164,7 +175,6 @@ main .description {
   .filter-form {
     gap: 0.5rem;
     padding: 0.5rem;
-    justify-items: start;
     font-size: 0.75rem;
   }
 }
