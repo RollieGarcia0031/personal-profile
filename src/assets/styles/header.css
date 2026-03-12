@@ -19,7 +19,7 @@ header {
   right: 0;
   gap: 1rem;
   display: grid;
-  grid-template-columns: auto min-content;
+  grid-template-columns: auto auto 1fr;
   color: var(--text);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -54,6 +54,31 @@ header a i {
   display: none;
   border: none;  
   visibility: hidden;
+}
+
+
+#theme-toggle-btn {
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.45rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: 150ms;
+}
+
+#theme-toggle-btn:hover {
+  background-color: var(--highlight);
+}
+
+#theme-toggle-btn i {
+  color: var(--primary);
+}
+
+.theme-toggle-label {
+  font-size: 0.9rem;
 }
 
 header a:not(.home-link):hover {
@@ -114,7 +139,17 @@ header nav {
     border: 1px solid var(--border);
   }
 
-  #menu-collapse-btn, #menu-close-btn{
+  
+  #theme-toggle-btn {
+    justify-self: end;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .theme-toggle-label {
+    display: none;
+  }
+
+#menu-collapse-btn, #menu-close-btn{
     display: block;
     visibility: visible;
   }
