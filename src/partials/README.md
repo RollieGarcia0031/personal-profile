@@ -86,13 +86,31 @@ Keep structure changes in partial files and visual changes in CSS files when pos
 
 ### Edit behavior
 
-Header menu behavior is in `src/assets/js/header.js` and depends on these IDs/classes:
+Header behavior is in `src/assets/js/header.js`.
+
+It currently manages two responsibilities:
+
+1. **Mobile menu state**
+   - Opens menu from `#menu-collapse-btn`
+   - Closes menu from `#menu-close-btn`
+   - Toggles `hidden` on `header nav`
+
+2. **Theme toggle state**
+   - Uses `#theme-toggle-btn` to switch between `light` and `dark`
+   - Stores the selected theme in `localStorage` under `theme`
+   - Applies theme by setting `data-theme` on `document.documentElement`
+   - Falls back to `prefers-color-scheme` if no saved theme exists
+
+Required selectors/structure from `header.html`:
 
 - `#menu-collapse-btn`
 - `#menu-close-btn`
-- `header nav` with class toggling (`hidden`)
+- `header nav`
+- `#theme-toggle-btn` containing:
+  - an `<i>` icon element
+  - a `.theme-toggle-label` text node
 
-If you rename those selectors in `header.html`, also update `header.js`.
+If you rename those selectors or change theme button internals, also update `header.js`.
 
 ## How to add a new reusable partial/component
 
