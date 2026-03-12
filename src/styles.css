@@ -271,7 +271,7 @@ div#hero-btn-container {
 
 #body {
   border-top: 3px solid var(--border);
-  padding: 14rem 2rem;
+  padding: 14rem 0;
   margin: 0 2rem;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -317,22 +317,18 @@ div#hero-btn-container {
 }
 
 #demo-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 1rem;
-  margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 1rem 1.5rem;
   padding: 0;
 }
 
-#demo-container > audio-player {
-  aspect-ratio: 1;
-}
-
 div :has(#view-all-btn-container) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5rem;
+    display: flex;
+    justify-content: center;
 }
 
 #view-all-btn-container {
@@ -342,22 +338,13 @@ div :has(#view-all-btn-container) {
   font-size: 1.25rem;
   padding: 1rem 2rem;
   border-radius: 5rem;
-  display: inline-block;
+  margin: auto;
 }
 
 @media (max-width: 600px) {
   #body {
     padding: 3rem 1rem;
     margin: 0;
-  }
-
-  #demo-container > audio-player {
-    aspect-ratio: auto;
-  }
-
-  #demo-container {
-    display: flex;
-    flex-direction: column;
   }
 
   #body .body-decription{
@@ -371,4 +358,10 @@ div :has(#view-all-btn-container) {
   #body .body-title{
     font-size: 0.75rem;
   } 
+
+  #view-all-btn-container {
+    font-size: calc(0.5rem + 1vw);
+    padding: calc(0.5rem + 1vw) calc(2 * (0.5rem + 1vw));
+  }
+
 }
