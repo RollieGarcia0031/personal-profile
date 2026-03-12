@@ -35,7 +35,7 @@ Inside a page under `src/**/index.html`, add:
   <!-- @site-header -->
 
   <main>
-    <!-- page-specific content -->
+    <p> Sample Content </p>
   </main>
 
   <!-- @site-footer -->
@@ -141,8 +141,8 @@ function sitePartialsPlugin() {
 - Add CSS to an appropriate stylesheet and include it from pages that need it.
 - Add JS module behavior if needed and ensure the script path is correct for each page depth.
 
-## Tips and limitations
+## `Reminders`
 
-- `String.replace(...)` only replaces the first matching marker. Keep one marker occurrence per page unless you intentionally update logic.
+- `String.replace(...)` only replaces the first matching marker. **Keep one marker occurrence per page** unless you intentionally update logic.
 - Markers are plain text, so spelling must match exactly (including `@site-header`/`@site-footer`).
 - Partial injection happens at dev/build HTML transform time, not dynamically in the browser.
