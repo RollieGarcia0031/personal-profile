@@ -2,6 +2,39 @@
 
 This repository contains Rollie’s personal music portfolio website, built with Vite and vanilla JavaScript.
 
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+2. Start local development:
+   ```bash
+   pnpm dev
+   ```
+3. Build for production:
+   ```bash
+   pnpm build
+   ```
+4. Preview the production build locally:
+   ```bash
+   pnpm preview
+   ```
+
+## Scripts (Run & Build)
+
+The project uses these scripts to run and build the website:
+
+- `pnpm dev` — starts the Vite development server with hot reload.
+- `pnpm predev` — runs automatically before `dev` to refresh the image cache manifest.
+- `pnpm build` — creates the optimized production bundle in `dist/`.
+- `pnpm prebuild` — runs automatically before `build` to regenerate track metadata and image cache data.
+- `pnpm preview` — serves the built `dist/` output locally for a production-like check.
+- `pnpm generate:track-info` — updates generated track detail data from your source content.
+- `pnpm generate:image-cache-manifest` — rebuilds `src/public/track-images.json` used by the service worker.
+
+In short: use `pnpm dev` while developing, and `pnpm build` + `pnpm preview` to verify production output.
+
 ## Website Overview
 
 The site presents Rollie as a producer focused on anime-style, OPM, and classical fusion music. It includes:
@@ -16,7 +49,7 @@ The project uses custom web components for audio playback and track cards, with 
 
 ## Offline image caching (Service Worker)
 
-The app now registers a vanilla JavaScript service worker that caches image assets so cover art and hero images load faster and continue to work offline after first visit.
+This website registers a vanilla JavaScript service worker that caches image assets so cover art and hero images load faster and continue to work offline after first visit.
 
 - Service worker file: `src/public/service-worker.js`
 - Registration script: `src/assets/js/register-service-worker.js`
