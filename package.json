@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "generate:track-info": "node scripts/generate-track-info.mjs",
-    "prebuild": "pnpm generate:track-info"
+    "prebuild": "pnpm generate:track-info && pnpm generate:image-cache-manifest",
+    "generate:image-cache-manifest": "node scripts/generate-image-cache-manifest.mjs",
+    "predev": "pnpm generate:image-cache-manifest"
   },
   "keywords": [],
   "author": "",
