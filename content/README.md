@@ -117,3 +117,24 @@ After changes:
 2. Run `pnpm dev` and verify:
    - `/tracks/` list renders/searches/sorts correctly
    - each `Listen` link opens the expected `/track-info/:id/` page.
+
+
+## Track image cache manifest (`src/public/track-images.json`)
+
+Track covers are cached by the service worker using a generated manifest file.
+
+### How it works
+
+- `scripts/generate-image-cache-manifest.mjs` reads all image files under `src/public`.
+- It also collects all image paths from `imgSrc` fields in `content/tracks.json`.
+- It writes the merged result to `src/public/track-images.json`.
+- `src/public/service-worker.js` uses that manifest to pre-cache images.
+
+### If you change `imgSrc` or add a new cover
+
+1. Add your image under `src/public/...`.
+2. Update `imgSrc` in `content/tracks.json`.
+3. Run `pnpm generate:image-cache-manifest`.
+4. (Recommended) run `pnpm dev` and verify the cover loads.
+
+This command is also run automatically by `predev` and `prebuild`.
