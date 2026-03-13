@@ -116,7 +116,7 @@ header nav {
 
   header nav {
     position: fixed;
-    z-index: 10000;
+    z-index: 10001;
     top: 0;
     right: 0;
     min-width: 50dvw;
@@ -152,7 +152,7 @@ header nav {
     display: none;
   }
 
-#menu-collapse-btn, #menu-close-btn{
+  #menu-collapse-btn, #menu-close-btn{
     display: block;
     visibility: visible;
   }
@@ -165,7 +165,7 @@ header nav {
     z-index: 10001;
     top: 50%;
     transform: translateY(-50%);
-    right: 0;
+    right: 0.5rem;
   }
 
   #menu-close-btn {
