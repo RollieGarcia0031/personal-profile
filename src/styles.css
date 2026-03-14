@@ -4,7 +4,7 @@
 
 main {
   display: grid;
-  grid-template-columns: 4fr 28rem;
+  grid-template-columns: 1fr 1fr;
   justify-items: stretch;
   align-items: center;
   gap: 1.5rem;
@@ -46,6 +46,7 @@ main {
   font-size: 1.25rem;
   line-height: 2rem;
   padding-right: 3rem;
+  max-width: 50ch;
 }
 
 div#hero-btn-container {
@@ -74,8 +75,7 @@ div#hero-btn-container {
 .hero-btn {
   font-weight: bold;
   margin-top: 1rem;
-  min-width: 15rem;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
   font-size: 1.25rem;
   border-radius: 10rem;
   color: var(--text);
@@ -135,7 +135,6 @@ div#hero-btn-container {
 
 @media screen and (max-width: 940px){
   main {
-    grid-template-columns: 1fr 20rem;
     padding: 0 2rem;
   }
 
@@ -201,6 +200,11 @@ div#hero-btn-container {
   margin-bottom: 3rem;
 }
 
+@media screen and (max-width: 467px){
+  #genre-container .title {
+    font-size: calc(1rem + 1.75vw);
+  }
+}
 #genre-container .bento-box{
   display: flex;
   flex-direction: row;
@@ -208,24 +212,28 @@ div#hero-btn-container {
   align-items: center;
   flex-wrap: wrap;
   gap: 3rem;
-  padding: 1rem 0 1.5rem;
 }
 
 #genre-container > .bento-box > *{
-  aspect-ratio: 1/1;
   display: flex;
+  aspect-ratio: 1;
   flex-direction: column;
   justify-content: center;
-  max-width: 25ch;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   gap: 1rem;
   overflow: hidden;
   transition: 250ms;
   border: 1px solid var(--border);
   border-radius: 1rem;
-  background-image: linear-gradient(to bottom, var(--bg-dark) 20%, var(--highlight))
+  background-image: linear-gradient(to bottom, var(--bg) 10%, var(--highlight))
+}
 
+@media screen and (max-width: 630px){
+  #genre-container > .bento-box > *{
+    aspect-ratio: auto;
+    padding: 0.75rem 1.5rem;
+  }
 }
 
 #genre-container > .bento-box > *:hover {
@@ -245,6 +253,8 @@ div#hero-btn-container {
 
 #genre-container > .bento-box .description {
     font-size: calc(0.5rem + 0.75vw);
+    color: var(--text-muted);
+    max-width: 25ch;
 }
 
 @media (max-width: 600px) {
@@ -258,7 +268,6 @@ div#hero-btn-container {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 1rem;
     gap: 1rem;
   }
 }
