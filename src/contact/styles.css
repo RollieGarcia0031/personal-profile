@@ -1,0 +1,175 @@
+@import '../assets/styles/global.css';
+@import '../assets/styles/header.css';
+@import '../assets/styles/footer.css';
+
+body {
+  display: grid;
+  grid-template-rows: calc(64px + 1rem) auto auto;
+  gap: 2rem;
+}
+
+#contact-page {
+  padding: 0 4rem 1rem;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 46rem;
+  margin: 0 auto 2.5rem;
+}
+
+.eyebrow,
+.section-label {
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.contact-intro .title {
+  font-size: 4.5rem;
+  line-height: 1;
+  margin: 0.85rem 0 1rem;
+}
+
+.contact-intro .description {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.8rem;
+}
+
+.contact-layout {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.contact-card,
+.sidebar-card {
+  border-radius: 1.5rem;
+}
+
+.contact-card {
+  padding: 2rem;
+}
+
+.card-copy h2 {
+  font-size: 2rem;
+  margin: 0.75rem 0;
+}
+
+.card-copy p {
+  max-width: 56ch;
+  line-height: 1.7;
+}
+
+.message-form {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.message-form label {
+  font-weight: 700;
+}
+
+.message-form input,
+.message-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 12%);
+  background-color: color-mix(in srgb, var(--bg-light), transparent 4%);
+  color: var(--text);
+  padding: 1rem 1.1rem;
+  font: inherit;
+}
+
+.message-form textarea {
+  resize: vertical;
+  min-height: 12rem;
+}
+
+.message-form button {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.contact-sidebar {
+  display: grid;
+  gap: 1rem;
+}
+
+.sidebar-card {
+  padding: 1.5rem;
+}
+
+.sidebar-card ul {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+  display: grid;
+  gap: 0.8rem;
+  line-height: 1.6;
+}
+
+.direct-email {
+  margin: 1rem 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 980px) {
+  #contact-page {
+    padding: 0 2rem 1rem;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    gap: 1.25rem;
+  }
+
+  #contact-page {
+    padding: 0 0.75rem 0.5rem;
+  }
+
+  .contact-intro {
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-intro .title {
+    font-size: 2.75rem;
+  }
+
+  .contact-intro .description {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
+
+  .contact-card,
+  .sidebar-card {
+    padding: 1.25rem;
+  }
+
+  .card-copy h2 {
+    font-size: 1.6rem;
+  }
+
+  .message-form button {
+    width: 100%;
+    justify-content: center;
+  }
+}
