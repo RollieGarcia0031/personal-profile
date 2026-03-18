@@ -8,29 +8,30 @@ main {
   justify-items: stretch;
   align-items: center;
   gap: 1.5rem;
-  padding: 0 5rem;
+  padding: 1.5rem 5rem 0;
 }
 
 #hero-section {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1.5rem;
 }
 
 #hero-text-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 #hero-img-container {
   background-image: url(/hero_image.png);
   background-size: cover;
-  border: 0.5rem solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 18%);
+  padding: 0.5rem;
   min-height: 33rem;
   max-height: auto;
   min-width: 15rem;
-  margin-top: 5rem;
+  margin-top: 4.5rem;
   border-radius: 20px;
 }
 
@@ -39,7 +40,7 @@ main {
   font-size: calc(4rem + 2vh);
   line-height: 5rem;
   text-align: left;
-  margin-top: 5rem;
+  margin-top: 4.5rem;
 }
 
 #hero-description{
@@ -58,29 +59,29 @@ div#hero-btn-container {
 }
 
 #hero-btn-container #main-btn {
-  background-color: var(--primary);
-  border: 3px solid var(--highlight);
-  color: black;
-  text-decoration-color: black;
+  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: 1px solid color-mix(in srgb, var(--primary), var(--border) 35%);
+  color: var(--bg-light);
+  text-decoration-color: var(--bg-light);
 }
 
 #hero-btn-container .view-btn {
-  background-color: var(--text);
-  border: 3px solid var(--highlight);
-  color: var(--bg-dark);
-  text-decoration-color: black;
+  background-color: color-mix(in srgb, var(--bg-light), var(--highlight) 18%);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 16%);
+  color: var(--text);
+  text-decoration-color: var(--text);
   margin-bottom: 1rem;
 }
 
 .hero-btn {
   font-weight: bold;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   padding: 1rem 2rem;
   font-size: 1.25rem;
   border-radius: 10rem;
   color: var(--text);
-  background-color: var(--bg);
-  border: 3px solid var(--bg-dark);
+  background-color: color-mix(in srgb, var(--bg-light), transparent 6%);
+  border: 1px solid color-mix(in srgb, var(--border), var(--highlight) 35%);
   cursor: pointer;
   transition: 200ms;
   text-align: center;
@@ -107,7 +108,7 @@ div#hero-btn-container {
     min-width: 15rem;
     padding: 0.75rem 1rem;
     font-size: 1.25rem;
-    border: 3px solid var(--highlight);
+    border: 1px solid color-mix(in srgb, var(--border), var(--highlight) 35%);
     margin-top: 0;
   }
 
@@ -153,7 +154,7 @@ div#hero-btn-container {
     min-width: 15rem;
     padding: 0.75rem 1rem;
     font-size: 1rem;
-    border: 3px solid var(--highlight);
+    border: 1px solid color-mix(in srgb, var(--border), var(--highlight) 35%);
     margin-top: 0;
   } 
 }
@@ -189,8 +190,8 @@ div#hero-btn-container {
 /* ======================================================*/
 
 #genre-container {
-  border-top: 3px solid var(--border);
-  padding: 5rem 3rem;
+  border-top: 1px solid color-mix(in srgb, var(--border), var(--primary) 14%);
+  padding: 5rem 3rem 5.5rem;
 }
 
 #genre-container .title {
@@ -211,7 +212,7 @@ div#hero-btn-container {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 #genre-container > .bento-box > *{
@@ -220,13 +221,13 @@ div#hero-btn-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2.25rem;
   gap: 1rem;
   overflow: hidden;
   transition: 250ms;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 10%);
   border-radius: 1rem;
-  background-image: linear-gradient(to bottom, var(--bg) 10%, var(--highlight))
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-light), transparent 6%), color-mix(in srgb, var(--highlight), var(--bg) 55%));
 }
 
 @media screen and (max-width: 630px){
@@ -237,7 +238,7 @@ div#hero-btn-container {
 }
 
 #genre-container > .bento-box > *:hover {
-  background-color: var(--highlight);
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--highlight), var(--primary) 14%), color-mix(in srgb, var(--bg-light), var(--highlight) 28%));
 }
 
 #genre-container > .bento-box > p{
@@ -279,9 +280,9 @@ div#hero-btn-container {
 /* ======================================================*/
 
 #body {
-  border-top: 3px solid var(--border);
-  padding: 14rem 0;
-  margin: 0 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--border), var(--primary) 14%);
+  padding: 7rem 0 6rem;
+  margin: 0 2rem 2rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -305,7 +306,7 @@ div#hero-btn-container {
 
 #body .body-decription{
   font-size: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   color: var(--text-muted);
 }
 
@@ -330,9 +331,9 @@ div#hero-btn-container {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin: 1rem 1rem 1.5rem;
-  padding: 0;
+  gap: 1.5rem;
+  margin: 1.5rem 1rem 2rem;
+  padding: 0.5rem 0;
 }
 
 div :has(#view-all-btn-container) {
@@ -341,9 +342,9 @@ div :has(#view-all-btn-container) {
 }
 
 #view-all-btn-container {
-  background-color: var(--bg-light);
+  background-image: linear-gradient(135deg, color-mix(in srgb, var(--bg-light), transparent 5%), color-mix(in srgb, var(--highlight), var(--bg) 24%));
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 16%);
   font-size: 1.25rem;
   padding: 1rem 2rem;
   border-radius: 5rem;
@@ -352,7 +353,7 @@ div :has(#view-all-btn-container) {
 
 @media (max-width: 600px) {
   #body {
-    padding: 3rem 1rem;
+    padding: 3rem 1rem 2.5rem;
     margin: 0;
   }
 
