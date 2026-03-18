@@ -36,7 +36,10 @@ footer ul {
   gap: 2rem;
 }
 
-#footer-hero button {
+#footer-hero .footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 1rem 1.5rem;
   font-size: 1rem;
   border-radius: 2rem;
@@ -45,6 +48,10 @@ footer ul {
   background-image: linear-gradient(135deg, var(--secondary), var(--primary));
   color: var(--bg-light);
   border: 1px solid color-mix(in srgb, var(--secondary), var(--border) 35%);
+}
+
+#footer-hero .footer-cta:hover {
+  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
 #footer-hero .title {

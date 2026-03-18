@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+
+  <script src="../assets/js/header.js" type="module" defer></script>
+  <script src="../assets/js/register-service-worker.js" type="module" defer></script>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="../assets/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- @site-header -->
+
+  <main id="contact-page">
+    <section class="contact-intro">
+      <p class="eyebrow">Let&apos;s create together</p>
+      <h1 class="title">Send me a message</h1>
+      <p class="description">
+        Share your email and a few details about your project, collaboration,
+        or idea. I&apos;ll take it from here once the form endpoint is connected.
+      </p>
+    </section>
+
+    <section class="contact-layout">
+      <article class="contact-card card">
+        <div class="card-copy">
+          <p class="section-label">Project inquiry form</p>
+          <h2>Tell me what you&apos;re building</h2>
+          <p class="text-mute">
+            This form is ready for your backend hookup later. For now, it keeps
+            the experience clean and consistent with the rest of the site.
+          </p>
+        </div>
+
+        <form class="message-form" action="#" method="post">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="8"
+            placeholder="Tell me about your sound, timeline, or idea..."
+            required
+          ></textarea>
+
+          <button type="submit" class="primary-btn">
+            <i class="bi bi-send-fill"></i>
+            <span>Send inquiry</span>
+          </button>
+        </form>
+      </article>
+
+      <aside class="contact-sidebar">
+        <article class="sidebar-card card">
+          <p class="section-label">What to include</p>
+          <ul>
+            <li>Project type or genre inspiration.</li>
+            <li>Your target release date or timeline.</li>
+            <li>Any references, mood, or production goals.</li>
+          </ul>
+        </article>
+
+        <article class="sidebar-card card">
+          <p class="section-label">Direct email</p>
+          <p class="direct-email">garciarollie827@gmail.com</p>
+          <p class="text-mute">
+            Prefer reaching out personally? You can still use the email above
+            while the form endpoint is being connected.
+          </p>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <!-- @site-footer -->
+</body>
+
+</html>
