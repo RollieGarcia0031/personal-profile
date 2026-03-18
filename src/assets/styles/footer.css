@@ -1,21 +1,21 @@
 footer {
-  background-color: var(--bg);
+  background-image: linear-gradient(135deg, color-mix(in srgb, var(--bg-light), transparent 2%), color-mix(in srgb, var(--bg), var(--bg-dark) 12%));
   overflow-wrap: break-word;
   display: flex;
   flex-direction: row;
   gap: 2rem;
   box-sizing: border-box;
-  padding: 2rem 4rem;
+  padding: 2.75rem 4rem;
   max-width: 80rem;
   margin: auto;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 12%);
   border-radius: 2rem;
 }
 
 @media screen and (max-width: calc(80rem + 2rem)) {
   footer {
     margin: 0 1rem;
-    padding: 2rem 1.5rem;
+    padding: 2.25rem 1.75rem;
   }
 }
 
@@ -42,9 +42,9 @@ footer ul {
   border-radius: 2rem;
   cursor: pointer;
   font-weight: bold;
-  background-color: var(--secondary);
-  color: var(--bg);
-  border: none;
+  background-image: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--bg-light);
+  border: 1px solid color-mix(in srgb, var(--secondary), var(--border) 35%);
 }
 
 #footer-hero .title {
@@ -93,7 +93,7 @@ footer .list-holder {
 
 #footer-copyright{
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem 2rem;
   font-size: 1rem;
   color: var(--text-muted);
 }

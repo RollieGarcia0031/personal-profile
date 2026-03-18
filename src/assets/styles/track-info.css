@@ -23,7 +23,7 @@ body {
   display: grid;
   grid-template-columns: 30rem 1fr;
   gap: 2rem;
-  padding: 0 4rem;
+  padding: 0 4rem 2rem;
 }
 
 .preview-container{
@@ -33,14 +33,17 @@ body {
 .preview-container img {
   max-width: 100%;
   border-radius: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 12%);
+  padding: 0.4rem;
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-light), transparent 6%), color-mix(in srgb, var(--bg), var(--bg-dark) 10%));
   height: auto;
 }
 
 .preview-control-container{
-  border: 1px solid var(--border);
-  background-color: var(--bg-light);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 12%);
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-light), transparent 4%), color-mix(in srgb, var(--bg), var(--bg-dark) 8%));
   border-radius: 1rem;
-  padding: 1.25rem;
+  padding: 1.4rem;
   margin-top: 1rem;
 }
 
@@ -50,7 +53,7 @@ body {
   -webkit-appearance: none;
   appearance: none;
   height: 8px;
-  background: var(--border-muted);
+  background: color-mix(in srgb, var(--border-muted), var(--highlight) 25%);
   border-radius: 4px;
   outline: none;
   cursor: pointer;
@@ -66,7 +69,6 @@ body {
   cursor: grab;
 }
 
-
 .preview-control-container .duration-container{
   display: flex;
   flex-direction: row;
@@ -75,10 +77,10 @@ body {
 }
 
 .preview-control-container .play-preview-btn{
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   width: 100%;
-  background-image: linear-gradient(to left, var(--secondary), var(--primary));
-  border: none;
+  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: 1px solid color-mix(in srgb, var(--primary), var(--border) 35%);
   padding: 1rem;
   font-size: 1rem;
   border-radius: 1rem;
@@ -92,7 +94,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
 
 .audio-controls-container button{
@@ -138,11 +140,11 @@ body {
 
 .info-container .genre {
   display: inline-block;
-  border: 1px solid var(--highlight);
-  background-color: var(--bg-light);
-  color:            var(--primary);
+  border: 1px solid color-mix(in srgb, var(--primary), var(--border) 55%);
+  background-image: linear-gradient(135deg, color-mix(in srgb, var(--primary), transparent 82%), color-mix(in srgb, var(--secondary), transparent 86%));
+  color: var(--primary);
   font-weight: bold;
-  padding: 0.5rem 1.25rem;
+  padding: 0.55rem 1.25rem;
   border-radius: 2rem;
 }
 
@@ -177,9 +179,9 @@ body {
 }
 
 .track-info-card {
-  margin-top: 2rem;
-  border: 1px solid var(--border);
-  background-color: var(--bg-light);
+  margin-top: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 10%);
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-light), transparent 6%), color-mix(in srgb, var(--bg), var(--bg-dark) 10%));
   border-radius: 1rem;
   padding: 1.5rem;
   color: var(--text-muted);
@@ -203,10 +205,10 @@ body {
 .track-info-card.instrument .instrument-holder > *{
   color: var(--text);
   font-size: 1rem;
-  border: 1px solid var(--border);
-  background-color: var(--highlight);
+  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 12%);
+  background-image: linear-gradient(135deg, color-mix(in srgb, var(--highlight), transparent 4%), color-mix(in srgb, var(--bg-light), var(--highlight) 20%));
   border-radius: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1rem;
 }
 
 @media screen and (max-width: 1080px){
