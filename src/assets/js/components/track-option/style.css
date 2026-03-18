@@ -4,8 +4,6 @@
 
 /* ====================================== */
 .track-option-container{
-  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 10%);
-  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-light), transparent 4%), color-mix(in srgb, var(--bg), var(--bg-dark) 12%));
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -39,7 +37,7 @@
 }
 
 .grid-view .track-option-container:hover img.frontdrop {
-  transform: translateY(-50%) translateX(-50%) scale(0.8);  
+  transform: translateY(-50%) translateX(-50%) scale(0.7);  
 }
 
 .track-option-container img.backdrop {
@@ -54,11 +52,11 @@
 }
 
 .track-option-container .track-img-container {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   overflow: hidden;
   border-radius: 1rem;
-  padding: 0.35rem;
   background-image: linear-gradient(180deg, color-mix(in srgb, var(--highlight), transparent 8%), transparent);
 }
 
@@ -122,6 +120,7 @@
 @media screen and (max-width: 530px){
   .track-option-container{
     gap: 0.5rem;
+    padding: 0;
   }
 
   .track-option-container .track-genre{
@@ -166,9 +165,7 @@
   height: 100%;
   justify-items: start;
   box-sizing: border-box;
-  padding: 1rem;
 }
-
 
 .list-view .img-holder {
   aspect-ratio: 1/1;
