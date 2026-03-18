@@ -33,8 +33,6 @@ header {
 }
 
 .home-link {
-  background-image: linear-gradient(135deg, color-mix(in srgb, var(--primary), transparent 72%), color-mix(in srgb, var(--secondary), transparent 78%));
-  border: 1px solid color-mix(in srgb, var(--primary), var(--border) 50%);
   font-size: 1.5rem;
   font-weight: bold;
   display: inline-block;
