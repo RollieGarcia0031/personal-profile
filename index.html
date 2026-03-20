@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rollie</title>
+
+  <script type="module" crossorigin src="/assets/index.html-i8kRO0uM.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-C0m8mux7.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-CelqrQH8.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-CGb4Xof3.css">
+</head>
+<body>
+  <header>
+  <h1>
+    <a href="/"> Rollie </a>
+  </h1>
+
+  <button id="menu-collapse-btn">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <nav class="hidden">
+    <button id="menu-close-btn">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <a href="#demo-container">
+      <i class="bi bi-disc"></i>
+      <span>Demos</span>
+    </a>
+    <a href="#contact-info">
+      <i class="bi bi-envelope-at"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+</header>
+
+
+  <main class="card-screen">
+    <div id="hero-section">
+      <div id="hero-text-container">
+        <h1 id="hero-title">
+          <span> Creating </span>
+          <span class="text-primary"> Magic </span> <br />
+          <span> Through Sound. </span>
+        </h1>
+
+        <p class="text-mute text-lg" id="hero-description">
+          Hi, I'm Rollie. I produce Anime-style, OPM, and Classical fusion
+          music that tells a story. Let's make your next track unforgettable.
+        </p>
+      </div>
+
+      <div id="hero-btn-container">
+        <a href="#demo-container" class="hero-btn" id="main-btn">
+          <i class="bi bi-play-circle-fill"></i>
+          Listen to Demos
+        </a>
+
+        <a href="./about/" class="hero-btn view-btn">
+          About Me
+        </a>
+      </div>
+    </div>
+
+    <div id="hero-img-container" class="bg-test"></div>
+  </main>
+
+  <div id="genre-container">
+    <p class="title">My Musical Universe</p>
+
+    <div class="bento-box">
+      <div>
+        <p class="text-xl style-title text-main">Anime Style</p>
+        <p class="text-mute">
+          Emotional, high-energy tracks inspired by J-Pop and anime OSTs.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xl style-title text-main">OPM</p>
+        <p class="text-mute">
+          Heartfelt Filipino lyrics and melodies that resonate with the soul.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xl style-title text-main">Classical</p>
+        <p class="text-mute">
+          Orchestral arrangements blending traditional instruments with modern
+          beats.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="body" class="card-screen">
+    <p class="body-title">Discography</p>
+    <p class="body-subtitle">Latest Tracks & Demos</p>
+    <p class="body-decription">
+      From high-energy anime openings to heartfelt OPM ballads and classical
+      arrangements.
+    </p>
+
+    <div id="demo-container">
+      <audio-player
+        track-id="2"
+        track-title="Sampaloc"
+        track-src="/mp3/Sampaloc_(vocal).mp3"
+        track-instruments='["guitar", "piano"]'
+        track-description="- - -"
+        track-genre="Romantic Pop"
+      >
+      </audio-player>
+
+      <audio-player
+        track-id="4"
+        track-title="Di Makatulog"
+        track-src="/mp3/Di_Makatulog_(vocal).mp3"
+        track-instruments='["guitar", "piano", "violin", "drums"]'
+        track-description="A calm song with ..."
+        track-genre="Acoustic"
+      >
+      </audio-player>
+
+      <audio-player
+        track-id="3"
+        track-title="Kahit Ano"
+        track-src="/mp3/Dulo (vocal).mp3"
+        track-instruments='["guitar", "piano"]'
+        track-description="- - -"
+        track-genre="Rock"
+      >
+      </audio-player>
+    </div>
+
+    <div>
+      <button id="view-all-btn-container">
+        <a href="./tracks/" class="view-btn">
+          View All Tracks <i class="bi bi-fast-forward-circle"></i>
+        </a>
+      </button>
+    </div>
+  </div>
+
+  <footer class="card">
+    <div id="footer-hero">
+      <p class="title">
+        Ready to make something
+        <span> Kawaii? </span>
+      </p>
+
+      <p class="text-mute footer-description">
+        Whether you need an original anime opening, a game soundtrack, or a
+        fresh mix for your next single, I'm here to help.
+      </p>
+
+      <button>
+        <i class="bi bi-envelope"></i>
+        <span> Send me a message </span>
+      </button>
+    </div>
+
+    <nav id="contact-info">
+      <div class="list-holder">
+        <p class="link-title">Navigation</p>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Music</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="list-holder">
+        <p class="link-title">Socials</p>
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/rollieangelito/">
+              <i class="bi bi-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-youtube"></i>
+            <a href="https://www.youtube.com/@rolliegarcia3713">
+              <span>Youtube</span>
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-tiktok"></i>
+            <a href="https://www.tiktok.com/@rollienthedeep">
+              <span>TikTok</span>
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-facebook"></i>
+            <a href="https://www.facebook.com/profile.php?id=61560794757939">
+              <span>Facebook</span>
+            </a>
+          </li>
+
+          <li class="email">
+            <i class="bi bi-google"></i>
+            <span>Gmail:</span>
+            <span> garciarollie827@gmail.com </span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </footer>
+
+  <div id="footer-copyright">
+    <p>&COPY; 2023 Rollie</p>
+  </div>
+</body>
+</html>
