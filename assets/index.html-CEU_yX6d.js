@@ -1,4 +1,4 @@
-import"./header-DPd5T74P.js";import{c as u}from"./createPubSub-Ze6cNm9A.js";import"./register-service-worker-C_bD3Os7.js";const l=(e,t,i,s,r,a)=>`
+import"./header-WnErQ3ru.js";import{c as u}from"./createPubSub-Ze6cNm9A.js";import"./register-service-worker-C_bD3Os7.js";const l=(e,t,i,s,r,a)=>`
   <audio>
     <source src="${i}" type="audio/mpeg">
   </audio>
