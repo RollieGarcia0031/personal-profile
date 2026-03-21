@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:local": "BASE_URL=/ pnpm build",
+    "build:vercel": "BASE_URL=/ pnpm build",
+    "build:github-pages": "BASE_URL=/personal-profile/ pnpm build",
     "preview": "vite preview",
     "generate:track-info": "node scripts/generate-track-info.mjs",
     "prebuild": "pnpm generate:track-info && pnpm generate:image-cache-manifest",
     "generate:image-cache-manifest": "node scripts/generate-image-cache-manifest.mjs",
-    "predev": "pnpm generate:image-cache-manifest"
+    "predev": "pnpm generate:track-info && pnpm generate:image-cache-manifest"
   },
   "keywords": [],
   "author": "",
