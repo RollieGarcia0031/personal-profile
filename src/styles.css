@@ -24,7 +24,7 @@ main {
 }
 
 #hero-img-container {
-  background-image: url(/hero_image.png);
+  background-image: url(./public/hero_image.png);
   background-size: cover;
   border: 1px solid color-mix(in srgb, var(--border), var(--primary) 18%);
   padding: 0.5rem;
