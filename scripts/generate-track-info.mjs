@@ -81,6 +81,7 @@ function renderPage(track) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Track</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
   <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
   <script type="module" src="../../assets/js/header.js" defer></script>
