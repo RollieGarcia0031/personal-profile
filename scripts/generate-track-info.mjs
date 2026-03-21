@@ -8,6 +8,7 @@ const repoRoot = path.resolve(__dirname, '..');
 
 const tracksPath = path.join(repoRoot, 'content', 'tracks.json');
 const outputRoot = path.join(repoRoot, 'src', 'track-info');
+const baseUrl = normalizeBaseUrl(process.env.BASE_URL);
 
 /**
  * @param {string} value
@@ -19,6 +20,30 @@ function escapeHtml(value) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
+}
+
+/**
+ * @param {string | undefined} value
+ */
+function normalizeBaseUrl(value = '/') {
+  if (!value || value === '/') {
+    return '/';
+  }
+
+  return `/${value.replace(/^\/+|\/+$/g, '')}/`;
+}
+
+/**
+ * @param {string} assetPath
+ */
+function withBaseUrl(assetPath) {
+  const normalizedPath = assetPath.replace(/^\/+/, '');
+
+  if (baseUrl === '/') {
+    return `/${normalizedPath}`;
+  }
+
+  return `${baseUrl}${normalizedPath}`;
 }
 
 /**
@@ -39,14 +64,15 @@ function renderPage(track) {
   const title = escapeHtml(track.title);
   const description = escapeHtml(track.description || '');
   const genre = escapeHtml(track.genre || 'Unknown');
-  const audioSrc = escapeHtml(track.audioSrc);
-  const imgSrc = escapeHtml(track.imgSrc || '');
+  const audioSrc = escapeHtml(withBaseUrl(track.audioSrc));
+  const imgSrc = escapeHtml(withBaseUrl(track.imgSrc || ''));
   const date = escapeHtml(track.date || '');
   const bpm = track.bpm || undefined;
   const duration = escapeHtml(track.duration || '');
   const instruments = track.instruments;
   const writer = escapeHtml(track.writer || '');
   const story = escapeHtml(track.story || '');
+  const backLink = escapeHtml(withBaseUrl('tracks/'));
 
   return `
 <!DOCTYPE html>
@@ -64,7 +90,7 @@ function renderPage(track) {
   <!-- @site-header -->
 
   <div class="back-link">
-    <a href="/tracks/">
+    <a href="${backLink}">
       <i class="bi bi-arrow-left-circle"></i> Back
     </a>
   </div>
@@ -200,7 +226,7 @@ async function main() {
     await writeFile(trackFile, renderPage(track), 'utf8');
   }
 
-  console.log(`Generated ${tracks.length} track-info page(s) in src/track-info/`);
+  console.log(`Generated ${tracks.length} track-info page(s) in src/track-info/ using base ${baseUrl}`);
 }
 
 main().catch((error) => {

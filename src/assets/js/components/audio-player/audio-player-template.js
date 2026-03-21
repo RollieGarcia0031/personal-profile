@@ -1,3 +1,5 @@
+import { withBaseUrl } from '../../lib/base-url.js';
+
 /**
  * 
  * @param {string} track_id 
@@ -15,9 +17,12 @@ export const HTML_TEMPLATE =(
   track_instruments,
   track_description,
   track_genre
-) =>`
+) =>{
+  const audioSrc = withBaseUrl(track_src);
+
+  return `
   <audio>
-    <source src="${track_src}" type="audio/mpeg">
+    <source src="${audioSrc}" type="audio/mpeg">
   </audio>
 
   <div class="audio-player-body">
@@ -92,3 +97,4 @@ export const HTML_TEMPLATE =(
 
   </div>
 `;
+};

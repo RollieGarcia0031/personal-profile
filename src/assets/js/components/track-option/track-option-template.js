@@ -1,3 +1,5 @@
+import { withBaseUrl } from '../../lib/base-url.js';
+
 export const HTML_TEMPLATE = (
   track_title,
   track_description,
@@ -8,9 +10,14 @@ export const HTML_TEMPLATE = (
   track_id,
   track_src,
   track_img
-) => `
+) => {
+  const audioSrc = withBaseUrl(track_src);
+  const imageSrc = withBaseUrl(track_img);
+  const trackInfoHref = withBaseUrl(`track-info/${track_id}/`);
+
+  return `
   <div class="track-option-container">
-    <audio src="${track_src}"></audio>
+    <audio src="${audioSrc}"></audio>
 
     <div class="track-img-container">
       <button class="play-button">
@@ -20,8 +27,8 @@ export const HTML_TEMPLATE = (
       <div class="img-holder">
 
       </div>
-      <img alt="${track_description}" src="${track_img}" class="backdrop"/>
-      <img alt="${track_description}" src="${track_img}" class="frontdrop"/>
+      <img alt="${track_description}" src="${imageSrc}" class="backdrop"/>
+      <img alt="${track_description}" src="${imageSrc}" class="frontdrop"/>
     </div>
     <p class="track-genre">
       ${track_genre}
@@ -39,10 +46,11 @@ export const HTML_TEMPLATE = (
         ${track_duration}
       </span>
 
-      <a href="/track-info/${track_id}/" class="track-listen">
+      <a href="${trackInfoHref}" class="track-listen">
         Listen
       </a>
     </div>
 
   </div>
 `;
+};

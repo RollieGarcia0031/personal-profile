@@ -45,7 +45,7 @@ async function listImageAssets(startDir) {
       }
 
       const pathFromPublic = relative(publicDir, absolutePath).split(sep).join('/');
-      foundPaths.push(`/${pathFromPublic}`);
+      foundPaths.push(pathFromPublic);
     }
   }
 
@@ -61,6 +61,7 @@ async function readTrackImagePaths(pathToTracksJson) {
   const images = tracks
     .map((track) => track?.imgSrc)
     .filter((imagePath) => typeof imagePath === 'string' && imagePath.trim().length > 0)
+    .map((imagePath) => imagePath.replace(/^\/+/, ''))
     .filter((imagePath) => isImageFile(imagePath));
 
   return [...new Set(images)].sort();
