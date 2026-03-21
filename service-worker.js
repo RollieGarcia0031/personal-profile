@@ -1,5 +1,6 @@
-const MANIFEST_URL = '/track-images.json';
 const IMAGE_CACHE_NAME = 'image-cache-v1';
+const baseUrl = getServiceWorkerBaseUrl();
+const MANIFEST_URL = new URL('track-images.json', baseUrl).toString();
 
 self.addEventListener('install', (event) => {
   event.waitUntil(preCachePublicAndTrackImages());
@@ -41,9 +42,9 @@ async function preCachePublicAndTrackImages() {
       ...(manifest?.trackImages || [])
     ];
 
-    const uniqueImagePaths = [...new Set(imagePaths)];
+    const uniqueImageUrls = [...new Set(imagePaths.map(resolveScopedUrl))];
 
-    await Promise.all(uniqueImagePaths.map((path) => cache.add(path)));
+    await Promise.all(uniqueImageUrls.map((imageUrl) => cache.add(imageUrl)));
   } catch (error) {
     console.error('[service-worker] image pre-cache failed', error);
   }
@@ -79,4 +80,13 @@ function isImageRequest(request, requestUrl) {
   }
 
   return /\.(png|jpe?g|webp|gif|svg|avif)$/i.test(requestUrl.pathname);
+}
+
+function getServiceWorkerBaseUrl() {
+  const scope = self.registration?.scope || self.location.href;
+  return new URL(scope.endsWith('/') ? scope : `${scope}/`);
+}
+
+function resolveScopedUrl(path) {
+  return new URL(path.replace(/^\/+/, ''), baseUrl).toString();
 }
