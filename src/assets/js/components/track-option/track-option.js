@@ -1,4 +1,5 @@
 import { HTML_TEMPLATE } from "./track-option-template.js";
+import { withBaseUrl } from "../../lib/base-url.js";
 
 export class TrackOption extends HTMLElement {
   constructor(){
@@ -18,8 +19,16 @@ export class TrackOption extends HTMLElement {
       this.img
     );
 
-    this.addEventListener('click', ()=>console.log('hello'));
+    this.addEventListener('click', (event) => {
+      // only trigger redirection if we're in list view
+      const isListView = this.parentElement?.classList.contains('list-view');
+      if (isListView) {
+        window.location.href = withBaseUrl(`track-info/${this.id}/`);
+      }
+    });
+
   }
+
 
   get title(){
     return this.getAttribute('track-title') || "";

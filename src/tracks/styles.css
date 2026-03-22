@@ -18,32 +18,43 @@ main {
 
 main .title {
   text-align: center;
-  font-size: 4.5rem;
-  font-weight: bolder;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
   color: var(--text);
+  letter-spacing: -0.04em;
+  margin-top: 2rem;
 }
 
 main .description {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
-  max-width: 64ch;
-  margin:auto;
-  margin-top: 0.75rem;
-  padding: 0 1rem;
-  line-height: 1.75rem;
+  max-width: 60ch;
+  margin: 1rem auto;
+  line-height: 1.6;
 }
 
+
 .filter-form {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid color-mix(in srgb, var(--border), transparent 50%);
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 1.25rem 1.5rem;
-  max-width: 50rem;
-  margin: 2rem auto 0.5rem;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  max-width: 60rem;
+  margin: 3rem auto;
   align-items: center;
+  border-radius: 1.5rem;
   box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 50; /* Ensure this stays above the track grid */
 }
+
+
 
 @media screen and (max-width: 50rem){
   .filter-form {
@@ -54,33 +65,34 @@ main .description {
 }
 
 .search-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.5rem;
+  display: flex;
   align-items: center;
-  justify-content: stretch;
+  gap: 1rem;
   flex: 1;
+  min-width: 300px;
 }
 
 .search-container input[type="search"] {
-  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 10%);
-  background-color: color-mix(in srgb, var(--bg-light), transparent 3%);
-  border-radius: 0.85rem;
-  padding: calc(0.35rem + 0.5vw) calc(0.75rem + 0.5vw);
-  font-size: calc(0.5rem + 0.75vw);
-  min-width: 20ch;
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--border), transparent 50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.search-container input[type="search"]:focus {
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary), transparent 85%);
 }
 
 .search-container .search-button{
-  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 12%);
-  background-image: linear-gradient(135deg, color-mix(in srgb, var(--highlight), transparent 4%), color-mix(in srgb, var(--bg-light), var(--highlight) 18%));
-  font-size: calc(0.25rem + 1vw);
-  padding: calc(0.4rem + 0.75vw);
-  aspect-ratio: 1/1;
-  border-radius: 10rem;
-  color: var(--text);
+  display: none; /* Hide old search button as modern search usually filters on input */
 }
+
 
 select {
   padding: calc(0.25rem + 0.5vw) calc(0.5rem + 0.25vw);
@@ -88,37 +100,135 @@ select {
 }
 
 .view-filter {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 0.75rem;
-  justify-content: center;
+  display: flex;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .view-filter label {
-  font: calc(0.5rem + 0.5vw) sans-serif;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
-.view-button-container > button {
-  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 10%);
-  background-color: color-mix(in srgb, var(--bg-light), transparent 5%);
-  padding: calc(0.35rem + 0.5vw);
-  border-radius: calc(0.25rem + 1.5vw);
-  font-size: calc(0.5rem + 1vw); 
+
+.custom-select {
+  position: relative;
+  min-width: 160px;
+}
+
+.select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.25rem;
+  background: color-mix(in srgb, var(--bg-light), transparent 50%);
+  border: 1px solid color-mix(in srgb, var(--border), transparent 40%);
+  border-radius: 9999px;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-trigger:hover {
+  background: color-mix(in srgb, var(--bg-light), transparent 30%);
+  border-color: var(--primary);
+}
+
+.select-trigger .arrow {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  color: var(--text-muted);
+}
+
+.custom-select.open .arrow {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: color-mix(in srgb, var(--bg-dark), transparent 5%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--border), transparent 40%);
+  border-radius: 1rem;
+  overflow: hidden;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.custom-select.open .select-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-select .option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.custom-select .option i {
+  color: var(--primary);
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+.custom-select .option:hover {
+  background: color-mix(in srgb, var(--primary), transparent 90%);
   color: var(--text);
 }
 
-.view-button-container button.active {
-  background-image: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--bg-light);
-  border-color: color-mix(in srgb, var(--primary), var(--border) 35%);
+.custom-select .option.active {
+  background: color-mix(in srgb, var(--primary), transparent 85%);
+  color: var(--primary);
+  font-weight: 700;
 }
 
-.view-button-container > button, .view-button-container i {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+
+
+.view-button-container {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.25rem;
+  border-radius: 0.75rem;
 }
+
+.view-button-container > button {
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  display: flex;
+  transition: all 0.2s ease;
+}
+
+.view-button-container button.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--primary), transparent 70%);
+}
+
 
 
 
@@ -130,18 +240,14 @@ select {
 
 #tracks-grid {
   display: grid;
-  max-width: 80rem;
-  width: 100%;
-  margin: auto;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
   box-sizing: border-box;
 }
 
-#tracks-grid > *:hover{
-  border-color: color-mix(in srgb, var(--primary), var(--border) 45%);
-}
 
 #tracks-grid.list-view {
   grid-template-columns: 1fr;

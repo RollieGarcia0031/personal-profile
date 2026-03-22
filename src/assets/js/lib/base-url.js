@@ -1,9 +1,18 @@
 const BASE_URL = normalizeBaseUrl(import.meta.env.BASE_URL);
 
+/**
+ * Get the base URL of the application.
+ * @returns {string} The base URL.
+ */
 export function getBaseUrl() {
   return BASE_URL;
 }
 
+/**
+ * Resolve a path with the base URL.
+ * @param {string} path - example: "track-info/1/"
+ * @returns {string} example: "/final-project/track-info/1/"
+ */
 export function withBaseUrl(path = '') {
   if (!path) {
     return BASE_URL;

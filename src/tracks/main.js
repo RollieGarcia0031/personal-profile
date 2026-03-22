@@ -135,17 +135,57 @@ if (searchInput) {
   });
 }
 
-/**
- * Sort selection handler.
- * Publishes the chosen sort mode as a partial filter update.
- */
-if (sortBySelect) {
-  sortBySelect.addEventListener('change', (event) => {
-    trackStore.publish(FILTERS_CHANGED_EVENT, {
-      sortBy: event.target.value
+/** Logic for the custom sort dropdown */
+const customSelect = document.querySelector('#sort-by-custom');
+const selectTrigger = customSelect?.querySelector('.select-trigger');
+const selectOptions = customSelect?.querySelectorAll('.option');
+const hiddenSortInput = document.querySelector('#sort-by');
+
+if (customSelect && selectTrigger) {
+  // Toggle dropdown
+  selectTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    customSelect.classList.toggle('open');
+  });
+
+  // Handle option selection
+  selectOptions?.forEach(option => {
+    option.addEventListener('click', () => {
+      const value = option.getAttribute('data-value');
+      const text = option.textContent.trim();
+      const iconClass = option.querySelector('i')?.className;
+
+      // Update UI
+      if (selectTrigger) {
+        const triggerText = selectTrigger.querySelector('.selected-text');
+        const triggerIcon = selectTrigger.querySelector('i:first-child');
+        if (triggerText) triggerText.textContent = text;
+        if (triggerIcon && iconClass) triggerIcon.className = iconClass;
+      }
+
+      // Update active state
+      selectOptions.forEach(opt => opt.classList.remove('active'));
+      option.classList.add('active');
+
+      // Update hidden input and publish change
+      if (hiddenSortInput) {
+        hiddenSortInput.value = value;
+      }
+      
+      trackStore.publish(FILTERS_CHANGED_EVENT, {
+        sortBy: value
+      });
+
+      customSelect.classList.remove('open');
     });
   });
+
+  // Close when clicking outside
+  document.addEventListener('click', () => {
+    customSelect.classList.remove('open');
+  });
 }
+
 
 /**
  * Returns a normalized value used for sorting comparisons.
@@ -202,7 +242,7 @@ function renderTracks(tracks) {
 
   tracks.forEach((track) => {
     const newTrackOption = new TrackOption();
-    newTrackOption.classList.add('card');
+
 
     newTrackOption.setAttribute('track-id', track.id);
     newTrackOption.setAttribute('track-title', track.title);
