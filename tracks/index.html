@@ -7,12 +7,12 @@
   
   <link rel="icon" type="image/x-icon" href="/personal-profile/favicon.ico">
 
-  <script type="module" crossorigin src="/personal-profile/assets/tracks-Duh6AQ1n.js"></script>
+  <script type="module" crossorigin src="/personal-profile/assets/tracks-CkaSdfLz.js"></script>
   <link rel="modulepreload" crossorigin href="/personal-profile/assets/header-DPd5T74P.js">
   <link rel="modulepreload" crossorigin href="/personal-profile/assets/register-service-worker-BGOs9hDu.js">
   <link rel="modulepreload" crossorigin href="/personal-profile/assets/createPubSub-Ze6cNm9A.js">
   <link rel="stylesheet" crossorigin href="/personal-profile/assets/header-B4CdAlj7.css">
-  <link rel="stylesheet" crossorigin href="/personal-profile/assets/tracks-DkfyqzMK.css">
+  <link rel="stylesheet" crossorigin href="/personal-profile/assets/tracks-DKBbHKz0.css">
 </head>
 <body>
   <span></span>
@@ -75,11 +75,26 @@
 
       <fieldset class="view-filter">        
         <label for="sort-by">Sort by:</label>
-        <select name="sort-by" id="sort-by">
-          <option value="title">Title</option>
-          <option value="date">Date</option>
-          <option value="duration">Length</option>
-        </select>
+        <div class="custom-select" id="sort-by-custom">
+          <button class="select-trigger" type="button">
+            <i class="bi bi-sort-alpha-down"></i>
+            <span class="selected-text">Title</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </button>
+          <div class="select-options">
+            <div class="option active" data-value="title">
+              <i class="bi bi-sort-alpha-down"></i> Title
+            </div>
+            <div class="option" data-value="date">
+              <i class="bi bi-calendar-event"></i> Date
+            </div>
+            <div class="option" data-value="duration">
+              <i class="bi bi-hourglass-split"></i> Length
+            </div>
+          </div>
+          <input type="hidden" name="sort-by" id="sort-by" value="title">
+        </div>
+
 
         <label for="view-style">
           View:
