@@ -4,157 +4,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me</title>
+  <title>About Me | Rollie</title>
 
-  <script src="../assets/js/header.js" type="module"></script>
-  <script src="../assets/js/register-service-worker.js" type="module" defer></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../assets/font/bootstrap-icons.css">
+  
+  <script src="../assets/js/header.js" type="module" defer></script>
+  <script src="../assets/js/register-service-worker.js" type="module" defer></script>
 </head>
 
 <body>
   <!-- @site-header -->
 
-  <div id="about-me">
-    <h2 class="title">
-      About Me
-    </h2>
+  <main id="about-container">
+    <div id="about-hero">
+      <h1 class="title">
+        <span>About</span>
+        <span class="text-primary">Me</span>
+      </h1>
 
-    <p class="description">
-      Get to know the artist behind the music –
-      my tools, inspirations, and journey in sound design.
-    </p>
+      <p class="description">
+        I produce Anime-style, OPM, and Classical fusion music that tells a story. 
+        Get to know the artist behind the sound – my tools, inspirations, and journey.
+      </p>
+    </div>
 
     <div class="bento">
-
       <div class="about-card daws">
-        <h2 class="title">
-          <i class="bi bi-headphones"></i> Daws I use
-        </h2>
-
-        <ul>
-          <li>
-            FL Studio 21
-          </li>
-          <li>
-            Primary
-          </li>
-          <li>
-            Ableton Live 11
-          </li>
-          <li>
-            Logic Pro X
-          </li>
+        <div class="card-header">
+          <i class="bi bi-headphones"></i>
+          <h2 class="card-title">My DAW</h2>
+        </div>
+        <ul class="tag-list">
+          <li class="tag">FL Studio 21 <span class="badge">Primary</span></li>
+          <li class="tag">Ableton Live 11</li>
+          <li class="tag">Logic Pro X</li>
         </ul>
       </div>
 
       <div class="about-card instruments">
-        <h2 class="title">
-          <i class="bi bi-music-note-list"></i> Instruments
-        </h2>
-
-        <ul>
-          <li>
-            Guitar
-          </li>
-          <li>
-            Bass
-          </li>
-          <li>
-            Drums
-          </li>
-          <li>
-            Synths
-          </li>
+        <div class="card-header">
+          <i class="bi bi-music-note-beamed"></i>
+          <h2 class="card-title">Instruments</h2>
+        </div>
+        <ul class="tag-list">
+          <li class="tag">Guitar</li>
+          <li class="tag">Bass</li>
+          <li class="tag">Piano</li>
+          <li class="tag">Drums</li>
+          <li class="tag">Synthesizers</li>
         </ul>
       </div>
 
       <div class="about-card goals">
-        <h2 class="title">
-          <i class="bi bi-stars"></i> Goals
-        </h2>
-
-        <ul>
-          <li>
-            Create a unique sound
-          </li>
-          <li>
-            Create a unique sound
-          </li>
-          <li>
-            Create a unique sound
-          </li>
+        <div class="card-header">
+          <i class="bi bi-stars"></i>
+          <h2 class="card-title">Creative Goals</h2>
+        </div>
+        <ul class="check-list">
+          <li>Pioneer a unique OPM-Classical fusion sound</li>
+          <li>Compose OSTs for indie animation projects</li>
+          <li>Collaborate with global vocalists</li>
         </ul>
       </div>
 
       <div class="about-card inspirations">
-        <h2 class="title">
-          <i class="bi bi-moon-stars"></i> Inspirations
-        </h2>
-
+        <div class="card-header">
+          <i class="bi bi-lightning-charge"></i>
+          <h2 class="card-title">Inspirations</h2>
+        </div>
         <div class="lists-container">
-          <div>
-            <p>
-              Music
-            </p>
+          <div class="list-group">
+            <h3 class="list-label">Music</h3>
             <ul>
-              <li>
-                J-Pop
-              </li>
-              <li>
-                Anime
-              </li>
-              <li>
-                OPM
-              </li>
-              <li>
-                Classical
-              </li>
+              <li>J-Pop & Rock</li>
+              <li>Anime OSTs</li>
+              <li>Classic OPM</li>
+              <li>Romantic Era Piano</li>
             </ul>
           </div>
 
-          <div>
-            <p>
-              Games
-            </p>
-
+          <div class="list-group">
+            <h3 class="list-label">Games</h3>
             <ul>
-              <li>
-                Undertale
-              </li>
-              <li>
-                Undertale
-              </li>
-              <li>
-                Undertale
-              </li>
-              <li>
-                Undertale
-              </li>
+              <li>Undertale (Toby Fox)</li>
+              <li>Persona Series</li>
+              <li>Final Fantasy</li>
+              <li>Genshin Impact</li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="about-card location">
-        <h2 class="title">
-          <i class="bi bi-geo-alt"></i> Location
-        </h2>
-
-        <div>
-          <span class="country">
-            Philippines,
-          </span>
-
-          <span class="city">
-            Lucban
-          </span>
+        <div class="card-header">
+          <i class="bi bi-geo-alt"></i>
+          <h2 class="card-title">Location</h2>
         </div>
+        <div class="location-content">
+          <span class="city">Lucban</span>
+          <span class="country">Philippines</span>
+        </div>
+        <p class="location-note">The Art Capital of Quezon Province</p>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- @site-footer -->
+
+  <div id="footer-copyright">
+    <p>&COPY; 2023 Rollie</p>
+  </div>
 </body>
 
 </html>
