@@ -1,75 +1,59 @@
 # Personal Profile Website
 
-This repository contains Rollie’s personal music portfolio website, built with Vite and vanilla JavaScript.
+> Welcome to the repository for Rollie’s personal music portfolio website.
 
-## Getting Started
+This project is a modern, high-performance web application built with **Vite** and **Vanilla JavaScript**. It showcases a music catalog with custom audio playback, automated track detail page generation, and offline-first image caching.
 
-1. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-2. Start local development:
-   ```bash
-   pnpm dev
-   ```
-3. Build for production:
-   ```bash
-   pnpm build
-   ```
-4. Preview the production build locally:
-   ```bash
-   pnpm preview
-   ```
+## 🚀 Quick Start
 
-## Scripts (Run & Build)
+1.  **Install dependencies:**
+    ```bash
+    pnpm install
+    ```
+2.  **Start development:**
+    ```bash
+    pnpm dev
+    ```
 
-The project uses these scripts to run and build the website:
+---
 
-- `pnpm dev` — starts the Vite development server with hot reload.
-- `pnpm predev` — runs automatically before `dev` to refresh the image cache manifest.
-- `pnpm build` — creates the optimized production bundle in `dist/`.
-- `pnpm prebuild` — runs automatically before `build` to regenerate track metadata and image cache data.
-- `pnpm preview` — serves the built `dist/` output locally for a production-like check.
-- `pnpm generate:track-info` — updates generated track detail data from your source content.
-- `pnpm generate:image-cache-manifest` — rebuilds `src/public/track-images.json` used by the service worker.
+## 🗺️ Documentation Map
 
-In short: use `pnpm dev` while developing, and `pnpm build` + `pnpm preview` to verify production output.
+Explore the detailed guides below to learn more about the project:
 
-## Website Overview
+- **[Development Guide](docs/development.md):** Local setup, script reference, and development workflow.
+- **[Deployment Guide](docs/deployment.md):** How to deploy to Vercel and GitHub Pages.
+- **[Architecture Guide](docs/architecture.md):** Technical stack, custom web components, and partials system.
+- **[Data & Content Management](docs/data-management.md):** How `tracks.json` works and how pages are generated.
 
-The site presents Rollie as a producer focused on anime-style, OPM, and classical fusion music. It includes:
+---
 
-- **Home page** with a hero introduction, genre highlights, featured demo tracks, and contact/social links.
-- **About page** with background details such as DAWs, instruments, inspirations, goals, and location.
-- **Tracks page** that lists the full catalog from `content/tracks.json`, with search UI and grid/list view toggles.
-- **Track detail pages** generated from track data, each with artwork, metadata, playback controls, and story/description sections.
+## 📁 Project Structure
 
-The project uses custom web components for audio playback and track cards, with shared header/footer styling and reusable assets.
+```text
+├── content/         # Site content (tracks.json)
+├── docs/            # Project documentation
+├── scripts/         # Build-time generation scripts
+├── src/             # Application source code
+│   ├── assets/      # Styles, fonts, and JS modules
+│   ├── about/       # About page
+│   ├── tracks/      # Tracks listing page
+│   ├── track-info/  # Generated track detail pages
+│   └── partials/    # Shared HTML fragments (header/footer)
+└── vite.config.js   # Build and plugin configuration
+```
 
+---
 
-## Offline image caching (Service Worker)
+## 🌟 Key Features
 
-This website registers a vanilla JavaScript service worker that caches image assets so cover art and hero images load faster and continue to work offline after first visit.
+- **Custom Audio Player:** Built using vanilla Web Components.
+- **Static Site Generation:** Automated build-time HTML generation for track pages.
+- **Service Worker:** Offline image caching for a seamless user experience.
+- **Theme Support:** Native light and dark mode toggling.
 
-- Service worker file: `src/public/service-worker.js`
-- Registration script: `src/assets/js/register-service-worker.js`
-- Image cache manifest generator: `scripts/generate-image-cache-manifest.mjs`
-- Generated manifest consumed by service worker: `src/public/track-images.json`
+---
 
-### How cached images are selected
+## License
 
-1. `pnpm generate:image-cache-manifest` scans `src/public/**` for image files.
-2. It also reads all `imgSrc` values in `content/tracks.json`.
-3. Both lists are merged into `src/public/track-images.json`.
-4. On install, `service-worker.js` pre-caches those image URLs.
-
-### Updating track images correctly
-
-When you add or change a track image:
-
-1. Put the image file under `src/public` (for example `src/public/album-cover/new-cover.png`).
-2. Update `imgSrc` in `content/tracks.json` (for example `"/album-cover/new-cover.png"`).
-3. Run `pnpm generate:image-cache-manifest`.
-4. Restart `pnpm dev` (or rebuild) so the newest manifest is served.
-
-`predev` and `prebuild` already regenerate this manifest automatically.
+This project is private and intended for personal use.
