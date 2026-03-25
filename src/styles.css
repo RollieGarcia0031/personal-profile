@@ -274,87 +274,149 @@ div#hero-btn-container {
 
 /* ======================================================*/
 
+/* ======================================================*/
+
+    /*    Genre Container (Musical Universe)   */
+
+/* ======================================================*/
+
 #genre-container {
   border-top: 1px solid color-mix(in srgb, var(--border), var(--primary) 14%);
-  padding: 5rem 3rem 5.5rem;
-}
-
-#genre-container .title {
-  font-size: calc(2rem + 0.5vw);
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  margin-bottom: 3rem;
-}
-
-@media screen and (max-width: 467px){
-  #genre-container .title {
-    font-size: calc(1rem + 1.75vw);
-  }
-}
-#genre-container .bento-box{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-#genre-container > .bento-box > *{
-  display: flex;
-  aspect-ratio: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2.25rem;
-  gap: 1rem;
+  padding: 8rem 2rem;
+  position: relative;
   overflow: hidden;
-  transition: 250ms;
-  border: 1px solid color-mix(in srgb, var(--border), var(--primary) 10%);
+  font-family: 'Inter', sans-serif;
+}
+
+#genre-container .section-glow {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60rem;
+  height: 60rem;
+  background: radial-gradient(circle, color-mix(in srgb, var(--primary), transparent 95%), transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+#genre-container .section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 5rem;
+  background: linear-gradient(135deg, var(--text), color-mix(in srgb, var(--text), var(--primary) 40%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+#genre-container .bento-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#genre-container .bento-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+  min-height: 18rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--border), transparent 80%);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+#genre-container .bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at top left, color-mix(in srgb, var(--primary), transparent 90%), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#genre-container .bento-card:hover {
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--primary), transparent 40%);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+#genre-container .bento-card:hover::before {
+  opacity: 1;
+}
+
+#genre-container .card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: color-mix(in srgb, var(--primary), transparent 90%);
   border-radius: 1rem;
-  background-image: linear-gradient(180deg, color-mix(in srgb, var(--bg-light), transparent 6%), color-mix(in srgb, var(--highlight), var(--bg) 55%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  transition: all 0.4s ease;
+  border: 1px solid color-mix(in srgb, var(--primary), transparent 80%);
 }
 
-@media screen and (max-width: 630px){
-  #genre-container > .bento-box > *{
-    aspect-ratio: auto;
-    padding: 0.75rem 1.5rem;
-  }
+#genre-container .bento-card:hover .card-icon {
+  transform: rotate(10deg) scale(1.1);
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--primary), transparent 50%);
 }
 
-#genre-container > .bento-box > *:hover {
-  background-image: linear-gradient(180deg, color-mix(in srgb, var(--highlight), var(--primary) 14%), color-mix(in srgb, var(--bg-light), var(--highlight) 28%));
+#genre-container .bento-card p.title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  line-height: 1.2;
 }
 
-#genre-container > .bento-box > p{
-  margin: 0;
+#genre-container .bento-card .description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 35ch;
+  margin-top: auto;
 }
 
-#genre-container > .bento-box .title {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  margin: 0;
-  font-size: calc(0.75rem + 1.5vw);
-}
-
-#genre-container > .bento-box .description {
-    font-size: calc(0.5rem + 0.75vw);
-    color: var(--text-muted);
-    max-width: 25ch;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   #genre-container {
-    padding:3rem 1rem;
+    padding: 5rem 1.5rem;
   }
 
   #genre-container .bento-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  #genre-container .bento-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  #genre-container .card-icon {
+    margin-bottom: 1.5rem;
   }
 }
 
