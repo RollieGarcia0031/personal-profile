@@ -45,7 +45,7 @@ main .description {
   gap: 2rem;
   padding: 1.5rem 2rem;
   max-width: 60rem;
-  margin: 3rem auto;
+  margin: 3rem auto 0;
   align-items: center;
   border-radius: 1.5rem;
   box-sizing: border-box;
@@ -53,8 +53,6 @@ main .description {
   position: relative;
   z-index: 50; /* Ensure this stays above the track grid */
 }
-
-
 
 @media screen and (max-width: 50rem){
   .filter-form {
@@ -89,11 +87,6 @@ main .description {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary), transparent 85%);
 }
 
-.search-container .search-button{
-  display: none; /* Hide old search button as modern search usually filters on input */
-}
-
-
 select {
   padding: calc(0.25rem + 0.5vw) calc(0.5rem + 0.25vw);
   font-size: calc(0.5rem + 0.5vw);
@@ -102,7 +95,8 @@ select {
 .view-filter {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .view-filter label {
@@ -129,9 +123,17 @@ select {
   border-radius: 9999px;
   color: var(--text);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: calc(0.75rem + 0.25vw);
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 250px){
+  .select-trigger {
+    max-width: calc(90dvw - 4rem);
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
 }
 
 .select-trigger:hover {
@@ -298,6 +300,7 @@ select {
     gap: 0.5rem;
     padding: 0.75rem;
     font-size: 0.75rem;
+    max-width: calc(90dvw - 2rem);
   }
 }
 
@@ -305,14 +308,18 @@ select {
   #tracks-grid {
     padding: 0 0.5rem;
   }
-
-  #tracks-grid > * {
-    padding: 0.75rem;
-  }
 }
 
 @media screen and (max-width: 400px){
   #tracks-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .search-container input[type="search"] {
+    max-width: calc(90dvw - 2rem - 1.5rem);
+  }
+
+  body {
+    overflow-x: hidden;
   }
 }
