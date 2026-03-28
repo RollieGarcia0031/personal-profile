@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="../../assets/styles/track-info.css">
+  <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
+  <script type="module" src="../../assets/js/header.js" defer></script>
+  <script type="module" src="../../assets/js/track-info.js" defer></script>
+</head>
+<body>
+  <!-- @site-header -->
+
+  <div class="back-link">
+    <a href="/tracks/">
+      <i class="bi bi-arrow-left-circle"></i> Back
+    </a>
+  </div>
+
+
+  <main class="content-container">
+    <div class="preview-container">
+      <img src="/album-cover/pipiliin_ko_album_cover.png"/>
+  
+      <div class="preview-control-container">
+        <audio src="/mp3/pipiliin_ko_vocal.mp3"></audio>
+        <button class="play-preview-btn">
+          Play Preview
+        </button>
+
+        <input type="range" name="time-slider" value="0">
+        <div class="duration-container">
+          <p>00:00</p>
+          <p>2:38</p>
+        </div>
+  
+        <div class="audio-controls-container">
+          <button id="back-btn">
+            <i class="bi bi-skip-backward-fill"></i>
+          </button>
+          <button id="play-btn">
+            <i class="bi bi-play-fill"></i>
+          </button>
+          <button id="forward-btn">
+            <i class="bi bi-skip-forward-fill"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="info-container">
+      <div class="genre">
+        Acoustic Pop
+      </div>
+
+      <p class="title">
+        Pipiliin Ko
+      </p>
+
+      <p class="writer">
+        Rollie
+      </p>
+
+      <div class="meta-data-container">
+        <div class="card">
+          <p>
+            <i class="bi bi-calendar-check"></i> Release
+          </p>
+          <p>
+            2024-12-30
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <i class="bi bi-lightning-charge"></i> Bpm
+          </p>
+          <p>
+            80
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <i class="bi bi-hourglass"></i> Duration
+          </p>
+          <p>
+            2:38
+          </p>
+        </div>
+      </div>
+
+      <section class="track-info-card">
+        <p>
+          About This Track:
+        </p>
+        <p>
+          A confusing song that somehow assures...
+        </p>
+      </section>
+
+      <section class="track-info-card instrument">
+        <p>
+          Instruments used:
+        </p>
+
+        <div class="instrument-holder">
+          <p>guitar</p>
+        </div>
+      </section>
+
+      <section class="track-info-card">
+        <p>
+          Story:
+        </p>
+
+        <p>
+          The lyrics of this song wasn&#39;t really personal, I actually wrote as requested by a friend, at a time where her boyfriend is asking for a breakup
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- @site-footer -->
+</body>
+</html>
+  

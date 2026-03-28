@@ -68,5 +68,33 @@
     "duration": "1:02",
     "story": "",
     "writer": "Rollie"
+  },
+  {
+    "title": "Pipiliin Ko",
+    "description": "A confusing song that somehow assures...",
+    "genre": "Acoustic Pop",
+    "date": "2024-12-30",
+    "bpm": 80,
+    "id": "pipiliin_ko",
+    "audioSrc": "mp3/pipiliin_ko_vocal.mp3",
+    "imgSrc": "album-cover/pipiliin_ko_album_cover.png",
+    "instruments": ["guitar"],
+    "duration": "2:38",
+    "story": "The lyrics of this song wasn't really personal, I actually wrote as requested by a friend, at a time where her boyfriend is asking for a breakup",
+    "writer": "Rollie"
+  },
+  {
+    "title": "Ayos Lang",
+    "description": "Yearning song, but still sounds cute",
+    "genre": "Pop",
+    "date": "2025-8-5",
+    "bpm": 90,
+    "id": "ayos_lang",
+    "audioSrc": "mp3/ayos_lang_vocal.mp3",
+    "imgSrc": "album-cover/ayos_lang_album_cover.png",
+    "instruments": ["guitar", "tamborine", "piano", "synth"],
+    "duration": "2:17",
+    "story": "This is one of the few songs, that I somehow made during college, just for the sake of making music is still fun for me.",
+    "writer": "Rollie"
   }
 ]
