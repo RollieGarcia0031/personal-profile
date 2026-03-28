@@ -154,7 +154,7 @@
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.2s ease;
-  box-shadow: 0 0 10px var(--player-accent);
+  box-shadow: 0 0 3px var(--player-accent);
 }
 
 .audio-player-body .progress-bar::-webkit-slider-thumb:hover {
@@ -172,15 +172,15 @@
   width: 3.5rem;
   height: 3.5rem;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white !important;
+  color: var(--bg) !important;
   border-radius: 50%;
   font-size: 1.75rem !important;
-  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary), transparent 70%);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary), transparent 90%);
 }
 
 .audio-player-body .play-btn:hover {
   transform: scale(1.05) !important;
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--primary), transparent 60%);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--primary), transparent 80%);
 }
 
 .audio-player-body .volumne-control-container {

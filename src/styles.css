@@ -134,19 +134,19 @@ div#hero-btn-container {
 
 #hero-btn-container #main-btn {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
+  color: var(--bg-light);
   border: none;
-  box-shadow: 0 10px 25px color-mix(in srgb, var(--primary), transparent 70%);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--primary), transparent 80%);
 }
 
 #hero-btn-container #main-btn:hover {
-  box-shadow: 0 15px 35px color-mix(in srgb, var(--primary), transparent 50%);
+  box-shadow: 0 15px 25px color-mix(in srgb, var(--primary), transparent 80%);
 }
 
 #hero-btn-container .view-btn {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border: 1px solid color-mix(in srgb, var(--border), transparent 50%);
+  border: 1px solid color-mix(in srgb, var(--border), transparent 30%);
   color: var(--text);
 }
 
