@@ -1,10 +1,12 @@
 {
-  "generatedAt": "2026-03-27T12:15:37.142Z",
+  "generatedAt": "2026-03-28T06:14:54.140Z",
   "imageCacheVersion": 1,
   "publicImages": [
     "album-cover/Di_ko_maisip_cover.png",
     "album-cover/Di_makatulog_cover.png",
+    "album-cover/ayos_lang_album_cover.png",
     "album-cover/ha_cover.png",
+    "album-cover/pipiliin_ko_album_cover.png",
     "album-cover/sampaloc-cover-text.png",
     "album-cover/sampaloc-cover.png",
     "hero_image.png",
@@ -13,7 +15,9 @@
   "trackImages": [
     "album-cover/Di_ko_maisip_cover.png",
     "album-cover/Di_makatulog_cover.png",
+    "album-cover/ayos_lang_album_cover.png",
     "album-cover/ha_cover.png",
+    "album-cover/pipiliin_ko_album_cover.png",
     "album-cover/sampaloc-cover.png",
     "hero_image.png"
   ]
