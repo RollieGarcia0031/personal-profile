@@ -4,13 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ha? - Rollie</title>
+  <title>Track</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
   <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
   <script type="module" src="../../assets/js/header.js" defer></script>
@@ -21,34 +16,35 @@
 
   <div class="back-link">
     <a href="/tracks/">
-      <i class="bi bi-arrow-left-circle"></i> Back to Tracks
+      <i class="bi bi-arrow-left-circle"></i> Back
     </a>
   </div>
 
+
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/ha_cover.png" alt="Ha? Album Cover"/>
+      <img src="/album-cover/ha_cover.png"/>
   
       <div class="preview-control-container">
         <audio src="/mp3/Ha_(vocal).mp3"></audio>
         <button class="play-preview-btn">
-          <i class="bi bi-play-fill"></i> Play Preview
+          Play Preview
         </button>
 
-        <input type="range" name="time-slider" min="0" max="100" value="0">
+        <input type="range" name="time-slider" value="0">
         <div class="duration-container">
           <p>00:00</p>
           <p>1:02</p>
         </div>
   
         <div class="audio-controls-container">
-          <button id="back-btn" title="Back 10s">
+          <button id="back-btn">
             <i class="bi bi-skip-backward-fill"></i>
           </button>
-          <button id="play-btn" title="Play/Pause">
+          <button id="play-btn">
             <i class="bi bi-play-fill"></i>
           </button>
-          <button id="forward-btn" title="Forward 10s">
+          <button id="forward-btn">
             <i class="bi bi-skip-forward-fill"></i>
           </button>
         </div>
@@ -56,47 +52,71 @@
     </div>
   
     <div class="info-container">
-      <div class="info-header">
-        <div class="genre">Acoustic Pop</div>
-        <h1 class="title">Ha?</h1>
-        <p class="writer">By Rollie</p>
+      <div class="genre">
+        Acoustic Pop
       </div>
+
+      <p class="title">
+        Ha?
+      </p>
+
+      <p class="writer">
+        Rollie
+      </p>
 
       <div class="meta-data-container">
         <div class="card">
-          <p><i class="bi bi-calendar-check"></i> Release</p>
-          <p>Feb 12, 2025</p>
+          <p>
+            <i class="bi bi-calendar-check"></i> Release
+          </p>
+          <p>
+            2025-2-12
+          </p>
         </div>
         <div class="card">
-          <p><i class="bi bi-lightning-charge"></i> Bpm</p>
-          <p>81</p>
+          <p>
+            <i class="bi bi-lightning-charge"></i> Bpm
+          </p>
+          <p>
+            81
+          </p>
         </div>
         <div class="card">
-          <p><i class="bi bi-hourglass"></i> Duration</p>
-          <p>1:02</p>
+          <p>
+            <i class="bi bi-hourglass"></i> Duration
+          </p>
+          <p>
+            1:02
+          </p>
         </div>
       </div>
 
       <section class="track-info-card">
-        <p>About This Track</p>
-        <p>A cute song with simple theme, intended to be lighthearted and fun.</p>
+        <p>
+          About This Track:
+        </p>
+        <p>
+          A cute song with simple theme
+        </p>
       </section>
 
       <section class="track-info-card instrument">
-        <p>Instruments Used</p>
+        <p>
+          Instruments used:
+        </p>
+
         <div class="instrument-holder">
-          <p>guitar</p>
-          <p>piano</p>
-          <p>synth</p>
-          <p>tamborine</p>
-          <p>drums</p>
+          <p>guitar</p> <p>piano</p> <p>synth</p> <p>tamborine</p> <p>drums</p>
         </div>
       </section>
 
       <section class="track-info-card">
-        <p>The Story</p>
         <p>
-          Sometimes you find inspiration in the simplest questions. 'Ha?' was born out of a playful moment and became a song that captures that lighthearted energy.
+          Story:
+        </p>
+
+        <p>
+          
         </p>
       </section>
     </div>
@@ -105,5 +125,4 @@
   <!-- @site-footer -->
 </body>
 </html>
-
   
