@@ -4,8 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Track</title>
+  <title>Sampaloc - Rollie</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
   <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
   <script type="module" src="../../assets/js/header.js" defer></script>
@@ -16,35 +21,34 @@
 
   <div class="back-link">
     <a href="/tracks/">
-      <i class="bi bi-arrow-left-circle"></i> Back
+      <i class="bi bi-arrow-left-circle"></i> Back to Tracks
     </a>
   </div>
 
-
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/sampaloc-cover.png"/>
+      <img src="/album-cover/sampaloc-cover.png" alt="Sampaloc Album Cover"/>
   
       <div class="preview-control-container">
         <audio src="/mp3/Sampaloc_(vocal).mp3"></audio>
         <button class="play-preview-btn">
-          Play Preview
+          <i class="bi bi-play-fill"></i> Play Preview
         </button>
 
-        <input type="range" name="time-slider" value="0">
+        <input type="range" name="time-slider" min="0" max="100" value="0">
         <div class="duration-container">
           <p>00:00</p>
           <p>2:25</p>
         </div>
   
         <div class="audio-controls-container">
-          <button id="back-btn">
+          <button id="back-btn" title="Back 10s">
             <i class="bi bi-skip-backward-fill"></i>
           </button>
-          <button id="play-btn">
+          <button id="play-btn" title="Play/Pause">
             <i class="bi bi-play-fill"></i>
           </button>
-          <button id="forward-btn">
+          <button id="forward-btn" title="Forward 10s">
             <i class="bi bi-skip-forward-fill"></i>
           </button>
         </div>
@@ -52,71 +56,46 @@
     </div>
   
     <div class="info-container">
-      <div class="genre">
-        Romantic Pop
+      <div class="info-header">
+        <div class="genre">Romantic Pop</div>
+        <h1 class="title">Sampaloc</h1>
+        <p class="writer">By Rollie</p>
       </div>
-
-      <p class="title">
-        Sampaloc
-      </p>
-
-      <p class="writer">
-        Rollie
-      </p>
 
       <div class="meta-data-container">
         <div class="card">
-          <p>
-            <i class="bi bi-calendar-check"></i> Release
-          </p>
-          <p>
-            2025-12-31
-          </p>
+          <p><i class="bi bi-calendar-check"></i> Release</p>
+          <p>Dec 31, 2025</p>
         </div>
         <div class="card">
-          <p>
-            <i class="bi bi-lightning-charge"></i> Bpm
-          </p>
-          <p>
-            120
-          </p>
+          <p><i class="bi bi-lightning-charge"></i> Bpm</p>
+          <p>120</p>
         </div>
         <div class="card">
-          <p>
-            <i class="bi bi-hourglass"></i> Duration
-          </p>
-          <p>
-            2:25
-          </p>
+          <p><i class="bi bi-hourglass"></i> Duration</p>
+          <p>2:25</p>
         </div>
       </div>
 
       <section class="track-info-card">
-        <p>
-          About This Track:
-        </p>
-        <p>
-          Romantic Pop demo track.
-        </p>
+        <p>About This Track</p>
+        <p>A romantic pop demo that captures the essence of fleeting moments and nostalgic feelings. It features a harmonious blend of acoustic and electronic elements.</p>
       </section>
 
       <section class="track-info-card instrument">
-        <p>
-          Instruments used:
-        </p>
-
+        <p>Instruments Used</p>
         <div class="instrument-holder">
-          <p>guitar</p> <p>piano</p>
+          <p>guitar</p>
+          <p>piano</p>
+          <p>strings</p>
+          <p>drums</p>
         </div>
       </section>
 
       <section class="track-info-card">
+        <p>The Story</p>
         <p>
-          Story:
-        </p>
-
-        <p>
-          
+          'Sampaloc' was inspired by the streets and atmosphere that define a part of my journey. It's a musical tribute to the places that hold memories and the stories they tell.
         </p>
       </section>
     </div>
@@ -125,4 +104,5 @@
   <!-- @site-footer -->
 </body>
 </html>
+
   
