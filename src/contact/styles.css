@@ -1,6 +1,6 @@
 @import '../assets/styles/global.css';
-@import '../assets/styles/header.css';
-@import '../assets/styles/footer.css';
+@import '../partials/header.css';
+@import '../partials/footer.css';
 
 body {
   display: grid;
