@@ -84,7 +84,7 @@ function renderPage(track) {
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="../../assets/styles/track-info.css">
   <link rel="stylesheet" href="../../assets/font/bootstrap-icons.css">
-  <script type="module" src="../../assets/js/header.js" defer></script>
+  <script type="module" src="../../partials/header.js" defer></script>
   <script type="module" src="../../assets/js/track-info.js" defer></script>
 </head>
 <body>
