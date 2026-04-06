@@ -96,5 +96,20 @@
     "duration": "2:17",
     "story": "This is one of the few songs, that I somehow made during college, just for the sake of making music is still fun for me.",
     "writer": "Rollie"
+  },
+  {
+    "title": "Problema",
+    "description": "A simple optmistic song",
+    "genre": "Pop",
+    "date": "2025-12-8",
+    "bpm": 100,
+    "id": "problema",
+    "audioSrc": "mp3/problema_vocal.mp3",
+    "imgSrc": "album-cover/problema_album_cover.png",
+    "instruments": ["tamborine", "piano", "violin"],
+    "duration": "0:32",
+    "story": "This is a short song, I never completed it but it has a great meaning for me.",
+    "writer": "Rollie"
   }
+
 ]
