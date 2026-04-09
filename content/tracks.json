@@ -110,6 +110,19 @@
     "duration": "0:32",
     "story": "This is a short song, I never completed it but it has a great meaning for me.",
     "writer": "Rollie"
+  },
+  {
+    "title": "Iniiwasan",
+    "description": "One song to describe why I'm single",
+    "genre": "Pop",
+    "date": "2024-7-30",
+    "bpm": 107,
+    "id": "iniiwasan",
+    "audioSrc": "mp3/Iniiwasan_vocal.mp3",
+    "imgSrc": "album-cover/iniiwasan_album_cover.png",
+    "instruments": ["electric guitar", "piano", "violin", "drums"],
+    "duration": "1:03",
+    "story": "I wrote this when I was in high school, it was a time where I was an avoidant but selfless person.",
+    "writer": "Rollie"
   }
-
 ]
