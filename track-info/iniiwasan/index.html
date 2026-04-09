@@ -1,21 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tracks</title>
-  
+  <title>Track</title>
   <link rel="icon" type="image/x-icon" href="/personal-profile/favicon.ico">
-
-  <script type="module" crossorigin src="/personal-profile/assets/tracks-Di5Kiyh1.js"></script>
-  <link rel="modulepreload" crossorigin href="/personal-profile/assets/header-DPd5T74P.js">
-  <link rel="modulepreload" crossorigin href="/personal-profile/assets/register-service-worker-BGOs9hDu.js">
-  <link rel="modulepreload" crossorigin href="/personal-profile/assets/createPubSub-Ze6cNm9A.js">
+  <script type="module" crossorigin src="/personal-profile/assets/header-DPd5T74P.js"></script>
+  <script type="module" crossorigin src="/personal-profile/assets/track-info-v_HTS431.js"></script>
   <link rel="stylesheet" crossorigin href="/personal-profile/assets/header-B4CdAlj7.css">
-  <link rel="stylesheet" crossorigin href="/personal-profile/assets/tracks-C7ctkfuB.css">
+  <link rel="stylesheet" crossorigin href="/personal-profile/assets/track-info-Bn_l2YPO.css">
 </head>
 <body>
-  <span></span>
   <div class="header-container">
 
   <header>
@@ -53,67 +49,113 @@
 </div>
 
 
-  <main>
-    <p class="title">
-      Tracks
-    </p>
+  <div class="back-link">
+    <a href="/personal-profile/tracks/">
+      <i class="bi bi-arrow-left-circle"></i> Back
+    </a>
+  </div>
 
-    <p class="description">
-      Explore the complete collection of tracks from anime-style
-      OSTs to OPM and classical fusion.
-    </p>
 
-    <form class="card filter-form">
+  <main class="content-container">
+    <div class="preview-container">
+      <img src="/personal-profile/album-cover/iniiwasan_album_cover.png"/>
+  
+      <div class="preview-control-container">
+        <audio src="/personal-profile/mp3/Iniiwasan_vocal.mp3"></audio>
+        <button class="play-preview-btn">
+          Play Preview
+        </button>
 
-      <fieldset class="search-container">
-        <input type="search" placeholder="Search" aria-label="Search tracks">
-      </fieldset>
-
-      <fieldset class="view-filter">        
-        <label for="sort-by">Sort by:</label>
-        <div class="custom-select" id="sort-by-custom">
-          <button class="select-trigger" type="button">
-            <i class="bi bi-sort-alpha-down"></i>
-            <span class="selected-text">Title</span>
-            <i class="bi bi-chevron-down arrow"></i>
+        <input type="range" name="time-slider" value="0">
+        <div class="duration-container">
+          <p>00:00</p>
+          <p>1:03</p>
+        </div>
+  
+        <div class="audio-controls-container">
+          <button id="back-btn">
+            <i class="bi bi-skip-backward-fill"></i>
           </button>
-          <div class="select-options">
-            <div class="option active" data-value="title">
-              <i class="bi bi-sort-alpha-down"></i> Title
-            </div>
-            <div class="option" data-value="date">
-              <i class="bi bi-calendar-event"></i> Date
-            </div>
-            <div class="option" data-value="duration">
-              <i class="bi bi-hourglass-split"></i> Length
-            </div>
-          </div>
-          <input type="hidden" name="sort-by" id="sort-by" value="title">
+          <button id="play-btn">
+            <i class="bi bi-play-fill"></i>
+          </button>
+          <button id="forward-btn">
+            <i class="bi bi-skip-forward-fill"></i>
+          </button>
         </div>
+      </div>
+    </div>
+  
+    <div class="info-container">
+      <div class="genre">
+        Pop
+      </div>
 
+      <p class="title">
+        Iniiwasan
+      </p>
 
-        <div>
-          <label>
-            View:
-          </label>
-          <div class="view-button-container">
-            <button id="grid-view-btn" type="button">
-              <i class="bi bi-grid-3x3-gap"></i>
-            </button>
+      <p class="writer">
+        Rollie
+      </p>
 
-            <button id="list-view-btn" type="button">
-              <i class="bi bi-list-ul"></i>
-            </button>
-          </div>
+      <div class="meta-data-container">
+        <div class="card">
+          <p>
+            <i class="bi bi-calendar-check"></i> Release
+          </p>
+          <p>
+            2024-7-30
+          </p>
         </div>
-      </fieldset>
+        <div class="card">
+          <p>
+            <i class="bi bi-lightning-charge"></i> Bpm
+          </p>
+          <p>
+            107
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <i class="bi bi-hourglass"></i> Duration
+          </p>
+          <p>
+            1:03
+          </p>
+        </div>
+      </div>
 
-    </form>
+      <section class="track-info-card">
+        <p>
+          About This Track:
+        </p>
+        <p>
+          One song to describe why I&#39;m single
+        </p>
+      </section>
+
+      <section class="track-info-card instrument">
+        <p>
+          Instruments used:
+        </p>
+
+        <div class="instrument-holder">
+          <p>electric guitar</p> <p>piano</p> <p>violin</p> <p>drums</p>
+        </div>
+      </section>
+
+      <section class="track-info-card">
+        <p>
+          Story:
+        </p>
+
+        <p>
+          I wrote this when I was in high school, it was a time where I was an avoidant but selfless person.
+        </p>
+      </section>
+    </div>
   </main>
-
-  <!-- Contains the available tracks, generated dynamically from content/tracks.json -->
-  <div id="tracks-grid"></div>
-
 
   <footer>
   <div class="footer-top">
@@ -190,3 +232,4 @@
 
 </body>
 </html>
+  
