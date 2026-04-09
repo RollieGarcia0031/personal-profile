@@ -136,11 +136,11 @@ div#hero-btn-container {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: var(--bg-light);
   border: none;
-  box-shadow: 0 10px 20px color-mix(in srgb, var(--primary), transparent 80%);
+  box-shadow: 0 5px 10px color-mix(in srgb, var(--primary), transparent 90%);
 }
 
 #hero-btn-container #main-btn:hover {
-  box-shadow: 0 15px 25px color-mix(in srgb, var(--primary), transparent 80%);
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--primary), transparent 90%);
 }
 
 #hero-btn-container .view-btn {
