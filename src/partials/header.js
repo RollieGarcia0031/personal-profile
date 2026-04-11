@@ -12,7 +12,7 @@
  *    - Apply theme through `document.documentElement[data-theme]`
  *    - Persist selection and update the button UI state
  *
- * Required DOM selectors (from `src/partials/header.html`):
+ * Required DOM selectors (from `templates/partials/header.html`):
  * - `header nav`
  * - `#menu-collapse-btn`
  * - `#menu-close-btn`
