@@ -3,8 +3,8 @@ import { resolve } from 'path'
 import { glob } from 'glob'
 import { readFileSync } from 'node:fs'
 
-const headerPartialPath = resolve(__dirname, 'src/partials/header.html')
-const footerPartialPath = resolve(__dirname, 'src/partials/footer.html')
+const headerPartialPath = resolve(__dirname, 'templates/partials/header.html')
+const footerPartialPath = resolve(__dirname, 'templates/partials/footer.html')
 
 function normalizeBaseUrl(baseUrl = '/') {
   if (!baseUrl || baseUrl === '/') {
