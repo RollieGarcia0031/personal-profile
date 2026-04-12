@@ -1,79 +1,100 @@
 # Project Architecture
 
-This document explains the technical architecture of the Personal Profile Website, including the custom web component system and the build-time HTML partial injection.
+This document explains the technical architecture of the Personal Profile Website, including the custom web component system, build-time page generation, and HTML partial injection.
 
 ## Technical Stack
 
 - **Build Tool:** [Vite](https://vitejs.dev/)
-- **Logic:** Vanilla JavaScript (ES6+)
+- **Logic:** Vanilla JavaScript (ES modules)
 - **Styling:** Vanilla CSS
 - **Icons:** [Bootstrap Icons](https://icons.getbootstrap.com/)
 
 ---
 
-## 1. Custom Web Components
+## 1. Runtime UI Layers
 
-We use vanilla **Web Components** for reusable UI elements. Each component is self-contained in its own directory under `src/assets/js/components/`.
+The UI is split into three reusable layers:
+
+1. **Page entry scripts** (for example `src/main.js`, `src/tracks/main.js`) initialize page-specific behavior.
+2. **Shared header behavior** (`src/partials/header.js`) controls mobile nav and light/dark theme state.
+3. **Web Components** under `src/assets/js/components/` encapsulate reusable interactive blocks.
+
+---
+
+## 2. Custom Web Components
+
+The project uses vanilla **Web Components** for reusable music UI.
 
 ### Component Structure
 
-A typical component (e.g., `audio-player`) consists of:
+Each component folder typically contains:
 
-- `audio-player.js`: The class extending `HTMLElement`.
-- `audio-player-template.js`: A function returning the HTML string for the component.
-- `style.css`: Scoped styles for the component.
+- `*.js`: class extending `HTMLElement`
+- `*-template.js`: template renderer that returns HTML
+- `style.css`: component styles
+
+Current component modules:
+
+- `audio-player`
+- `track-option`
 
 ### Component Workflow
 
-1.  **Definition:** The component class reads attributes (like `track-id`, `track-src`) via getters.
-2.  **Rendering:** In `connectedCallback()`, the component uses its template function to set `this.innerHTML`.
-3.  **Registration:** Components are registered using `customElements.define()` in the entry JS files (e.g., `src/main.js`).
-
-> [!TIP]
-> This approach provides reusable UI blocks without the overhead of a heavy framework, making the site fast and easy to maintain.
+1. Component class reads attributes through getters.
+2. `connectedCallback()` injects template HTML.
+3. Page entry scripts register elements using `customElements.define()`.
+4. A lightweight pub/sub state utility (`createPubSub`) coordinates multi-player behavior.
 
 ---
 
-## 2. HTML Partials System
+## 3. HTML Partials System (Build-Time)
 
-To share common elements like the header and footer across multiple pages, we use a custom Vite plugin (`site-partials`) defined in `vite.config.js`.
+Shared header/footer markup is injected by the custom Vite plugin `site-partials` in `vite.config.js`.
 
-### How it Works
+### Partial Sources
 
-The plugin scans HTML files for specific markers and replaces them with the content of partial files during the build or development process.
+- `templates/partials/header.html`
+- `templates/partials/footer.html`
 
-```mermaid
-graph TD
-    A[Page HTML] --> B{Vite Plugin}
-    C[header.html] --> B
-    D[footer.html] --> B
-    B --> E[Final Transformed HTML]
-```
+These templates use `__BASE_URL__` placeholders so links resolve correctly for both root (`/`) and GitHub Pages subpath (`/personal-profile/`) deployments.
 
-### Usage
+### Injection Markers
 
-Add these markers to any page under `src/`:
+Any HTML page under `src/` can include:
 
 ```html
 <!-- @site-header -->
-<main> <!-- Page Content --> </main>
+<main>...</main>
 <!-- @site-footer -->
 ```
 
-### Partial Dependencies
+During `vite dev` and `vite build`, the plugin replaces markers with resolved partial HTML.
 
-- **Header Logic:** Managed by `src/assets/js/header.js` (mobile menu, theme toggling).
-- **Styles:** Located in `src/assets/styles/header.css` and `src/assets/styles/footer.css`.
+### Related Assets
+
+- Header/footers styles: `src/partials/header.css`, `src/partials/footer.css`
+- Header interactions: `src/partials/header.js`
 
 ---
 
-## 3. Theme Management
+## 4. Build Inputs and Generated Pages
 
-The site supports Light and Dark modes.
+`vite.config.js` scans `src/**/index.html` as rollup inputs (excluding `src/track-info-fake/**`).
 
-- **Storage:** The user's preference is saved in `localStorage` under the key `theme`.
-- **Logic:** `header.js` handles the toggle and applies the `data-theme` attribute to `document.documentElement`.
-- **CSS:** Global variables in `src/assets/styles/global.css` adapt based on the `[data-theme]` attribute.
+Track detail pages are generated before both dev and build via scripts:
 
-> [!NOTE]
-> If no preference is saved, the site defaults to the user's system preference via `prefers-color-scheme`.
+- `scripts/generate-track-info.mjs`
+- `scripts/generate-image-cache-manifest.mjs`
+
+This is wired through `predev` and `prebuild` scripts in `package.json`.
+
+---
+
+## 5. Theme Management
+
+- **Storage:** `localStorage` key `theme`
+- **Values:** `light` / `dark`
+- **Fallback:** `prefers-color-scheme: dark`
+- **Application:** `document.documentElement[data-theme]`
+
+The toggle button label/icon and accessibility text (`aria-label`, `title`) are synchronized when theme changes.
