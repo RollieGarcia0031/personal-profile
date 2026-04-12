@@ -1,31 +1,39 @@
 # Deployment Guide
 
-Detailed instructions for deploying the Personal Profile Website to various platforms.
+Detailed instructions for deploying the Personal Profile Website to root domains and GitHub Pages.
 
 ## Deployment Strategy
 
-The project supports two main deployment targets:
-1.  **Root Deployment:** For platforms like Vercel or custom domains (e.g., `https://example.com/`).
-2.  **Subpath Deployment:** For GitHub Pages (e.g., `https://user.github.io/personal-profile/`).
+The site supports two deployment bases:
+
+1. **Root deployment** (`/`) for Vercel or custom domains.
+2. **Repository subpath deployment** (`/personal-profile/`) for GitHub Pages.
 
 > [!IMPORTANT]
-> The `BASE_URL` environment variable determines how links, images, and audio paths are generated. If not set, it defaults to `/`.
+> `BASE_URL` controls generated asset/link paths at build time via Vite config normalization.
 
 ---
 
-## 1. Deploying to Vercel
+## 1. Build Targets
 
-Vercel is the recommended platform for root-level deployments.
+### Root build (Vercel/custom host)
 
-### Configuration
+```bash
+pnpm build:vercel
+```
 
-- **Framework Preset:** `Vite`
-- **Build Command:** `pnpm build:vercel`
-- **Output Directory:** `dist`
+Equivalent to `BASE_URL=/ pnpm build`.
 
-### Local Verification
+### GitHub Pages build
 
-To test a Vercel-like build locally:
+```bash
+pnpm build:github-pages
+```
+
+Equivalent to `BASE_URL=/personal-profile/ pnpm build`.
+
+### Local verification
+
 ```bash
 pnpm build:local
 pnpm preview
@@ -33,33 +41,48 @@ pnpm preview
 
 ---
 
-## 2. Deploying to GitHub Pages
+## 2. Automatic GitHub Pages Deployment (GitHub Actions)
 
-GitHub Pages serves the site from a repository subpath: `/personal-profile/`.
+Workflow file: `.github/workflows/gh-page-deploy.yml`
 
-### Deployment Steps
+### Trigger behavior
 
-1.  **Build Code:**
-    ```bash
-    pnpm build:github-pages
-    ```
-2.  **Publish:** Deploy the contents of the `dist/` directory to your GitHub Pages branch (e.g., using `gh-pages` package or GitHub Actions).
+The workflow runs on:
 
-### Manual Verification
+- `push` to `dev` and `main`
+- `pull_request` targeting `dev` and `main`
 
-To verify the subpath build locally:
+### Job flow (`gh_build_deployment`)
+
+1. Checkout repository.
+2. Install pnpm.
+3. Setup Node.js (`lts/*`) with pnpm cache.
+4. Install dependencies and run `pnpm build:github-pages`.
+5. Publish `dist/` using `npx gh-pages` with `${{ secrets.GITHUB_TOKEN }}`.
+
+### Required repository settings
+
+- **Actions permissions:** allow workflow write access to contents (already set in workflow).
+- **Pages source:** use the branch that `gh-pages` publishes to (typically `gh-pages`).
+
+---
+
+## 3. Manual Deployment Fallback
+
+If GitHub Actions is unavailable, deploy manually:
+
 ```bash
-BASE_URL=/personal-profile/ pnpm build
+pnpm install
+pnpm build:github-pages
+npx gh-pages -d dist
 ```
 
 ---
 
-## Deployment Checklist
+## 4. Deployment Validation Checklist
 
-- [ ] **Navigation:** All links (Home, About, Tracks, Detail Pages) work correctly.
-- [ ] **Media:** Audio files play and images load on all pages.
-- [ ] **SEO:** `/track-info/` pages are correctly generated.
-- [ ] **Offline Cache:** Service worker registers and pre-caches images.
-
-> [!TIP]
-> Check the browser's DevTools "Network" tab to ensure all assets are loading from the correct path (with or without the subpath).
+- [ ] Header/footer links resolve under correct base path.
+- [ ] Track image/audio assets load without 404s.
+- [ ] Generated pages under `/track-info/*/` exist in `dist`.
+- [ ] Service worker and cached image manifest are emitted.
+- [ ] Navigation works on Home, About, Tracks, Contact, and Track detail pages.
