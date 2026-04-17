@@ -43,7 +43,7 @@ footer::before {
 
 #footer-hero {
   flex: 1.5;
-  min-width: 300px;
+  min-width: min(300px, 100%);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -57,6 +57,8 @@ footer::before {
   letter-spacing: -0.04em;
   color: var(--text);
   margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 #footer-hero .title span {
@@ -73,6 +75,8 @@ footer::before {
   color: var(--text-muted);
   max-width: 45ch;
   margin: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .footer-cta {
@@ -101,7 +105,7 @@ footer::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  min-width: 300px;
+  min-width: min(300px, 100%);
 }
 
 .list-holder {
@@ -207,9 +211,36 @@ footer::before {
     width: 100%;
   }
 
+  #footer-hero,
+  #contact-info {
+    min-width: 0;
+  }
+
   .footer-bottom {
     flex-direction: column-reverse;
     text-align: center;
     gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  footer {
+    margin: 4rem 1rem 2rem;
+    padding: 2.5rem 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .footer-description {
+    font-size: 0.75rem;  
+  }
+
+  .footer-cta {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  #footer-hero .title {
+    font-size: 1.25rem;
   }
 }
