@@ -32,13 +32,13 @@
     "description": "Rock demo track.",
     "genre": "Rock",
     "date": "2025-12-31",
-    "bpm": 120,
+    "bpm": 90,
     "id": "kahit-ano",
     "audioSrc": "mp3/Dulo_vocal.mp3",
     "imgSrc": "hero_image.png",
-    "instruments": ["guitar", "piano"],
-    "duration": "2:25",
-    "story": "",
+    "instruments": ["guitar", "piano", "violin"],
+    "duration": "0:26",
+    "story": "It's an unfinished song. It was a part of my experiment in making OPM songs using the sound of anime (though most people say it has a vibe of Silent Sanctuary).",
     "writer": "Rollie"
   }
   ,{
