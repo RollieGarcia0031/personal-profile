@@ -16,7 +16,7 @@
   {
     "id": "di-makatulog",
     "title": "Di Makatulog",
-    "description": "Acoustic track with guitar, piano, violin, and drums.",
+    "description": "A quiete song with screaming message",
     "genre": "Acoustic",
     "audioSrc": "mp3/Di_Makatulog_(vocal).mp3",
     "instruments": ["guitar", "piano"],
@@ -25,7 +25,7 @@
     "bpm": 120,
     "duration": "2:25",
     "writer": "Rollie",
-    "story": ""
+    "story": "The subject of this song was not a specific person, but this piece acts like a record of experience of different people on what they feel when they genuinely like a person that they are not supposed to like."
   },
   {
     "title": "Kahit Ano",
