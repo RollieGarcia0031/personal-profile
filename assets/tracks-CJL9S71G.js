@@ -1,4 +1,4 @@
-import"./header-DPd5T74P.js";import{w as m}from"./register-service-worker-BGOs9hDu.js";import{c as q}from"./createPubSub-Ze6cNm9A.js";const D=(t,e,i,s,r,a,u,E,C)=>{const N=m(E),f=m(C),R=m(`track-info/${u}/`);return`
+import"./header-DPd5T74P.js";import{w as m}from"./register-service-worker-BGOs9hDu.js";import{c as q}from"./createPubSub-DfyJY2RG.js";const D=(t,e,i,s,r,a,u,E,C)=>{const N=m(E),f=m(C),R=m(`track-info/${u}/`);return`
   <div class="track-option-container">
     <audio src="${N}"></audio>
 
