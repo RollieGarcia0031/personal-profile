@@ -13,7 +13,12 @@
     "generate:track-info": "node scripts/generate-track-info.mjs",
     "prebuild": "pnpm generate:track-info && pnpm generate:image-cache-manifest",
     "generate:image-cache-manifest": "node scripts/generate-image-cache-manifest.mjs",
-    "predev": "pnpm generate:track-info && pnpm generate:image-cache-manifest"
+    "predev": "pnpm generate:track-info && pnpm generate:image-cache-manifest",
+    "test": "pnpm test:unit && pnpm test:integration && pnpm test:e2e",
+    "test:unit": "vitest run --config vitest.config.js --project unit --passWithNoTests",
+    "test:integration": "vitest run --config vitest.config.js --project integration --passWithNoTests",
+    "test:e2e": "playwright test --pass-with-no-tests",
+    "test:watch": "vitest --config vitest.config.js --passWithNoTests"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +27,10 @@
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "glob": "^13.0.4",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4",
+    "playwright": "^1.54.2"
   },
   "dependencies": {
     "bootstrap-icons": "^1.13.1"
