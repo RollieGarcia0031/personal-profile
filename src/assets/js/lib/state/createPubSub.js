@@ -13,7 +13,7 @@ export function createPubSub(){
         },
 
         publish: function(event, data){
-            events[event].forEach(fn => fn(data));
+            events[event]?.forEach(fn => fn(data));
         }
     };
 }
