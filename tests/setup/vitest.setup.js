@@ -1,34 +1,46 @@
-if (!globalThis.localStorage) {
-  const store = new Map()
+import { beforeEach } from 'vitest'
 
-  globalThis.localStorage = {
-    getItem(key) {
-      return store.has(key) ? store.get(key) : null
-    },
-    setItem(key, value) {
-      store.set(key, String(value))
-    },
-    removeItem(key) {
-      store.delete(key)
-    },
-    clear() {
-      store.clear()
-    }
+const localStorageStore = new Map()
+
+globalThis.localStorage = {
+  getItem(key) {
+    return localStorageStore.has(key) ? localStorageStore.get(key) : null
+  },
+  setItem(key, value) {
+    localStorageStore.set(key, String(value))
+  },
+  removeItem(key) {
+    localStorageStore.delete(key)
+  },
+  clear() {
+    localStorageStore.clear()
   }
 }
 
-if (typeof globalThis.matchMedia !== 'function') {
-  globalThis.matchMedia = query => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addListener: () => {},
-    removeListener: () => {},
-    addEventListener: () => {},
-    removeEventListener: () => {},
-    dispatchEvent: () => false
-  })
+let prefersDark = false
+
+globalThis.__setMatchMediaPrefersDark = value => {
+  prefersDark = Boolean(value)
 }
+
+globalThis.matchMedia = query => ({
+  matches: query === '(prefers-color-scheme: dark)' ? prefersDark : false,
+  media: query,
+  onchange: null,
+  addListener: () => {},
+  removeListener: () => {},
+  addEventListener: () => {},
+  removeEventListener: () => {},
+  dispatchEvent: () => false
+})
+
+beforeEach(() => {
+  localStorage.clear()
+  prefersDark = false
+  if (globalThis.document?.documentElement) {
+    globalThis.document.documentElement.removeAttribute('data-theme')
+  }
+})
 
 if (globalThis.customElements && typeof globalThis.customElements.define === 'function') {
   const originalDefine = globalThis.customElements.define.bind(globalThis.customElements)
