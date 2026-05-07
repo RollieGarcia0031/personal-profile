@@ -23,7 +23,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/Di_ko_maisip_cover.png"/>
+      <picture>
+        <source srcset="/avif/album-cover/Di_ko_maisip_cover.avif" type="image/avif">
+        <source srcset="/webp/album-cover/Di_ko_maisip_cover.webp" type="image/webp">
+        <img src="/jpg/album-cover/Di_ko_maisip_cover.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/mp3/Di_ko_maisip.opus"></audio>

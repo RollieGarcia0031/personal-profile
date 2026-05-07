@@ -23,7 +23,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/ha_cover.png"/>
+      <picture>
+        <source srcset="/avif/album-cover/ha_cover.avif" type="image/avif">
+        <source srcset="/webp/album-cover/ha_cover.webp" type="image/webp">
+        <img src="/jpg/album-cover/ha_cover.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/mp3/Ha_(vocal).mp3"></audio>

@@ -65,7 +65,8 @@ function renderPage(track) {
   const description = escapeHtml(track.description || '');
   const genre = escapeHtml(track.genre || 'Unknown');
   const audioSrc = escapeHtml(withBaseUrl(track.audioSrc));
-  const imgSrc = escapeHtml(withBaseUrl(track.imgSrc || ''));
+  const baseImg = (track.imgSrc || '').replace(/^\/+/, '');
+  const imgSrc = escapeHtml(withBaseUrl(baseImg));
   const date = escapeHtml(track.date || '');
   const bpm = track.bpm || undefined;
   const duration = escapeHtml(track.duration || '');
@@ -99,7 +100,11 @@ function renderPage(track) {
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="${imgSrc}"/>
+      <picture>
+        <source srcset="${escapeHtml(withBaseUrl(`avif/${baseImg}.avif`))}" type="image/avif">
+        <source srcset="${escapeHtml(withBaseUrl(`webp/${baseImg}.webp`))}" type="image/webp">
+        <img src="${escapeHtml(withBaseUrl(`jpg/${baseImg}.jpg`))}"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="${audioSrc}"></audio>

@@ -23,7 +23,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/iniiwasan_album_cover.png"/>
+      <picture>
+        <source srcset="/avif/album-cover/iniiwasan_album_cover.avif" type="image/avif">
+        <source srcset="/webp/album-cover/iniiwasan_album_cover.webp" type="image/webp">
+        <img src="/jpg/album-cover/iniiwasan_album_cover.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/mp3/Iniiwasan_vocal.mp3"></audio>

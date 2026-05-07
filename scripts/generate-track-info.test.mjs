@@ -43,7 +43,7 @@ describe('scripts/generate-track-info.mjs', () => {
       description: 'Sample desc',
       genre: 'Pop',
       audioSrc: 'audio/song.mp3',
-      imgSrc: '/images/cover.png',
+      imgSrc: '/images/cover',
       date: '2026-01-01',
       bpm: 120,
       duration: '03:12',
@@ -54,13 +54,13 @@ describe('scripts/generate-track-info.mjs', () => {
     const rootHtml = await runGenerator(rootRepo, [track], '/');
     expect(rootHtml).toContain('href="/tracks/"');
     expect(rootHtml).toContain('audio src="/audio/song.mp3"');
-    expect(rootHtml).toContain('img src="/images/cover.png"');
+    expect(rootHtml).toContain('img src="/jpg/images/cover.jpg"');
 
     const subpathRepo = await setupTempRepo();
     const subpathHtml = await runGenerator(subpathRepo, [track], '/personal-profile');
     expect(subpathHtml).toContain('href="/personal-profile/tracks/"');
     expect(subpathHtml).toContain('audio src="/personal-profile/audio/song.mp3"');
-    expect(subpathHtml).toContain('img src="/personal-profile/images/cover.png"');
+    expect(subpathHtml).toContain('img src="/personal-profile/jpg/images/cover.jpg"');
   });
 
   it('escapes HTML and includes expected sections for a representative track', async () => {
