@@ -16,7 +16,7 @@
 
   <header>
     <a href="/personal-profile/" class="home-link" id="header-home-link">
-      <img src="/personal-profile/logo-transparent.png" alt="Rollie logo"/>
+      <img src="/personal-profile/assets/logo-transparent.png" alt="Rollie logo"/>
       <span>
         Rollie
       </span>
@@ -58,7 +58,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/personal-profile/album-cover/Di_ko_maisip_cover.png"/>
+      <picture>
+        <source srcset="/personal-profile/avif/album-cover/Di_ko_maisip_cover.avif" type="image/avif">
+        <source srcset="/personal-profile/webp/album-cover/Di_ko_maisip_cover.webp" type="image/webp">
+        <img src="/personal-profile/jpg/album-cover/Di_ko_maisip_cover.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/personal-profile/mp3/Di_ko_maisip.opus"></audio>
