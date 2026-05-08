@@ -12,7 +12,6 @@ export const HTML_TEMPLATE = (
   track_img
 ) => {
   const audioSrc = withBaseUrl(track_src);
-  const imageSrc = withBaseUrl(track_img);
   const trackInfoHref = withBaseUrl(`track-info/${track_id}/`);
 
   return `
@@ -27,8 +26,16 @@ export const HTML_TEMPLATE = (
       <div class="img-holder">
 
       </div>
-      <img alt="${track_description}" src="${imageSrc}" class="backdrop"/>
-      <img alt="${track_description}" src="${imageSrc}" class="frontdrop"/>
+      <picture class="backdrop">
+        <source srcset="${withBaseUrl(`avif/${track_img}.avif`)}" type="image/avif">
+        <source srcset="${withBaseUrl(`webp/${track_img}.webp`)}" type="image/webp">
+        <img alt="${track_description}" src="${withBaseUrl(`jpg/${track_img}.jpg`)}" class="backdrop"/>
+      </picture>
+      <picture class="frontdrop">
+        <source srcset="${withBaseUrl(`avif/${track_img}.avif`)}" type="image/avif">
+        <source srcset="${withBaseUrl(`webp/${track_img}.webp`)}" type="image/webp">
+        <img alt="${track_description}" src="${withBaseUrl(`jpg/${track_img}.jpg`)}" class="frontdrop"/>
+      </picture>
     </div>
     <p class="track-genre">
       ${track_genre}

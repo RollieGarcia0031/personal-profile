@@ -61,7 +61,13 @@ async function readTrackImagePaths(pathToTracksJson) {
   const images = tracks
     .map((track) => track?.imgSrc)
     .filter((imagePath) => typeof imagePath === 'string' && imagePath.trim().length > 0)
-    .map((imagePath) => imagePath.replace(/^\/+/, ''))
+    .flatMap((imagePath) => {
+       let clean = imagePath.replace(/^\/+/, '');
+       if (clean.endsWith('.png') || clean.endsWith('.jpg') || clean.endsWith('.jpeg')) {
+           clean = clean.replace(/\.[a-zA-Z]+$/, '');
+       }
+       return [`avif/${clean}.avif`, `webp/${clean}.webp`, `jpg/${clean}.jpg`];
+    })
     .filter((imagePath) => isImageFile(imagePath));
 
   return [...new Set(images)].sort();

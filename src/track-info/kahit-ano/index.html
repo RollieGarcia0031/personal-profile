@@ -23,7 +23,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/hero_image.png"/>
+      <picture>
+        <source srcset="/avif/hero_image.avif" type="image/avif">
+        <source srcset="/webp/hero_image.webp" type="image/webp">
+        <img src="/jpg/hero_image.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/mp3/Dulo_vocal.mp3"></audio>

@@ -41,7 +41,12 @@ main::before {
 }
 
 #hero-img-container {
-  background-image: url(./public/hero_image.png);
+  background-image: url(./public/jpg/hero_image.jpg);
+  background-image: image-set(
+    url("./public/avif/hero_image.avif") type("image/avif"),
+    url("./public/webp/hero_image.webp") type("image/webp"),
+    url("./public/jpg/hero_image.jpg") type("image/jpeg")
+  );
   background-size: cover;
   background-position: center;
   border: 1px solid color-mix(in srgb, var(--border), transparent 40%);

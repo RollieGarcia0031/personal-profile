@@ -23,7 +23,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/Di_makatulog_cover.png"/>
+      <picture>
+        <source srcset="/avif/album-cover/Di_makatulog_cover.avif" type="image/avif">
+        <source srcset="/webp/album-cover/Di_makatulog_cover.webp" type="image/webp">
+        <img src="/jpg/album-cover/Di_makatulog_cover.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/mp3/Di_Makatulog_(vocal).mp3"></audio>

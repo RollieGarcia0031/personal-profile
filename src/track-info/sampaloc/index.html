@@ -23,7 +23,11 @@
 
   <main class="content-container">
     <div class="preview-container">
-      <img src="/album-cover/sampaloc-cover.png"/>
+      <picture>
+        <source srcset="/avif/album-cover/sampaloc-cover.avif" type="image/avif">
+        <source srcset="/webp/album-cover/sampaloc-cover.webp" type="image/webp">
+        <img src="/jpg/album-cover/sampaloc-cover.jpg"/>
+      </picture>
   
       <div class="preview-control-container">
         <audio src="/mp3/Sampaloc_(vocal).mp3"></audio>

@@ -47,9 +47,9 @@ describe('scripts/generate-image-cache-manifest.mjs', () => {
     await writeFile(
       path.join(repoRoot, 'content', 'tracks.json'),
       JSON.stringify([
-        { imgSrc: '/images/z-last.png' },
-        { imgSrc: 'images/a-first.jpg' },
-        { imgSrc: 'images/a-first.jpg' },
+        { imgSrc: '/images/z-last' },
+        { imgSrc: 'images/a-first' },
+        { imgSrc: 'images/a-first' },
         { imgSrc: 'images/not-valid.txt' },
         { imgSrc: '' },
         { imgSrc: null },
@@ -70,8 +70,15 @@ describe('scripts/generate-image-cache-manifest.mjs', () => {
     ]);
 
     expect(manifest.trackImages).toEqual([
-      'images/a-first.jpg',
-      'images/z-last.png'
+      'avif/images/a-first.avif',
+      'avif/images/not-valid.txt.avif',
+      'avif/images/z-last.avif',
+      'jpg/images/a-first.jpg',
+      'jpg/images/not-valid.txt.jpg',
+      'jpg/images/z-last.jpg',
+      'webp/images/a-first.webp',
+      'webp/images/not-valid.txt.webp',
+      'webp/images/z-last.webp'
     ]);
   });
 });
